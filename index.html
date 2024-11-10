@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Portfolio</title>
+  <title>Muzzammil Shah</title>
+  
+  <!-- Google Fonts - Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
   <style>
     /* General reset */
     * {
@@ -14,10 +18,10 @@
 
     /* Basic styling */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       line-height: 1.6;
       color: #333;
-      background-color: #f5f5f5;
+      background-color: #ffffff;
       padding: 20px;
     }
 
@@ -29,29 +33,45 @@
     /* Header styling */
     header {
       text-align: center;
-      padding: 20px 0;
-      border-bottom: 2px solid #ddd;
+      padding: 20px 0 20px 0;
+      /* border-bottom: 2px solid #ddd; */
     }
 
     header h1 {
       font-size: 2.5rem;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     /* Socials */
     .social-links {
       margin-top: 10px;
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      gap: 15px; /* Space between icons */
     }
 
     .social-links a {
       text-decoration: none;
       color: #555;
-      margin: 0 10px;
-      font-weight: bold;
+      width: 40px;
+      height: 40px;
+      background-color: #ddd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
     }
 
     .social-links a:hover {
-      color: #000;
+      background-color: #333;
+      color: #fff;
+    }
+
+    /* Icons */
+    .social-links a .icon {
+      font-size: 20px;
+      color: inherit;
     }
 
     /* Section titles */
@@ -72,6 +92,7 @@
 
     .timeline-item {
       margin: 20px 0;
+      padding-left: 20px;
       position: relative;
     }
 
@@ -79,22 +100,22 @@
       content: '';
       width: 10px;
       height: 10px;
-      background-color: #333;
+      background-color: #ddd;
       border-radius: 50%;
       position: absolute;
-      left: -6px;
-      top: 8px;
+      left: -25px;
+      top: 15px;
     }
 
     .timeline-item h3 {
       font-size: 1.2rem;
-      margin-bottom: 5px;
+      margin-bottom: 15px;
     }
 
     .timeline-item .company-logo {
       height: 40px;
       width: 40px;
-      object-fit: cover;
+      object-fit: contain;
       vertical-align: middle;
       margin-right: 10px;
     }
@@ -103,6 +124,25 @@
       font-size: 0.9rem;
       color: #666;
     }
+
+    /* Nested Timeline for role progression */
+    .timeline-subitem {
+      margin-top: 10px;
+      padding-left: 40px; /* Additional padding for sub-entries */
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    /* .timeline-subitem::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: #333;
+      border-radius: 50%;
+      position: absolute;
+      left: -18px;
+      top: 5px;
+    } */
 
     /* Projects and other sections */
     .projects, .certifications, .education {
@@ -139,10 +179,14 @@
 
     <!-- Header Section -->
     <header>
-      <h1>Your Name</h1>
+      <h1>Muzzammil Shah</h1>
       <div class="social-links">
-        <a href="https://x.com/yourusername" target="_blank">X</a>
-        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+        <a href="https://x.com/moshahx07" target="_blank" title="X">
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="X" width="20">
+        </a>
+        <a href="https://github.com/MuzzammilShah" target="_blank" title="GitHub">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" width="20">
+        </a>
       </div>
     </header>
 
@@ -151,27 +195,45 @@
       <h2>Work Experience</h2>
       <div class="timeline">
         
+        <!-- Timeline item 2 with role progression -->
+        <div class="timeline-item">
+          <h3>
+            <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFGQLIoEZWzTQ/company-logo_200_200/company-logo_200_200/0/1700830438042/potentiam_ltd_logo?e=1739404800&v=beta&t=tciyqyVVkAWlJ5hfChxG2FDBylGiKgpaoJF-zS3d-ew" alt="Potentiam Logo" class="company-logo">
+            Potentiam Ltd
+          </h3>
+          <!-- <p><em></em></p> -->
+
+          <!-- Role progression within Potentiam -->
+          <div class="timeline-subitem">
+            <h3>Junior Software Engineer - AI/ML</h3>
+            <p><em>Sept 2024 - Present</em></p>
+            <p>Continuing to work along with the Global CIO and Founder/Director as we continue to Engineer Intelligent Systems for the company.</p>
+          </div>
+
+          <div class="timeline-subitem">
+            <h3>Trainee Engineer - AL/ML</h3>
+            <p><em>Sept 2023 - Sept 2024</em></p>
+            <p>Collaborating closely with the Global CIO and Founder/Director of our company, primarily focusing on AI-driven initiatives, while also being mentored to enhance my skills and expertise in the field.</p>
+          </div>
+
+        </div>
+
         <!-- Timeline item 1 -->
         <div class="timeline-item">
           <h3>
-            <img src="company-logo1.png" alt="Company Logo" class="company-logo">
-            Company Name - Job Title
+            <img src="https://media.licdn.com/dms/image/v2/D4E0BAQEINH3Vf1swig/company-logo_200_200/company-logo_200_200/0/1730379480485/wipro_logo?e=1739404800&v=beta&t=vXOWkNhwcbLhanjNJ71MueNHl9li-iYQQYZ2uSrd2XM" alt="Wipro Logo" class="company-logo">
+            Wipro Ltd
           </h3>
-          <p><em>Start Date - End Date</em></p>
-          <p>Description of your role, responsibilities, and achievements in this position.</p>
-        </div>
+          <!-- <p><em></em></p> -->
 
-        <!-- Timeline item 2 -->
-        <div class="timeline-item">
-          <h3>
-            <img src="company-logo2.png" alt="Company Logo" class="company-logo">
-            Company Name - Job Title
-          </h3>
-          <p><em>Start Date - End Date</em></p>
-          <p>Description of your role, responsibilities, and achievements in this position.</p>
-        </div>
+          <!-- Role progression within Potentiam -->
+          <div class="timeline-subitem">
+            <h3>AI Intern</h3>
+            <p><em>Mar 2023 - Jun 2023</em></p>
+            <p>Worked on developing and fine-tuning LLMs using LangChain, implementing a simple Q&A system over documents, optimizing its accuracy, and created an interface using Streamlit.</p>
+          </div>
 
-        <!-- Add more timeline items as needed -->
+        </div>
 
       </div>
     </section>
@@ -188,7 +250,6 @@
           <h3>Another Project Name</h3>
           <p>Brief description of the project, technologies used, and your role in it.</p>
         </div>
-        <!-- Add more projects as needed -->
       </div>
     </section>
 
@@ -204,7 +265,6 @@
           <h3>Another Certification</h3>
           <p>Issued by Institution - Date</p>
         </div>
-        <!-- Add more certifications as needed -->
       </div>
     </section>
 
@@ -220,13 +280,12 @@
           <h3>Another Degree, Major</h3>
           <p>Institution Name - Graduation Date</p>
         </div>
-        <!-- Add more education items as needed -->
       </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
-      &copy; 2023 Your Name. All rights reserved.
+      &copy; 2024 Muzzammil Shah. All rights reserved.
     </footer>
 
   </div>
