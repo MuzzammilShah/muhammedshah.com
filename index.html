@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Header styling */
+    header {
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 2px solid #ddd;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    /* Socials */
+    .social-links {
+      margin-top: 10px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #555;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    .social-links a:hover {
+      color: #000;
+    }
+
+    /* Section titles */
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 40px;
+      color: #333;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    /* Timeline styling */
+    .timeline {
+      margin: 20px 0;
+      border-left: 2px solid #ddd;
+      padding-left: 20px;
+    }
+
+    .timeline-item {
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background-color: #333;
+      border-radius: 50%;
+      position: absolute;
+      left: -6px;
+      top: 8px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item .company-logo {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .timeline-item p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Projects and other sections */
+    .projects, .certifications, .education {
+      margin: 20px 0;
+    }
+
+    .project, .certification, .education-item {
+      margin-bottom: 15px;
+    }
+
+    .project h3, .certification h3, .education-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .project p, .certification p, .education-item p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Container for layout centering -->
+  <div class="container">
+
+    <!-- Header Section -->
+    <header>
+      <h1>Your Name</h1>
+      <div class="social-links">
+        <a href="https://x.com/yourusername" target="_blank">X</a>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      </div>
+    </header>
+
+    <!-- Work Experience Timeline -->
+    <section id="experience">
+      <h2>Work Experience</h2>
+      <div class="timeline">
+        
+        <!-- Timeline item 1 -->
+        <div class="timeline-item">
+          <h3>
+            <img src="company-logo1.png" alt="Company Logo" class="company-logo">
+            Company Name - Job Title
+          </h3>
+          <p><em>Start Date - End Date</em></p>
+          <p>Description of your role, responsibilities, and achievements in this position.</p>
+        </div>
+
+        <!-- Timeline item 2 -->
+        <div class="timeline-item">
+          <h3>
+            <img src="company-logo2.png" alt="Company Logo" class="company-logo">
+            Company Name - Job Title
+          </h3>
+          <p><em>Start Date - End Date</em></p>
+          <p>Description of your role, responsibilities, and achievements in this position.</p>
+        </div>
+
+        <!-- Add more timeline items as needed -->
+
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h3>Project Name</h3>
+          <p>Brief description of the project, technologies used, and your role in it.</p>
+        </div>
+        <div class="project">
+          <h3>Another Project Name</h3>
+          <p>Brief description of the project, technologies used, and your role in it.</p>
+        </div>
+        <!-- Add more projects as needed -->
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <div class="certifications">
+        <div class="certification">
+          <h3>Certification Name</h3>
+          <p>Issued by Institution - Date</p>
+        </div>
+        <div class="certification">
+          <h3>Another Certification</h3>
+          <p>Issued by Institution - Date</p>
+        </div>
+        <!-- Add more certifications as needed -->
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="education">
+        <div class="education-item">
+          <h3>Degree, Major</h3>
+          <p>Institution Name - Graduation Date</p>
+        </div>
+        <div class="education-item">
+          <h3>Another Degree, Major</h3>
+          <p>Institution Name - Graduation Date</p>
+        </div>
+        <!-- Add more education items as needed -->
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      &copy; 2023 Your Name. All rights reserved.
+    </footer>
+
+  </div>
+
+</body>
+</html>
