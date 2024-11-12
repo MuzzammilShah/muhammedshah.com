@@ -31,6 +31,134 @@
       margin: auto;
     }
 
+    /* Header bar styling */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 10px 20px;
+      /* border-bottom: 1px solid #ddd; */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header-bar .menu-icon,
+    .header-bar .theme-toggle {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .header-bar .menu-icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-bar .theme-toggle {
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      height: 100%;
+      width: 220px;
+      background-color: #ffffff;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      transition: left 0.3s;
+      z-index: 999;
+      padding: 20px;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      margin-top: 40px;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      transition: color 0.3s, background-color 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+      color: #000000;
+      /* background-color: #333; */
+      /* padding: 6px;
+      border-radius: 5px; */
+    }
+
+    /* Sidebar styles for dark theme */
+    body.dark-theme .sidebar ul li a {
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .sidebar ul li a:hover {
+      color: #ffffff;
+      /* background-color: #e0e0e0;
+      padding: 5px;
+      border-radius: 5px; */
+    }
+
+    /* Dark theme */
+    body.dark-theme {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .header-bar {
+      background-color: #121212
+      /* border-bottom-color: #333; */
+    }
+
+    body.dark-theme .sidebar {
+      background-color: #121212;
+      box-shadow: 2px 0 5px rgba(242, 242, 242, 0.1);
+    }
+
+    body.dark-theme .sidebar ul li a {
+      color: #e0e0e0;
+    }
+
+    /* Dark theme - Section headers */
+    body.dark-theme h2 {
+      color: #e0e0e0; /* A lighter shade for headers in dark mode */
+      border-bottom: 2px solid #666; /* Same color as headers */
+    }
+
+    /* Dark theme - Timeline line */
+    body.dark-theme .timeline {
+      border-left: 2px solid #666; /* Match the header color */
+    }
+
+    body.dark-theme .timeline-item::before {
+      background-color: #666; /* Match the header and border color */
+    }
+
+    /* Dark theme - Footer border */
+    body.dark-theme footer {
+      border-top: 2px solid #666; /* Match the header color */
+    }
+
+    /* Content adjustments for fixed header */
+    main {
+      margin-top: 70px; /* Adjust based on header height */
+    }
+
     /* Header styling */
     header {
       text-align: center;
@@ -72,9 +200,9 @@
     }
 
     .social-links a:hover {
-      background-color: #ddd;
+      background-color: #ffffff;
       color: #fff;
-      border-color: transparent;
+      border-color: #ffffff;
     }
 
     /* Icons */
@@ -222,6 +350,23 @@
   </style>
 </head>
 <body>
+
+  <!-- Header Bar -->
+  <div class="header-bar">
+    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+    <div class="theme-toggle" onclick="toggleTheme()">☀️</div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#experience">Work Experience</a></li>
+      <li><a href="#work-projects">Work Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Personal Projects</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </div>
 
   <!-- Container for layout centering -->
   <div class="container">
@@ -404,6 +549,24 @@
     </footer>
 
   </div>
+
+  <script>
+    // Theme toggle logic
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle');
+
+      body.classList.toggle('dark-theme');
+      const isDarkTheme = body.classList.contains('dark-theme');
+      themeToggle.textContent = isDarkTheme ? '🌙' : '☀️';
+    }
+
+    // Sidebar toggle logic
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
