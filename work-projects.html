@@ -272,7 +272,7 @@
       <ul>
         <li><a href="index.html">Overview</a></li>
         <li><a href="work-experience.html">Work Experience</a></li>
-        <li><a href="work-projects.html">Work Projects</a></li>
+        <li><a href="work-projects.html" class="active">Work Projects</a></li>
         <li><a href="certifications.html">Certifications</a></li>
         <li><a href="personal-projects.html">Personal Projects</a></li>
         <li><a href="education.html">Education</a></li>
@@ -324,15 +324,6 @@
   </div>
 
   <script>
-
-    const currentPage = window.location.pathname.split('/').pop(); // Get the current file name
-    const sidebarLinks = document.querySelectorAll('.sidebar a');
-
-    sidebarLinks.forEach(link => {
-      if (link.getAttribute('href') === currentPage) {
-        link.classList.add('active'); // Add active class to the current page link
-      }
-    });
 
     // Load theme from localStorage on page load
     document.addEventListener('DOMContentLoaded', () => {
