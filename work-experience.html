@@ -331,6 +331,18 @@
         border-top: 2px solid #ddd;
         padding-top: 5px;
       }
+
+      .nav-button {
+        text-decoration: none;
+        color: #999;
+        font-size: 0.8rem;
+        transition: font-weight 0.3s, color 0.3s; /* Smooth transition effect */
+      }
+
+      .nav-button:hover {
+        font-weight: bold;
+        color: #999; /* Optional: Change color on hover */
+      }
       
     </style>
   </head>
@@ -407,9 +419,12 @@
       </section>
 
       <!-- Footer Section -->
-    <footer>
-      &copy; 2024 Muzzammil Shah. All rights reserved.
-    </footer>
+      <footer>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px;">
+          <a href="index.html" class="nav-button">&larr; Overview</a>
+          <a href="work-projects.html" class="nav-button">Work projects &rarr;</a>
+        </div>
+      </footer>
 
   </div>
 
