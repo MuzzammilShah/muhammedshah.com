@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muzzammil Shah</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3037/3037366.png" type="image/png">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+      /* General reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  
+      /* Basic styling */
+      body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #ffffff;
+        padding: 20px;
+      }
+  
+      .container {
+        max-width: 800px;
+        margin: auto;
+      }
+  
+      /* Header bar styling */
+      .header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+  
+      .header-bar .menu-icon,
+      .header-bar .theme-toggle {
+        font-size: 20px;
+        cursor: pointer;
+      }
+  
+      .header-bar .menu-icon {
+        display: flex;
+        align-items: center;
+      }
+  
+      .header-bar .theme-toggle {
+        display: flex;
+        align-items: center;
+      }
+  
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        height: 100%;
+        width: 220px;
+        background-color: #ffffff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s;
+        z-index: 999;
+        padding: 20px;
+      }
+  
+      .sidebar.open {
+        left: 0;
+      }
+  
+      .sidebar ul {
+        list-style: none;
+        margin-top: 40px;
+      }
+  
+      .sidebar ul li {
+        margin-bottom: 15px;
+      }
+  
+      .sidebar ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        transition: color 0.3s, background-color 0.3s;
+      }
+  
+      .sidebar ul li a:hover {
+        color: #000000;
+        /* background-color: #333; */
+        /* padding: 6px;
+        border-radius: 5px; */
+      }
+  
+      /* Sidebar styles for dark theme */
+      body.dark-theme .sidebar ul li a {
+        color: #e0e0e0;
+      }
+  
+      body.dark-theme .sidebar ul li a:hover {
+        color: #ffffff;
+        /* background-color: #e0e0e0;
+        padding: 5px;
+        border-radius: 5px; */
+      }
+  
+      /* Dark theme */
+      body.dark-theme {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+  
+      body.dark-theme .header-bar {
+        background-color: #121212;
+        box-shadow: 0 2px 5px rgba(242, 242, 242, 0.1);
+      }
+  
+      body.dark-theme .sidebar {
+        background-color: #121212;
+        box-shadow: 2px 0 5px rgba(242, 242, 242, 0.1);
+      }
+  
+      body.dark-theme .sidebar ul li a {
+        color: #e0e0e0;
+      }
+  
+      /* Dark theme - Section headers */
+      body.dark-theme h2 {
+        color: #e0e0e0; /* A lighter shade for headers in dark mode */
+        
+      }
+
+      body.dark-theme h4 {
+        color: #e0e0e0; /* A lighter shade for headers in dark mode */
+        border-bottom: 2px solid #666; /* Same color as headers */
+      }
+  
+      /* Dark theme - Footer border */
+      body.dark-theme footer {
+        border-top: 2px solid #666; /* Match the header color */
+      }
+  
+      /* Content adjustments for fixed header */
+      main {
+        margin-top: 70px; /* Adjust based on header height */
+      }
+  
+      /* Header styling */
+      header {
+        text-align: center;
+        padding: 30px 0 30px 0;
+        /* border-bottom: 2px solid #ddd; */
+      }
+  
+      header h1 {
+        font-size: 2.2rem;
+        font-weight: 600;
+      }
+  
+      header p {
+        font-size: 1rem;
+        font-weight: 200;
+        padding-bottom: 20px;
+      }
+
+      /* Section titles */
+      h2 {
+        font-size: 1.6rem;
+        margin-top: 60px;
+        color: #333;
+        /* border-bottom: 2px solid #ddd; */
+        padding-bottom: 10px;
+        text-align: center;
+      }
+
+      h4 {
+        font-size: 1.3rem;
+        margin-top: 60px;
+        color: #333;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+      }
+  
+      /* Projects and other sections */
+      .projects, .certifications, .education, .work-projects {
+        margin: 20px 0 70px 0;
+      }
+  
+      .project, .certification, .education-item, .work-project {
+        margin-bottom: 15px;
+      }
+  
+      .project h3, .education-item h3, .work-project h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+  
+      .certification h3{
+        font-size: 1rem;
+        margin-bottom: 5px;
+      }
+  
+      .certification h3 a {
+        text-decoration: none;
+        color: inherit;
+      }
+  
+      .certification h3 a:hover {
+        text-decoration: underline; /* Optional: adds underline on hover */
+      }
+  
+      .project h3 a {
+        text-decoration: none;
+        color: inherit;
+      }
+  
+      .project h3 a:hover {
+        text-decoration: underline; /* Optional: adds underline on hover */
+      }
+  
+  
+      .project p, .certification p, .education-item p, .work-project p {
+        font-size: 0.9rem;
+        color: #666;
+      }
+  
+      /* Footer */
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 0.8rem;
+        color: #999;
+        border-top: 2px solid #ddd;
+        padding-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <!-- Header Bar -->
+    <div class="header-bar">
+      <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+      <div class="theme-toggle" onclick="toggleTheme()">☀️</div>
+    </div>
+  
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="work-experience.html">Work Experience</a></li>
+        <li><a href="work-projects.html">Work Projects</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="personal-projects.html">Personal Projects</a></li>
+        <li><a href="education.html">Education</a></li>
+      </ul>
+    </div>
+
+  <div class="container">
+    <section id="certifications">
+        <h2>Certifications acquired</h2>
+        <h4>Certified Courses</h4>
+        <div class="certifications">
+          <div class="certification">
+            <h3><a href="https://www.linkedin.com/in/muhammed-shah/details/certifications/1724159665717/single-media-viewer/?type=DOCUMENT&profileId=ACoAADWebncBEuTI9nZZLcTOPCu4Dy9N863oirg" target="_blank">🔗Rasa Developer Certification</a></h3>
+            <p>Issued by Rasa - Aug 2024</p>
+          </div>
+        
+          <div class="certification">
+            <h3><a href="https://www.coursera.org/account/accomplishments/verify/WKU6UA8K5F86" target="_blank">🔗Developing AI Applications with Python and Flask</a></h3>
+            <p>Issued by IBM - Mar 2024</p>
+          </div>
+        
+          <div class="certification">
+            <h3><a href="https://www.coursera.org/account/accomplishments/verify/Z3YKCXBW265S" target="_blank">🔗Generative AI with Large Language Models</a></h3>
+            <p>Issued by Deeplearning.ai - Feb 2024</p>
+          </div>
+        
+          <div class="certification">
+            <h3><a href="https://drive.google.com/file/d/1igUuyg1i5OAEuqf2K4OnDGidfOGaw_Ki/view" target="_blank">🔗Data Science Nanodegree</a></h3>
+            <p>Issued by Prepinsta - Dec 2023</p>
+          </div>
+        
+          <div class="certification">
+            <h3><a href="https://drive.google.com/file/d/1lvOsBCHH9wbNHlMwiD0N0N1dUseALo3K/view" target="_blank">🔗Python Nanodegree</a></h3>
+            <p>Issued by Prepinsta - Oct 2023</p>
+          </div>
+        
+          <div class="certification">
+            <h3><a href="https://drive.google.com/file/d/1887UXv0iWaeDjqJ_WTr6YzAeqPdeyvno/view" target="_blank">🔗Machine Learning Nanodegree</a></h3>
+            <p>Issued by Prepinsta - Aug 2023</p>
+          </div>
+        
+          <div class="certification">
+            <h3><a href="https://www.linkedin.com/learning/certificates/35d5eef7288a9df12e9611b3870680b8faf2abf1c733ed15fffcba0079aa5c38?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BDXRuggcFRRe3fp7UGIz4mQ%3D%3D" target="_blank">🔗Career Essentials in Generative AI</a></h3>
+            <p>Issued by Microsoft and LinkedIn - Jul 2023</p>
+          </div>
+        </div>
+        
+        <h4>Upskilling Courses</h4>
+        <div class="certifications">
+            <div class="certification">
+                <h3><a href="" target="_blank">🔗LLMs</a></h3>
+                <p>Issued by DeepLearning.AI - Month 2024</p>
+            </div>
+            <div class="certification">
+                <h3><a href="" target="_blank">🔗LLMs</a></h3>
+                <p>Issued by DeepLearning.AI - Month 2024</p>
+            </div>
+            <div class="certification">
+                <h3><a href="" target="_blank">🔗LLMs</a></h3>
+                <p>Issued by DeepLearning.AI - Month 2024</p>
+            </div>
+            <div class="certification">
+                <h3><a href="" target="_blank">🔗LLMs</a></h3>
+                <p>Issued by DeepLearning.AI - Month 2024</p>
+            </div>
+            <div class="certification">
+                <h3><a href="" target="_blank">🔗LLMs</a></h3>
+                <p>Issued by DeepLearning.AI - Month 2024</p>
+            </div>
+        </div>
+
+        <h4>Additional Courses</h4>
+        <div class="certifications">
+            <div class="certification">
+                <h3><a href="" target="_blank">🔗PowerBI</a></h3>
+                <p>Issued by Udemy - Month 2023</p>
+            </div>
+        </div>
+      </section>
+  </div>
+
+  <script>
+    // Load theme from localStorage on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.querySelector('.theme-toggle').textContent = '🌙';
+      } else {
+        document.body.classList.remove('dark-theme');
+        document.querySelector('.theme-toggle').textContent = '☀️';
+      }
+    });
+
+    // Theme toggle logic
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle');
+      
+      body.classList.toggle('dark-theme');
+      const isDarkTheme = body.classList.contains('dark-theme');
+      themeToggle.textContent = isDarkTheme ? '🌙' : '☀️';
+
+      // Save theme preference in localStorage
+      localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    }
+
+    // Sidebar toggle logic
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
