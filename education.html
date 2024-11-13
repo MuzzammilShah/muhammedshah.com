@@ -101,6 +101,11 @@
         /* padding: 6px;
         border-radius: 5px; */
       }
+
+      .sidebar a.active {
+      color: #333;
+      font-weight: bolder;
+      }
   
       /* Sidebar styles for dark theme */
       body.dark-theme .sidebar ul li a {
@@ -299,9 +304,25 @@
           </div>
         </div>
       </section>
+
+      <!-- Footer Section -->
+    <footer>
+      &copy; 2024 Muzzammil Shah. All rights reserved.
+    </footer>
+
   </div>
 
   <script>
+
+    const currentPage = window.location.pathname.split('/').pop(); // Get the current file name
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+    sidebarLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active'); // Add active class to the current page link
+      }
+    });
+
     // Load theme from localStorage on page load
     document.addEventListener('DOMContentLoaded', () => {
       const theme = localStorage.getItem('theme');
