@@ -220,6 +220,23 @@
       color: #333;
       border-bottom: 2px solid #ddd;
       padding-bottom: 10px;
+      position: relative;
+    }
+
+    h2 .read-more {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #999; 
+      text-decoration: none;
+      position: absolute;
+      right: 0;
+      bottom: 12px;
+      transition: font-weight 0.3s, color 0.3s;
+    }
+
+    h2 .read-more:hover {
+      color: #999;
+      font-weight: bolder;
     }
 
     /* Timeline styling */
@@ -396,7 +413,10 @@
 
     <!-- Work Experience Timeline -->
     <section id="experience">
-      <h2>Companies I've worked in</h2>
+      <h2>
+        Companies I've worked in
+        <a href="work-experience.html" class="read-more">Read More →</a>
+      </h2>
       <div class="timeline">
         
         <!-- Timeline item 2 with role progression -->
@@ -444,7 +464,10 @@
 
     <!-- Work Projects Section -->
     <section id="work-projects">
-      <h2>Work Projects involved in</h2>
+      <h2>
+        Work Projects involved in
+        <a href="work-projects.html" class="read-more">Read More →</a>
+      </h2>
       <div class="work-projects">
         <div class="work-project">
           <h3>LLM Tooling</h3>
@@ -467,7 +490,10 @@
 
     <!-- Certifications Section -->
     <section id="certifications">
-      <h2>Certifications acquired</h2>
+      <h2>
+        Certifications acquired
+        <a href="certifications.html" class="read-more">Read More →</a>
+      </h2>
       <div class="certifications">
         <div class="certification">
           <h3><a href="https://www.linkedin.com/in/muhammed-shah/details/certifications/1724159665717/single-media-viewer/?type=DOCUMENT&profileId=ACoAADWebncBEuTI9nZZLcTOPCu4Dy9N863oirg" target="_blank">🔗Rasa Developer Certification</a></h3>
@@ -508,7 +534,10 @@
 
     <!-- Personal Projects Section -->
     <section id="projects">
-      <h2>Personal Projects</h2>
+      <h2>
+        Personal Projects
+        <a href="personal-projects.html" class="read-more">Read More →</a>
+      </h2>
       <div class="projects">
         <div class="project">
           <h3><a href="https://github.com/MuzzammilShah/MuhammedShah-Portfolio" target="_blank">Portfolio website with Chatbot↗️</a></h3>
@@ -524,7 +553,10 @@
 
     <!-- Education Section -->
     <section id="education">
-      <h2>Education attained</h2>
+      <h2>
+        Education attained
+        <a href="education.html" class="read-more">Read More →</a>
+      </h2>
       <div class="education">
         <div class="education-item">
           <h3>MVJ College of Engineering (Affiliated with VTU), 2023 Graduate</h3>
