@@ -18,6 +18,15 @@ body {
   max-width: 800px;
   margin: auto;
 }
+
+.external-icon {
+  width: 1.1em;       
+  height: 1.1em;   
+  margin-left: 0.25em; 
+  /* vertical-align: middle; */
+  position: relative; 
+  top: 0.2em; 
+}
   
 /* Header bar styling */
 .header-bar {
