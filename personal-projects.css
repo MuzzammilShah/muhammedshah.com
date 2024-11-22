@@ -1,0 +1,264 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+/* Basic styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #ffffff;
+  padding: 20px;
+}
+  
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+  
+/* Header bar styling */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+  
+.header-bar .menu-icon,
+.header-bar .theme-toggle {
+  font-size: 20px;
+  cursor: pointer;
+}
+  
+.header-bar .menu-icon {
+  display: flex;
+  align-items: center;
+}
+  
+.header-bar .theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle svg {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+  
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 220px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s;
+  z-index: 999;
+  padding: 20px;
+}
+  
+.sidebar.open {
+  left: 0;
+}
+  
+.sidebar ul {
+  list-style: none;
+  margin-top: 40px;
+}
+  
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+  
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: color 0.3s, background-color 0.3s;
+}
+  
+.sidebar ul li a:hover {
+  color: #000000;
+}
+
+.sidebar a.active {
+color: #333;
+font-weight: bolder;
+}
+  
+/* Content adjustments for fixed header */
+main {
+  margin-top: 70px;
+}
+
+  
+/* Section titles */
+h2 {
+  font-size: 1.6rem;
+  margin-top: 60px;
+  color: #333;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.3rem;
+  margin-top: 60px;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+  
+.button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 10px;
+  background-color: #333;
+  color: #f5f5f5;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+}
+
+.button-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.button:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+  
+/* Projects and other sections */
+.projects {
+  margin: 20px 0 70px 0;
+}
+  
+.project {
+  margin-bottom: 15px;
+  padding-bottom: 25px;
+}
+  
+.project h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+  
+.project h3 a {
+  text-decoration: none;
+  color: inherit;
+}
+  
+.project h3 a:hover {
+  text-decoration: underline;
+}
+  
+.project p {
+  font-size: 0.9rem;
+  color: #666;
+}
+  
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.8rem;
+  color: #999;
+  border-top: 2px solid #ddd;
+  padding-top: 5px;
+}
+
+.nav-button {
+  text-decoration: none;
+  color: #999;
+  font-size: 0.8rem;
+  transition: font-weight 0.3s, color 0.3s;
+}
+
+.nav-button:hover {
+  font-weight: bold;
+  color: #999;
+}
+
+
+/* Dark theme */
+/* ============== */
+body.dark-theme p strong{
+  color: #d0d0d0;
+}
+
+body.dark-theme p {
+  color: #a0a0a0; 
+}
+  
+/* Sidebar styles for dark theme */
+body.dark-theme .sidebar ul li a {
+  color: #e0e0e0;
+}
+  
+body.dark-theme .sidebar ul li a:hover {
+  color: #ffffff;
+}
+  
+/* Dark theme */
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+  
+body.dark-theme .header-bar {
+  background-color: #121212;
+  box-shadow: 0 2px 5px rgba(242, 242, 242, 0.1);
+}
+  
+body.dark-theme .sidebar {
+  background-color: #121212;
+  box-shadow: 2px 0 5px rgba(242, 242, 242, 0.1);
+}
+  
+body.dark-theme .sidebar ul li a {
+  color: #e0e0e0;
+}
+  
+/* Dark theme - Section headers */
+body.dark-theme h2 {
+  color: #e0e0e0; 
+}
+
+body.dark-theme h4 {
+  color: #e0e0e0; 
+  border-bottom: 2px solid #666; 
+}
+  
+/* Dark theme - Timeline line */
+body.dark-theme .timeline {
+  border-left: 2px solid #666;
+}
+  
+body.dark-theme .timeline-item::before {
+  background-color: #666;
+}
+  
+/* Dark theme - Footer border */
+body.dark-theme footer {
+  border-top: 2px solid #666;
+}
+/* ============== */
