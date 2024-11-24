@@ -55,6 +55,34 @@ body {
   width: 24px;
   height: 24px;
 }
+
+/* Left-side icons (Menu Icon) */
+.menu-icon {
+  cursor: pointer;
+}
+
+/* Right-side container for search and theme toggle */
+.right-icons {
+  display: flex;
+  align-items: center;
+}
+
+/* Styling for Search Icon in Header */
+.search-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 15px; /* Adjust space between search and theme toggle */
+}
+
+/* Adjust search icon size and positioning */
+.search-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none; /* Ensures no fill inside the circle */
+  stroke: currentColor; /* Use the current text color */
+}
+
   
 .sidebar {
   position: fixed;
@@ -191,6 +219,125 @@ footer {
   font-weight: bold;
   color: #999;
 }
+
+/* Search Modal */
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.search-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.search-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-container ul li em {
+  font-style: normal;  /* Remove italic style from the highlighted sentence */
+  font-weight: normal; /* Optional: Maintain normal font weight */
+}
+
+.search-container ul li span {
+  font-weight: bold;
+  background-color: #333;
+  color: #ddd;
+}
+
+.search-container ul li em {
+  font-style: normal;
+  color: #333;
+}
+
+.search-container ul li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.search-container ul li:hover {
+  background: #f0f0f0;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 4px;  /* Adjust top offset for consistent placement */
+  right: 10px;  /* Adjust right offset for consistent placement */
+  background: none;
+  border: none;
+  font-size: 16px;  /* Reduced font size */
+  color: #333;  /* Default text color */
+  cursor: pointer;
+  z-index: 10;  /* Ensure it's above other content */
+}
+
+/* Dark Theme Adjustments */
+body.dark-theme .search-container {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-theme .search-container input {
+  background: #444;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark-theme .search-container ul li {
+  border-bottom: 1px solid #555;
+}
+
+body.dark-theme .search-container ul li em {
+  font-style: normal;
+  color: #ddd;
+}
+
+body.dark-theme .search-container ul li span {
+  font-weight: bold;
+  background-color: #ddd;
+  color: #333;
+}
+
+body.dark-theme .search-container ul li:hover {
+  background: #121212;
+}
+
+body.dark-theme .close-btn{
+  color: #ddd;
+}
+
+
+
 
 
 /* Dark theme */
