@@ -72,6 +72,33 @@
         width: 24px;
         height: 24px;
       }
+
+      /* Left-side icons (Menu Icon) */
+      .menu-icon {
+        cursor: pointer;
+      }
+
+      /* Right-side container for search and theme toggle */
+      .right-icons {
+        display: flex;
+        align-items: center;
+      }
+
+      /* Styling for Search Icon in Header */
+      .search-icon {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin-right: 15px; /* Adjust space between search and theme toggle */
+      }
+
+      /* Adjust search icon size and positioning */
+      .search-icon svg {
+        width: 24px;
+        height: 24px;
+        fill: none; /* Ensures no fill inside the circle */
+        stroke: currentColor; /* Use the current text color */
+      }
 /* ===================== */
 
 /* Sidebar styling */
@@ -363,6 +390,22 @@
   overflow-y: auto;
 }
 
+.search-container ul li em {
+  font-style: normal;  /* Remove italic style from the highlighted sentence */
+  font-weight: normal; /* Optional: Maintain normal font weight */
+}
+
+.search-container ul li span {
+  font-weight: bold;
+  background-color: #333;
+  color: #ddd;
+}
+
+.search-container ul li em {
+  font-style: normal;
+  color: #333;
+}
+
 .search-container ul li {
   padding: 8px 12px;
   cursor: pointer;
@@ -371,10 +414,6 @@
 
 .search-container ul li:hover {
   background: #f0f0f0;
-}
-
-.search-container ul li span {
-  font-weight: bold;
 }
 
 /* Close button */
@@ -404,6 +443,17 @@ body.dark-theme .search-container input {
 
 body.dark-theme .search-container ul li {
   border-bottom: 1px solid #555;
+}
+
+body.dark-theme .search-container ul li em {
+  font-style: normal;
+  color: #ddd;
+}
+
+body.dark-theme .search-container ul li span {
+  font-weight: bold;
+  background-color: #ddd;
+  color: #333;
 }
 
 body.dark-theme .search-container ul li:hover {
