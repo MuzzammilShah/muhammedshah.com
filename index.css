@@ -320,6 +320,101 @@
         padding-top: 5px;
       }
 
+
+/* Search Modal */
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.search-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.search-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-container ul li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.search-container ul li:hover {
+  background: #f0f0f0;
+}
+
+.search-container ul li span {
+  font-weight: bold;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 4px;  /* Adjust top offset for consistent placement */
+  right: 10px;  /* Adjust right offset for consistent placement */
+  background: none;
+  border: none;
+  font-size: 16px;  /* Reduced font size */
+  color: #333;  /* Default text color */
+  cursor: pointer;
+  z-index: 10;  /* Ensure it's above other content */
+}
+
+/* Dark Theme Adjustments */
+body.dark-theme .search-container {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-theme .search-container input {
+  background: #444;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark-theme .search-container ul li {
+  border-bottom: 1px solid #555;
+}
+
+body.dark-theme .search-container ul li:hover {
+  background: #121212;
+}
+
+body.dark-theme .close-btn{
+  color: #ddd;
+}
+
+
 /* ===================== */
 
 
