@@ -338,12 +338,12 @@ function displaySearchResults(matches, query, resultsContainer) {
     // Use a regular expression to highlight the matched query (case insensitive)
     const highlightedSentence = match.sentence.replace(
       new RegExp(`(${query})`, 'gi'), // Case insensitive regex matching the word
-      (match) => `<span>${match}</span>`
+      (match) => `<span class="highlight">${match}</span>`
     );
 
     // Display only the matching line (sentence) along with the section name
     resultsContainer.innerHTML += `
-      <li onclick="navigateToSection('${match.section.id}')">
+      <li class="result-item" onclick="navigateToSection('${match.section.id}')">
         <strong>${match.section.name}</strong>: <em>${highlightedSentence}.</em>
       </li>
     `;
@@ -355,6 +355,11 @@ function navigateToSection(id) {
   const section = document.getElementById(id);
   if (section) {
     section.scrollIntoView({ behavior: 'smooth' });
+    // Highlight the target section temporarily for better visibility
+    section.classList.add('highlighted-section');
+    setTimeout(() => {
+      section.classList.remove('highlighted-section');
+    }, 2000); // Remove highlight after 2 seconds
   }
 
   // Clear the search bar when a result is clicked

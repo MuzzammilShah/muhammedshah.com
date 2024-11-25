@@ -308,6 +308,17 @@ footer {
   background: #f0f0f0;
 }
 
+/* Highlight target section after navigation */
+.highlighted-section {
+  /* border: 2px solid #ddd; */
+  background-color: #f0f0f0;
+}
+
+body.dark-theme .highlighted-section{
+  border: 2px solid #333;
+  background-color: #000000;
+}
+
 /* Close button */
 .close-btn {
   position: absolute;
