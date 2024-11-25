@@ -423,8 +423,8 @@
 }
 
 body.dark-theme .highlighted-section{
-  border: 2px solid #333;
-  background-color: #000000;
+  /* border: 2px solid #333; */
+  background-color: #33333380;
 }
 
 /* Close button */
