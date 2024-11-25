@@ -249,7 +249,7 @@ function openSearch() {
   const searchModal = document.getElementById('search-modal');
   const searchInput = document.getElementById('search-input');
   const pageName = getPageName();
-  searchInput.placeholder = `Search on ${pageName}`;
+  searchInput.placeholder = `(Beta) Search in ${pageName}`;
   searchModal.style.display = 'flex'; // Show the modal
   
   // Clear the search input and results when opening
