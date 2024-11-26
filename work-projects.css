@@ -18,6 +18,15 @@ body {
   max-width: 800px;
   margin: auto;
 }
+
+.external-icon {
+  width: 1.1em;       
+  height: 1.1em;   
+  margin-left: 0.25em; 
+  /* vertical-align: middle; */
+  position: relative; 
+  top: 0.2em; 
+}
   
 /* Header bar styling */
 .header-bar {
@@ -163,6 +172,15 @@ h4 {
   font-size: 1.1rem;
   margin-bottom: 5px;
   padding-top: 10px;
+}
+
+.work-project h3 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.work-project h3 a:hover {
+  text-decoration: underline;
 }
   
 .work-project p {
