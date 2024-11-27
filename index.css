@@ -151,10 +151,9 @@
 /* Heading(Header) styling */
 /* ===================== */
 
-      header {
+      /* header {
         text-align: center;
         padding: 30px 0 30px 0;
-        /* border-bottom: 2px solid #ddd; */
       }
   
       header h1 {
@@ -168,12 +167,12 @@
         padding-bottom: 20px;
       }
   
-      /* Socials */
+      
       .social-links {
         margin-top: 10px;
         display: flex;
-        justify-content: center; /* Center horizontally */
-        gap: 15px; /* Space between icons */
+        justify-content: center;
+        gap: 15px;
       }
   
       .social-links a {
@@ -196,11 +195,116 @@
         border-color: #ffffff;
       }
   
-      /* Icons */
+      
       .social-links a .icon {
         font-size: 20px;
         color: inherit;
-      }
+      } */
+
+
+/* Centered layout for heading, subtitle, and social links */
+header {
+  display: flex;
+  justify-content: center; /* Center all content horizontally */
+  padding: 30px 0; /* Space below the header bar */
+  /* text-align: center; */
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  gap: 20px; /* Add spacing between elements */
+}
+
+.photo img {
+  width: 200px; /* Circular photo size */
+  height: 200px;
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover;
+  border: 3px solid #333; /* Optional border */
+}
+
+body.dark-theme .photo img {
+  border: 3px solid #ddd;
+}
+
+.info h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+.info p {
+  font-size: 1rem;
+  margin: 0 0 20px; /* Add spacing below subtitle */
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px; /* Space between icons */
+  justify-content: center; /* Center icons */
+}
+
+.social-links a {
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Circular icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #333; /* Icon border */
+  background-color: #ffffff;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.social-links a:hover {
+  background-color: #ffffff;
+  color: #fff;
+  border-color: #ffffff;
+}
+
+.social-links a .icon {
+  font-size: 20px;
+  color: inherit;
+}
+
+
+/* Responsive Layout - Ensure Consistent Center Alignment */
+@media (max-width: 768px) {
+
+  .header-content {
+    flex-direction: column; /* Stack the image, name, subtitle, and links */
+    text-align: center; /* Center-align text */
+  }
+
+  header {
+    padding: 30px 0; /* Adjust padding for smaller screens */
+  }
+
+  .photo img {
+    width: 180px; /* Slightly smaller photo on small screens */
+    height: 180px;
+  }
+
+  .info h1 {
+    font-size: 1.8rem; /* Slightly smaller heading */
+  }
+
+  .info p {
+    font-size: 0.9rem; /* Adjust font size for subtitle */
+  }
+
+  .social-links a {
+    width: 36px; /* Smaller icons */
+    height: 36px;
+  }
+}
+
+
 /* ===================== */
 
 
