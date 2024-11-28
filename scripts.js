@@ -6,34 +6,42 @@ function toggleTheme() {
     const body = document.body;
     const sunIcon = document.querySelector('.sun-icon');
     const moonIcon = document.querySelector('.moon-icon');
-  
+    const footerImage = document.getElementById('footer-image'); // Reference to the image element
+
     body.classList.toggle('dark-theme');
-  
+
     if (body.classList.contains('dark-theme')) {
-      sunIcon.style.display = 'none';
-      moonIcon.style.display = 'block';
-      localStorage.setItem('theme', 'dark');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+        footerImage.src = 'static/images/sidebar-2.png'; // Change to dark theme image
+        localStorage.setItem('theme', 'dark');
     } else {
-      sunIcon.style.display = 'block';
-      moonIcon.style.display = 'none';
-      localStorage.setItem('theme', 'light');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+        footerImage.src = 'static/images/sidebar-1.png'; // Change to light theme image
+        localStorage.setItem('theme', 'light');
     }
-  }
-  
-  (function () {
-    const body = document.body;
-    const savedTheme = localStorage.getItem('theme');
-  
-    if (savedTheme === 'dark') {
+}
+
+// Immediately invoked function to apply saved theme and corresponding image
+(function () {
+  const body = document.body;
+  const savedTheme = localStorage.getItem('theme');
+  const footerImage = document.getElementById('footer-image'); // Reference to the image element
+
+  if (savedTheme === 'dark') {
       body.classList.add('dark-theme');
       document.querySelector('.sun-icon').style.display = 'none';
       document.querySelector('.moon-icon').style.display = 'block';
-    } else {
+      footerImage.src = 'static/images/sidebar-2.png'; // Apply dark theme image
+  } else {
       body.classList.remove('dark-theme');
       document.querySelector('.sun-icon').style.display = 'block';
       document.querySelector('.moon-icon').style.display = 'none';
-    }
-  })();
+      footerImage.src = 'static/images/sidebar-1.png'; // Apply light theme image explicitly
+  }
+})();
+
   
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
