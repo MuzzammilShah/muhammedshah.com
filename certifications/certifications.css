@@ -275,54 +275,43 @@ footer {
   overflow-y: auto;
 }
 
-.search-container ul li em {
-  font-style: normal;  /* Remove italic style from the highlighted sentence */
-  font-weight: normal; /* Optional: Maintain normal font weight */
-}
-
-.search-container ul li span {
-  font-weight: bold;
-  background-color: #333;
-  color: #ddd;
-}
-
-.search-container ul li em {
-  font-style: normal;
-  color: #333;
-}
-
 .search-container ul li {
   padding: 8px 12px;
   cursor: pointer;
   border-bottom: 1px solid #eee;
 }
 
+.search-container ul li:last-child {
+  border-bottom: none;
+}
+
 .search-container ul li:hover {
   background: #f0f0f0;
 }
 
+.search-container ul li strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.search-container ul li em {
+  font-style: normal;
+  color: #555;
+}
+
+.search-container ul li .highlight {
+  background-color: yellow;
+}
+
 /* Highlight target section after navigation */
 .highlighted-section {
-  /* border: 2px solid #ddd; */
   background-color: #f0f0f0;
+  transition: background-color 0.5s ease;
 }
 
-body.dark-theme .highlighted-section{
-  /* border: 2px solid #333; */
+body.dark-theme .highlighted-section {
   background-color: #33333380;
-}
-
-/* Close button */
-.close-btn {
-  position: absolute;
-  top: 4px;  /* Adjust top offset for consistent placement */
-  right: 10px;  /* Adjust right offset for consistent placement */
-  background: none;
-  border: none;
-  font-size: 16px;  /* Reduced font size */
-  color: #333;  /* Default text color */
-  cursor: pointer;
-  z-index: 10;  /* Ensure it's above other content */
 }
 
 /* Dark Theme Adjustments */
@@ -341,14 +330,16 @@ body.dark-theme .search-container ul li {
   border-bottom: 1px solid #555;
 }
 
+body.dark-theme .search-container ul li strong {
+  color: #fff;
+}
+
 body.dark-theme .search-container ul li em {
-  font-style: normal;
   color: #ddd;
 }
 
-body.dark-theme .search-container ul li span {
-  font-weight: bold;
-  background-color: #ddd;
+body.dark-theme .search-container ul li .highlight {
+  background-color: yellow;
   color: #333;
 }
 
@@ -356,9 +347,11 @@ body.dark-theme .search-container ul li:hover {
   background: #121212;
 }
 
-body.dark-theme .close-btn{
-  color: #ddd;
+/* Adjust the scroll position to account for the fixed header */
+.searchable-section {
+  scroll-margin-top: 80px; /* Adjust this value to the height of your fixed header */
 }
+
 
 
 
