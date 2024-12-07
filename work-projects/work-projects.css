@@ -106,6 +106,34 @@ body {
       body.dark-theme .header-bar .search-icon:hover {
         background-color: rgba(255, 255, 255, 0.1); /* Light semi-transparent background for dark theme */
       }
+
+      /* Reset hover styles on active state */
+      .header-bar .menu-icon:active,
+      .header-bar .theme-toggle:active,
+      .header-bar .search-icon:active {
+        background-color: transparent; /* Reset background color after click */
+        transition: none; /* Prevent animation during active state */
+      }
+
+      /* Ensure the hover effect works consistently on both desktop and mobile */
+      .header-bar .menu-icon:hover:active,
+      .header-bar .theme-toggle:hover:active,
+      .header-bar .search-icon:hover:active {
+        background-color: rgba(0, 0, 0, 0.1); /* Reapply hover effect on active hover */
+      }
+
+      /* Dark Theme Active State */
+      body.dark-theme .header-bar .menu-icon:active,
+      body.dark-theme .header-bar .theme-toggle:active,
+      body.dark-theme .header-bar .search-icon:active {
+        background-color: transparent; /* Reset dark theme background */
+      }
+
+      body.dark-theme .header-bar .menu-icon:hover:active,
+      body.dark-theme .header-bar .theme-toggle:hover:active,
+      body.dark-theme .header-bar .search-icon:hover:active {
+        background-color: rgba(255, 255, 255, 0.1); /* Reapply dark theme hover effect */
+      }
 /* ===================== */
 
   
