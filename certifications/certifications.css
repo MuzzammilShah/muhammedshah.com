@@ -78,14 +78,6 @@ body {
         background-color: rgba(0, 0, 0, 0.1); /* Light semi-transparent background for light theme */
       }
 
-      /* Reset the hover instantly when not hovered */
-      .header-bar .menu-icon:not(:hover),
-      .header-bar .theme-toggle:not(:hover),
-      .header-bar .search-icon:not(:hover) {
-        transition: none; /* Remove transition-out */
-        background-color: transparent; /* Ensure instant reset */
-      }
-
       /* SVG Icon Styling */
       .header-bar .menu-icon svg,
       .header-bar .theme-toggle svg,
@@ -113,30 +105,24 @@ body {
       body.dark-theme .header-bar .search-icon:hover {
         background-color: rgba(255, 255, 255, 0.1); /* Light semi-transparent background for dark theme */
       }
-
-      body.dark-theme .header-bar .menu-icon:not(:hover),
-      body.dark-theme .header-bar .theme-toggle:not(:hover),
-      body.dark-theme .header-bar .search-icon:not(:hover) {
-        transition: none; /* Remove transition-out */
-        background-color: transparent; /* Ensure instant reset */
-      }
 /* ===================== */
   
 .sidebar {
   position: fixed;
   top: 0;
-  left: -250px;
+  left: 0;
   height: 100%;
   width: 220px;
   background-color: #ffffff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: left 0.3s;
+  transform: translateX(-250px);
+  transition: transform 0.5s ease-in-out;
   z-index: 999;
   padding: 40px 20px 20px 20px;
 }
 
 .sidebar.open {
-  left: 0;
+  transform: translateX(0);
 }
 
 .sidebar ul {
@@ -457,3 +443,20 @@ button:active, a:active, div:active, svg:active {
   outline: none; /* Removes outline for active state */
 }
 /* ===================================== */
+
+/* Only apply hover styles if the user can actually hover (i.e., desktop devices) */
+@media (hover: hover) and (pointer: fine) {
+  .header-bar .menu-icon:hover,
+  .header-bar .theme-toggle:hover,
+  .header-bar .search-icon:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* or your desired hover background */
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .header-bar .menu-icon:hover,
+  .header-bar .theme-toggle:hover,
+  .header-bar .search-icon:hover {
+    background-color: transparent;
+  }
+}
