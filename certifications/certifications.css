@@ -115,7 +115,7 @@ body {
   left: 0;
   height: 100%;
   width: 220px;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   
   /* Initially off-screen and no transitions to avoid flicker */
@@ -418,7 +418,7 @@ body.dark-theme .header-bar {
 }
   
 body.dark-theme .sidebar {
-  background-color: #121212;
+  background-color: #121212 !important;
   box-shadow: 2px 0 5px rgba(242, 242, 242, 0.1);
 }
   
