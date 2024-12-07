@@ -34,7 +34,7 @@
 
       /* Content adjustments for fixed header */
       main {
-        margin-top: 70px; /* Adjust based on header height */
+        margin-top: 60px; /* Adjust based on header height */
       }
 
       .header-bar {
@@ -50,54 +50,61 @@
         width: 100%;
         z-index: 1000;
       }
-  
-      .header-bar .menu-icon,
-      .header-bar .theme-toggle {
-        font-size: 20px;
-        cursor: pointer;
-      }
-  
-      .header-bar .menu-icon {
-        display: flex;
-        align-items: center;
-      }
-  
-      .header-bar .theme-toggle {
-        display: flex;
-        align-items: center;
-      }
-  
-      .theme-toggle svg {
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-      }
-
-      /* Left-side icons (Menu Icon) */
-      .menu-icon {
-        cursor: pointer;
-      }
-
+      
       /* Right-side container for search and theme toggle */
       .right-icons {
         display: flex;
         align-items: center;
       }
 
-      /* Styling for Search Icon in Header */
-      .search-icon {
+      /* Common styles for menu, search, and theme icons */
+      .header-bar .menu-icon,
+      .header-bar .theme-toggle,
+      .header-bar .search-icon {
+        font-size: 20px;
         cursor: pointer;
         display: flex;
         align-items: center;
-        margin-right: 15px; /* Adjust space between search and theme toggle */
+        justify-content: center; /* Ensures icons are centered */
+        width: 40px; /* Consistent clickable area size */
+        height: 40px;
+        border-radius: 8px; /* Add curved corners */
+        transition: background-color 0.3s; /* Smooth animations */
       }
 
-      /* Adjust search icon size and positioning */
-      .search-icon svg {
+      /* Light Theme Hover Effect */
+      .header-bar .menu-icon:hover,
+      .header-bar .theme-toggle:hover,
+      .header-bar .search-icon:hover {
+        background-color: rgba(0, 0, 0, 0.1); /* Light semi-transparent background for light theme */
+      }
+
+      /* SVG Icon Styling */
+      .header-bar .menu-icon svg,
+      .header-bar .theme-toggle svg,
+      .header-bar .search-icon svg {
         width: 24px;
         height: 24px;
-        fill: none; /* Ensures no fill inside the circle */
-        stroke: currentColor; /* Use the current text color */
+        fill: none;
+        stroke: currentColor; /* Matches current text color */
+      }
+
+      /* Dark Theme Styling */
+      body.dark-theme .header-bar {
+        background-color: #121212; /* Dark header background */
+      }
+
+      body.dark-theme .header-bar .menu-icon,
+      body.dark-theme .header-bar .theme-toggle,
+      body.dark-theme .header-bar .search-icon {
+        color: #e0e0e0; /* Light text color for dark theme */
+      }
+
+      /* Dark Theme Hover Effect */
+      body.dark-theme .header-bar .menu-icon:hover,
+      body.dark-theme .header-bar .theme-toggle:hover,
+      body.dark-theme .header-bar .search-icon:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Light semi-transparent background for dark theme */
       }
 /* ===================== */
 
@@ -114,7 +121,7 @@
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         transition: left 0.3s;
         z-index: 999;
-        padding: 20px;
+        padding: 40px 20px 20px 20px;
       }
   
       .sidebar.open {
@@ -234,7 +241,7 @@
 header {
   display: flex;
   justify-content: center; /* Center all content horizontally */
-  padding: 30px 0; /* Space below the header bar */
+  padding: 50px 0; /* Space below the header bar */
   /* text-align: center; */
 }
 
@@ -310,7 +317,7 @@ body.dark-theme .photo img {
   }
 
   header {
-    padding: 30px 0; /* Adjust padding for smaller screens */
+    padding: 50px 0; /* Adjust padding for smaller screens */
   }
 
   .photo img {
@@ -664,3 +671,21 @@ body.dark-theme .search-container ul li:hover {
 
 /* ========================================== */
 /* =======END OF DARK THEME SECTION======= */
+
+
+/* TO REMOVE THE BLUE BG EFFECT ON PHONES */
+/* ===================================== */
+/* Remove focus and active outline or background effect */
+button, a, div, svg {
+  -webkit-tap-highlight-color: transparent; /* Removes highlight color on touch */
+}
+
+button:focus, a:focus, div:focus, svg:focus {
+  outline: none; /* Removes outline for focus */
+}
+
+button:active, a:active, div:active, svg:active {
+  background-color: transparent; /* Ensures no background color on active */
+  outline: none; /* Removes outline for active state */
+}
+/* ===================================== */

@@ -20,75 +20,83 @@ body {
 }
   
 /* Header bar styling */
-/* ====================== */
+/* ===================== */
 
-/* Content adjustments for fixed header */
-main {
-  margin-top: 70px;
-}
+      /* Content adjustments for fixed header */
+      main {
+        margin-top: 60px; /* Adjust based on header height */
+      }
 
-.header-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #ffffff;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
-  
-.header-bar .menu-icon,
-.header-bar .theme-toggle {
-  font-size: 20px;
-  cursor: pointer;
-}
-  
-.header-bar .menu-icon {
-  display: flex;
-  align-items: center;
-}
-  
-.header-bar .theme-toggle {
-  display: flex;
-  align-items: center;
-}
+      .header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+      
+      /* Right-side container for search and theme toggle */
+      .right-icons {
+        display: flex;
+        align-items: center;
+      }
 
-.theme-toggle svg {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-}
+      /* Common styles for menu, search, and theme icons */
+      .header-bar .menu-icon,
+      .header-bar .theme-toggle,
+      .header-bar .search-icon {
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Ensures icons are centered */
+        width: 40px; /* Consistent clickable area size */
+        height: 40px;
+        border-radius: 8px; /* Add curved corners */
+        transition: background-color 0.3s; /* Smooth animations */
+      }
 
-/* Left-side icons (Menu Icon) */
-.menu-icon {
-  cursor: pointer;
-}
+      /* Light Theme Hover Effect */
+      .header-bar .menu-icon:hover,
+      .header-bar .theme-toggle:hover,
+      .header-bar .search-icon:hover {
+        background-color: rgba(0, 0, 0, 0.1); /* Light semi-transparent background for light theme */
+      }
 
-/* Right-side container for search and theme toggle */
-.right-icons {
-  display: flex;
-  align-items: center;
-}
+      /* SVG Icon Styling */
+      .header-bar .menu-icon svg,
+      .header-bar .theme-toggle svg,
+      .header-bar .search-icon svg {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: currentColor; /* Matches current text color */
+      }
 
-/* Styling for Search Icon in Header */
-.search-icon {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-right: 15px; /* Adjust space between search and theme toggle */
-}
+      /* Dark Theme Styling */
+      body.dark-theme .header-bar {
+        background-color: #121212; /* Dark header background */
+      }
 
-/* Adjust search icon size and positioning */
-.search-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: none; /* Ensures no fill inside the circle */
-  stroke: currentColor; /* Use the current text color */
-}
+      body.dark-theme .header-bar .menu-icon,
+      body.dark-theme .header-bar .theme-toggle,
+      body.dark-theme .header-bar .search-icon {
+        color: #e0e0e0; /* Light text color for dark theme */
+      }
+
+      /* Dark Theme Hover Effect */
+      body.dark-theme .header-bar .menu-icon:hover,
+      body.dark-theme .header-bar .theme-toggle:hover,
+      body.dark-theme .header-bar .search-icon:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Light semi-transparent background for dark theme */
+      }
+/* ===================== */
 
 /* Sidebar styling */
 /* ====================== */
@@ -102,7 +110,7 @@ main {
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   transition: left 0.3s;
   z-index: 999;
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
 }
 
 .sidebar.open {
@@ -452,3 +460,20 @@ body.dark-theme footer {
   border-top: 2px solid #666;
 }
 /* ============== */
+
+/* TO REMOVE THE BLUE BG EFFECT ON PHONES */
+/* ===================================== */
+/* Remove focus and active outline or background effect */
+button, a, div, svg {
+  -webkit-tap-highlight-color: transparent; /* Removes highlight color on touch */
+}
+
+button:focus, a:focus, div:focus, svg:focus {
+  outline: none; /* Removes outline for focus */
+}
+
+button:active, a:active, div:active, svg:active {
+  background-color: transparent; /* Ensures no background color on active */
+  outline: none; /* Removes outline for active state */
+}
+/* ===================================== */
