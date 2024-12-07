@@ -110,6 +110,8 @@ body {
 /* ===================== */
 
   
+/* Sidebar styling */
+/* ===================== */
 .sidebar {
   position: fixed;
   top: 0;
@@ -118,8 +120,14 @@ body {
   width: 220px;
   background-color: #ffffff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  
+  /* Initially off-screen and no transitions to avoid flicker */
   transform: translateX(-250px);
-  transition: transform 0.5s ease-in-out;
+  transition: none;
+  
+  /* Hide the sidebar until JS has set the correct state */
+  visibility: hidden;
+  
   z-index: 999;
   padding: 40px 20px 20px 20px;
 }
@@ -128,6 +136,12 @@ body {
   transform: translateX(0);
 }
 
+/* Once JS is done setting up, make sidebar visible */
+body.js-ready .sidebar {
+  visibility: visible;
+}
+
+/* Sidebar contents */
 .sidebar ul {
   list-style: none;
   margin-top: 40px;
@@ -177,6 +191,8 @@ body {
   max-width: 50%; /* Ensure the image scales well */
   height: 50px; /* Maintain aspect ratio */
 }
+
+/* ===================== */
   
 /* Content adjustments for fixed header */
 main {
@@ -471,6 +487,6 @@ button:active, a:active, div:active, svg:active {
   .header-bar .menu-icon:hover,
   .header-bar .theme-toggle:hover,
   .header-bar .search-icon:hover {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 }
