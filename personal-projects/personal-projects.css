@@ -98,90 +98,6 @@ body {
       }
 /* ===================== */
   
-/* Sidebar styling */
-/* ===================== */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 220px;
-  background-color: #ffffff !important;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  
-  /* Initially off-screen and no transitions to avoid flicker */
-  transform: translateX(-250px);
-  transition: none;
-  
-  /* Hide the sidebar until JS has set the correct state */
-  visibility: hidden;
-  
-  z-index: 999;
-  padding: 40px 20px 20px 20px;
-}
-
-.sidebar.open {
-  transform: translateX(0);
-}
-
-/* Once JS is done setting up, make sidebar visible */
-body.js-ready .sidebar {
-  visibility: visible;
-}
-
-/* Sidebar contents */
-.sidebar ul {
-  list-style: none;
-  margin-top: 40px;
-}
-
-.sidebar ul li {
-  margin-bottom: 15px;
-}
-
-.sidebar ul li a {
-  text-decoration: none;
-  color: #333;
-  font-size: 18px;
-  transition: color 0.3s, background-color 0.3s;
-}
-
-.sidebar ul li a:hover {
-  color: #000000;
-}
-
-.sidebar a.active {
-  color: #333;
-  font-weight: bolder;
-}
-
-/* Footer styling for the sidebar */
-.sidebar-footer {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  width: 100%; /* Stretch the section across the sidebar width */
-  padding: 10px 20px 0 20px; /* Add padding to both sides and top */
-  text-align: left; /* Align content to the left */
-}
-
-.sidebar-footer::before {
-  content: '';
-  display: block;
-  width: calc(100% - 1px); /* Adjust width to leave padding at both ends */
-  height: 0.8px;
-  background-color: #333; /* Match border color */
-  margin: 0 auto; /* Center the border within the footer */
-}
-
-.sidebar-footer .footer-image img {
-  padding-top: 10px;
-  max-width: 50%; /* Ensure the image scales well */
-  height: 50px; /* Maintain aspect ratio */
-}
-
-/* ===================== */
-  
 /* Content adjustments for fixed header */
 main {
   margin-top: 70px;
@@ -416,15 +332,6 @@ body.dark-theme p {
   color: #a0a0a0; 
 }
   
-/* Sidebar styles for dark theme */
-body.dark-theme .sidebar ul li a {
-  color: #e0e0e0;
-}
-  
-body.dark-theme .sidebar ul li a:hover {
-  color: #ffffff;
-}
-  
 /* Dark theme */
 body.dark-theme {
   background-color: #121212;
@@ -435,15 +342,7 @@ body.dark-theme .header-bar {
   background-color: #121212;
   box-shadow: 0 2px 5px rgba(242, 242, 242, 0.1);
 }
-  
-body.dark-theme .sidebar {
-  background-color: #121212 !important;
-  box-shadow: 2px 0 5px rgba(242, 242, 242, 0.1);
-}
-  
-body.dark-theme .sidebar ul li a {
-  color: #e0e0e0;
-}
+
   
 /* Dark theme - Section headers */
 body.dark-theme h2 {
