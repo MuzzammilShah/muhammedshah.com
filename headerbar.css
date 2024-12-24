@@ -10,7 +10,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #ffffff;
+        background-color: #ffffff !important;
         padding: 10px 20px;
         /* border-bottom: 1px solid #ddd; */
         position: fixed;
@@ -60,7 +60,7 @@
 
       /* Dark Theme Styling */
       body.dark-theme .header-bar {
-        background-color: #121212; /* Dark header background */
+        background-color: #121212 !important; /* Dark header background */
       }
 
       body.dark-theme .header-bar .menu-icon,

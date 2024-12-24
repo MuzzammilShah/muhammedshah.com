@@ -11,15 +11,14 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   transform: translateX(-250px); /* Hidden state */
   transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1); /* Smooth transition */
-  visibility: hidden; /* Initially hidden */
-  z-index: 900; /* Below the header bar */
+  visibility: hidden;
+  z-index: 900;
   padding: 40px 20px 20px 20px;
 }
 
 .sidebar.open {
   transform: translateX(0); /* Slide into view */
-  visibility: visible; /* Ensure visibility when open */
-  z-index: 900; /* Consistent z-index */
+  visibility: visible;
 }
   
   /* Once JS is done setting up, make sidebar visible */
