@@ -44,49 +44,35 @@ function toggleTheme() {
 
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
-  sidebar.classList.toggle('open');
+  const isOpen = sidebar.classList.contains('open');
 
-  // Store the state
-  localStorage.setItem('sidebarOpen', sidebar.classList.contains('open'));
-
-  if (sidebar.classList.contains('open')) {
-    document.addEventListener('click', closeSidebarOnClickOutside);
+  if (isOpen) {
+      closeSidebar(); // Use the same close logic as outside clicks
   } else {
-    document.removeEventListener('click', closeSidebarOnClickOutside);
+      sidebar.style.visibility = 'visible'; // Ensure visibility before animation
+      sidebar.classList.add('open');
+      localStorage.setItem('sidebarOpen', true);
+      document.addEventListener('click', closeSidebarOnClickOutside);
   }
 }
 
 function closeSidebarOnClickOutside(event) {
   const sidebar = document.getElementById('sidebar');
   const menuIcon = document.querySelector('.menu-icon');
-  
-  // Check if the click is outside the sidebar and the menu icon
+
   if (!sidebar.contains(event.target) && !menuIcon.contains(event.target)) {
-    sidebar.classList.remove('open');
-    localStorage.setItem('sidebarOpen', false);
-    document.removeEventListener('click', closeSidebarOnClickOutside);
+      closeSidebar();
   }
 }
 
 // Once DOM is ready, set the sidebar state correctly
 document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.getElementById('sidebar');
-  const wasOpen = localStorage.getItem('sidebarOpen') === 'true';
-
-  if (wasOpen) {
-    sidebar.classList.add('open');
-    // If sidebar is open on load, add the outside click listener
-    document.addEventListener('click', closeSidebarOnClickOutside);
-  }
-
-  // Allow transitions after initial load to prevent flicker
-  requestAnimationFrame(() => {
-    sidebar.style.transition = 'left 0.3s ease';
-  });
-
-  // Indicate that JS has finished setting initial states
-  document.body.classList.add('js-ready');
+  sidebar.style.visibility = 'hidden'; // Ensure hidden on load
+  sidebar.classList.remove('open'); // Remove "open" state
 });
+
+
 
 /* =================================== */
 /* Other page-specific scripts would go below here */
@@ -164,12 +150,14 @@ async function openSearch() {
 }
 
 function closeSearch() {
-  const searchModal = document.getElementById('search-modal');
-  searchModal.style.display = 'none';
-
-  document.getElementById('search-input').value = '';
-  document.getElementById('search-results').innerHTML = '';
+    const searchModal = document.getElementById('search-modal');
+    if (searchModal) {
+        searchModal.style.display = 'none';
+        document.getElementById('search-input').value = '';
+        document.getElementById('search-results').innerHTML = '';
+    }
 }
+
 
 let debounceTimeout;
 function searchContent() {
@@ -232,22 +220,47 @@ function displaySearchResults(matches, query, resultsContainer) {
 }
 
 function navigateToSection(url, id) {
+  const sidebar = document.getElementById('sidebar');
+
+  // Close sidebar gracefully
+  closeSidebar();
+
+  // Close the search modal regardless of the navigation type
   closeSearch();
 
-  const currentUrl = window.location.pathname;
-  const targetUrl = new URL(url, window.location.origin).pathname;
+  // Wait for the sidebar's transition to complete before navigating
+  setTimeout(() => {
+      const currentUrl = window.location.pathname;
+      const targetUrl = new URL(url, window.location.origin).pathname;
 
-  if (currentUrl === targetUrl) {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      highlightSection(section);
-    }
-  } else {
-    sessionStorage.setItem('highlightSectionId', id);
-    window.location.href = `${url}#${id}`;
-  }
+      if (currentUrl === targetUrl) {
+          const section = document.getElementById(id);
+          if (section) {
+              section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              highlightSection(section);
+          }
+      } else {
+          sessionStorage.setItem('highlightSectionId', id);
+          window.location.href = `${url}#${id}`;
+      }
+  }, 400); // Match the CSS transition duration
 }
+
+function closeSidebar() {
+  const sidebar = document.getElementById('sidebar');
+
+  // Remove the "open" class to start the closing animation
+  sidebar.classList.remove('open');
+
+  // Wait for the animation to complete before hiding the sidebar
+  setTimeout(() => {
+      sidebar.style.visibility = 'hidden';
+  }, 400); // Match the CSS transition duration
+
+  localStorage.setItem('sidebarOpen', false);
+  document.removeEventListener('click', closeSidebarOnClickOutside);
+}
+
 
 function highlightSection(section) {
   document.querySelectorAll('.highlighted-section').forEach(el => {
@@ -299,5 +312,14 @@ window.addEventListener('click', function(event) {
   const searchModal = document.getElementById('search-modal');
   if (event.target === searchModal) {
     closeSearch();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const pageContainer = document.querySelector('.container'); // Target your container or body
+
+  // Apply the fade-up class for animation
+  if (pageContainer) {
+      pageContainer.classList.add('fade-up');
   }
 });
