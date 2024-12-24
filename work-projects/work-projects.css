@@ -324,6 +324,10 @@ body.dark-theme p {
   color: #a0a0a0; 
 }
 
+body.dark-theme .header-bar {
+  background-color: #121212;
+  box-shadow: 0 2px 5px rgba(242, 242, 242, 0.1);
+}
   
 /* Dark theme - Section headers */
 body.dark-theme h2 {

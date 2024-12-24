@@ -1,28 +1,26 @@
 /* Sidebar styling */
 /* ===================== */
+/* Sidebar transitions */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 220px;
-    background-color: #ffffff !important;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    
-    /* Initially off-screen and no transitions to avoid flicker */
-    transform: translateX(-250px);
-    transition: none;
-    
-    /* Hide the sidebar until JS has set the correct state */
-    visibility: hidden;
-    
-    z-index: 999;
-    padding: 40px 20px 20px 20px;
-  }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 220px;
+  background-color: #ffffff !important;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transform: translateX(-250px); /* Hidden state */
+  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1); /* Smooth transition */
+  visibility: hidden; /* Initially hidden */
+  z-index: 900; /* Below the header bar */
+  padding: 40px 20px 20px 20px;
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Slide into view */
+  visibility: visible; /* Ensure visibility when open */
+  z-index: 900; /* Consistent z-index */
+}
   
   /* Once JS is done setting up, make sidebar visible */
   body.js-ready .sidebar {
@@ -98,4 +96,23 @@ body.dark-theme .sidebar {
       
 body.dark-theme .sidebar ul li a {
     color: #e0e0e0;
+}
+
+
+/* Fade-up animation for page content */
+@keyframes fadeUpPage {
+  0% {
+      opacity: 0;
+      transform: translateY(5px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Apply animation */
+.fade-up {
+  opacity: 0; /* Initially invisible */
+  animation: fadeUpPage 1.2s ease-out forwards; /* Forward ensures opacity and position persist */
 }
