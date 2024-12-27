@@ -32,7 +32,7 @@
 /* Heading(Header) styling */
 /* ===================== */
 
-      /* header {
+      header {
         text-align: center;
         padding: 30px 0 30px 0;
       }
@@ -80,30 +80,29 @@
       .social-links a .icon {
         font-size: 20px;
         color: inherit;
-      } */
+      }
 
 
 /* Centered layout for heading, subtitle, and social links */
-header {
+/* header {
   display: flex;
-  justify-content: center; /* Center all content horizontally */
-  padding: 50px 0; /* Space below the header bar */
-  /* text-align: center; */
+  justify-content: center; 
+  padding: 50px 0;
 }
 
 .header-content {
   display: flex;
-  flex-direction: row; /* Stack content vertically */
-  align-items: center; /* Center content horizontally */
-  gap: 20px; /* Add spacing between elements */
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }
 
 .photo img {
-  width: 200px; /* Circular photo size */
+  width: 200px;
   height: 200px;
-  border-radius: 50%; /* Make the image circular */
+  border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #333; /* Optional border */
+  border: 3px solid #333;
 }
 
 body.dark-theme .photo img {
@@ -119,25 +118,25 @@ body.dark-theme .photo img {
 
 .info p {
   font-size: 1rem;
-  margin: 0 0 20px; /* Add spacing below subtitle */
+  margin: 0 0 20px; 
   text-align: center;
 }
 
 .social-links {
   display: flex;
-  gap: 15px; /* Space between icons */
-  justify-content: center; /* Center icons */
+  gap: 15px;
+  justify-content: center;
 }
 
 .social-links a {
   text-decoration: none;
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* Circular icons */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #333; /* Icon border */
+  border: 2px solid #333;
   background-color: #ffffff;
   transition: background-color 0.3s, border-color 0.3s;
 }
@@ -151,31 +150,39 @@ body.dark-theme .photo img {
 .social-links a .icon {
   font-size: 20px;
   color: inherit;
-}
+} */
 
 
 /* Responsive Layout - Ensure Consistent Center Alignment */
 @media (max-width: 768px) {
 
-  .header-content {
-    flex-direction: column; /* Stack the image, name, subtitle, and links */
-    text-align: center; /* Center-align text */
-  }
+  /* .header-content {
+    flex-direction: column; 
+    text-align: center;
+  } */
 
   header {
     padding: 50px 0; /* Adjust padding for smaller screens */
   }
 
-  .photo img {
-    width: 180px; /* Slightly smaller photo on small screens */
+  /* .photo img {
+    width: 180px;
     height: 180px;
-  }
+  } */
 
-  .info h1 {
-    font-size: 1.8rem; /* Slightly smaller heading */
+  /* .info h1 {
+    font-size: 1.8rem; 
   }
 
   .info p {
+    font-size: 0.9rem; 
+  } */
+
+  .header h1 {
+    font-size: 1.8rem; /* Slightly smaller heading */
+  }
+
+  .header p {
     font-size: 0.9rem; /* Adjust font size for subtitle */
   }
 
