@@ -80,6 +80,145 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // The search index and navigation functions remain the same as your original code
 
+// const pagesToIndex = [
+//   { page: 'Overview', url: '/' },
+//   { page: 'Work Experience', url: '/work-experience/' },
+//   { page: 'Work Projects', url: '/work-projects/' },
+//   { page: 'Certifications', url: '/certifications/' },
+//   { page: 'Personal Projects', url: '/personal-projects/' },
+//   { page: 'Education', url: '/education/' }
+// ];
+
+// let searchIndex = [];
+// let isIndexBuilding = false;
+// let indexBuilt = false;
+
+// async function buildSearchIndex() {
+//   if (indexBuilt || isIndexBuilding) return;
+
+//   isIndexBuilding = true;
+
+//   const fetchPromises = pagesToIndex.map(async (pageInfo) => {
+//     try {
+//       const response = await fetch(pageInfo.url);
+//       const html = await response.text();
+//       const parser = new DOMParser();
+//       const doc = parser.parseFromString(html, 'text/html');
+//       const sections = [];
+
+//       doc.querySelectorAll('.searchable-section').forEach(section => {
+//         const id = section.getAttribute('id');
+//         const name = section.getAttribute('data-name') || section.querySelector('h3')?.textContent || '';
+//         const content = section.textContent.replace(/\s+/g, ' ').trim();
+
+//         sections.push({
+//           id: id,
+//           name: name,
+//           content: content
+//         });
+//       });
+
+//       searchIndex.push({
+//         page: pageInfo.page,
+//         url: pageInfo.url,
+//         sections: sections
+//       });
+//     } catch (error) {
+//       console.error(`Error fetching page ${pageInfo.url}:`, error);
+//     }
+//   });
+
+//   await Promise.all(fetchPromises);
+//   isIndexBuilding = false;
+//   indexBuilt = true;
+//   console.log('Search index built:', searchIndex);
+// }
+
+// async function openSearch() {
+//   const searchModal = document.getElementById('search-modal');
+//   const searchInput = document.getElementById('search-input');
+//   searchInput.placeholder = `Search across pages`;
+//   searchModal.style.display = 'flex'; // Show the modal
+
+//   searchInput.value = '';
+//   document.getElementById('search-results').innerHTML = '';
+//   searchInput.focus();
+
+//   if (!indexBuilt) {
+//     await buildSearchIndex();
+//   }
+// }
+
+// function closeSearch() {
+//     const searchModal = document.getElementById('search-modal');
+//     if (searchModal) {
+//         searchModal.style.display = 'none';
+//         document.getElementById('search-input').value = '';
+//         document.getElementById('search-results').innerHTML = '';
+//     }
+// }
+
+
+// let debounceTimeout;
+// function searchContent() {
+//   const query = document.getElementById('search-input').value.toLowerCase();
+//   const results = document.getElementById('search-results');
+//   results.innerHTML = '';
+
+//   if (!query) return;
+
+//   clearTimeout(debounceTimeout);
+
+//   debounceTimeout = setTimeout(async () => {
+//     if (!indexBuilt) {
+//       results.innerHTML = '<li>Building search index, please wait...</li>';
+//       await buildSearchIndex();
+//     }
+
+//     const matches = [];
+//     searchIndex.forEach(page => {
+//       page.sections.forEach(section => {
+//         const sectionText = section.content.toLowerCase();
+//         if (sectionText.includes(query)) {
+//           const sentences = section.content.split('.').filter(sentence => sentence.toLowerCase().includes(query));
+//           sentences.forEach(sentence => {
+//             matches.push({
+//               page: page.page,
+//               url: page.url,
+//               sectionId: section.id,
+//               sectionName: section.name,
+//               sentence: sentence.trim()
+//             });
+//           });
+//         }
+//       });
+//     });
+
+//     displaySearchResults(matches, query, results);
+//   }, 300);
+// }
+
+// function displaySearchResults(matches, query, resultsContainer) {
+//   if (matches.length === 0) {
+//     resultsContainer.innerHTML = '<li>No results found</li>';
+//     return;
+//   }
+
+//   resultsContainer.innerHTML = '';
+//   matches.forEach(match => {
+//     const highlightedSentence = match.sentence.replace(
+//       new RegExp(`(${query})`, 'gi'),
+//       (matched) => `<span class="highlight">${matched}</span>`
+//     );
+
+//     resultsContainer.innerHTML += `
+//       <li class="result-item" onclick="navigateToSection('${match.url}', '${match.sectionId}')">
+//         <strong>${match.page} page > ${match.sectionName}</strong>: <em>${highlightedSentence}.</em>
+//       </li>
+//     `;
+//   });
+// }
+
 const pagesToIndex = [
   { page: 'Overview', url: '/' },
   { page: 'Work Experience', url: '/work-experience/' },
@@ -94,7 +233,7 @@ let isIndexBuilding = false;
 let indexBuilt = false;
 
 async function buildSearchIndex() {
-  if (indexBuilt || isIndexBuilding) return;
+  if (isIndexBuilding || indexBuilt) return;
 
   isIndexBuilding = true;
 
@@ -102,121 +241,89 @@ async function buildSearchIndex() {
     try {
       const response = await fetch(pageInfo.url);
       const html = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
+      const doc = new DOMParser().parseFromString(html, 'text/html');
       const sections = [];
 
-      doc.querySelectorAll('.searchable-section').forEach(section => {
+      doc.querySelectorAll('.searchable-section').forEach((section) => {
         const id = section.getAttribute('id');
         const name = section.getAttribute('data-name') || section.querySelector('h3')?.textContent || '';
         const content = section.textContent.replace(/\s+/g, ' ').trim();
 
-        sections.push({
-          id: id,
-          name: name,
-          content: content
-        });
+        sections.push({ id, name, content });
       });
 
-      searchIndex.push({
-        page: pageInfo.page,
-        url: pageInfo.url,
-        sections: sections
-      });
+      searchIndex.push({ page: pageInfo.page, url: pageInfo.url, sections });
     } catch (error) {
-      console.error(`Error fetching page ${pageInfo.url}:`, error);
+      console.error(`Error indexing ${pageInfo.url}:`, error);
     }
   });
 
   await Promise.all(fetchPromises);
-  isIndexBuilding = false;
   indexBuilt = true;
-  console.log('Search index built:', searchIndex);
+  isIndexBuilding = false;
 }
 
 async function openSearch() {
   const searchModal = document.getElementById('search-modal');
   const searchInput = document.getElementById('search-input');
-  searchInput.placeholder = `Search across pages`;
-  searchModal.style.display = 'flex'; // Show the modal
+  const resultsContainer = document.getElementById('search-results');
 
-  searchInput.value = '';
-  document.getElementById('search-results').innerHTML = '';
+  searchModal.style.display = 'flex';
   searchInput.focus();
+  searchInput.value = '';
+  resultsContainer.innerHTML = '';
 
-  if (!indexBuilt) {
-    await buildSearchIndex();
-  }
+  if (!indexBuilt) await buildSearchIndex();
 }
 
 function closeSearch() {
-    const searchModal = document.getElementById('search-modal');
-    if (searchModal) {
-        searchModal.style.display = 'none';
-        document.getElementById('search-input').value = '';
-        document.getElementById('search-results').innerHTML = '';
-    }
+  document.getElementById('search-modal').style.display = 'none';
 }
-
 
 let debounceTimeout;
 function searchContent() {
-  const query = document.getElementById('search-input').value.toLowerCase();
-  const results = document.getElementById('search-results');
-  results.innerHTML = '';
-
-  if (!query) return;
+  const query = document.getElementById('search-input').value.trim().toLowerCase();
+  const resultsContainer = document.getElementById('search-results');
 
   clearTimeout(debounceTimeout);
-
-  debounceTimeout = setTimeout(async () => {
-    if (!indexBuilt) {
-      results.innerHTML = '<li>Building search index, please wait...</li>';
-      await buildSearchIndex();
-    }
-
-    const matches = [];
-    searchIndex.forEach(page => {
-      page.sections.forEach(section => {
-        const sectionText = section.content.toLowerCase();
-        if (sectionText.includes(query)) {
-          const sentences = section.content.split('.').filter(sentence => sentence.toLowerCase().includes(query));
-          sentences.forEach(sentence => {
-            matches.push({
-              page: page.page,
-              url: page.url,
-              sectionId: section.id,
-              sectionName: section.name,
-              sentence: sentence.trim()
-            });
-          });
-        }
-      });
-    });
-
-    displaySearchResults(matches, query, results);
-  }, 300);
-}
-
-function displaySearchResults(matches, query, resultsContainer) {
-  if (matches.length === 0) {
-    resultsContainer.innerHTML = '<li>No results found</li>';
+  if (!query) {
+    resultsContainer.innerHTML = '<li>Please enter a keyword to search</li>';
     return;
   }
 
-  resultsContainer.innerHTML = '';
-  matches.forEach(match => {
-    const highlightedSentence = match.sentence.replace(
-      new RegExp(`(${query})`, 'gi'),
-      (matched) => `<span class="highlight">${matched}</span>`
+  debounceTimeout = setTimeout(() => {
+    const matches = searchIndex.flatMap((page) =>
+      page.sections
+        .filter((section) => section.content.toLowerCase().includes(query))
+        .map((section) => ({
+          page: page.page,
+          url: page.url,
+          sectionId: section.id,
+          sectionName: section.name,
+          content: section.content,
+        }))
     );
 
-    resultsContainer.innerHTML += `
-      <li class="result-item" onclick="navigateToSection('${match.url}', '${match.sectionId}')">
-        <strong>${match.page} page > ${match.sectionName}</strong>: <em>${highlightedSentence}.</em>
+    renderSearchResults(matches, query, resultsContainer);
+  }, 300);
+}
+
+function renderSearchResults(matches, query, container) {
+  if (!matches.length) {
+    container.innerHTML = '<li>No results found</li>';
+    return;
+  }
+
+  container.innerHTML = matches
+    .map(
+      (match) => `
+      <li onclick="navigateToSection('${match.url}', '${match.sectionId}')">
+        <strong>${match.page} > ${match.sectionName}</strong>
+        <p>${match.content.replace(new RegExp(query, 'gi'), (m) => `<span class="highlight">${m}</span>`)}</p>
       </li>
-    `;
-  });
+    `
+    )
+    .join('');
 }
 
 function navigateToSection(url, id) {
