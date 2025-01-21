@@ -102,18 +102,85 @@
             <div class="work-project">
               <h3>AI Search</h3>
               <p><Strong>In Company: </Strong> Potentiam Ltd</p>
-              <p><strong>Timeline: </strong>Nov 2024 - Present</p>
-              <p><strong>Tech Stacks: </strong>LLMs | GPTs | MemGPT | LangChain, LangGraph | Full Stack- React, Flask, RESTful APIs, MongoDB | Python</p>
-              <p>Working on the Development an AI Search tool that allows for both navigation around the internally developed application and have detailed conversation with the user to provide with the most accurate results for their queries.</p>
+              <p><strong>Timeline: </strong>Dec 2024 - Present</p>
+              <!-- <p><strong>Tech Stacks: </strong>LLMs | GPTs | MemGPT | LangChain, LangGraph | Full Stack- React, Flask, RESTful APIs, MongoDB | Python</p>
+              <p>Working on the Development an AI Search tool that allows for both navigation around the internally developed application and have detailed conversation with the user to provide with the most accurate results for their queries.</p> -->
+              <p><strong>Work done:</strong>
+              <ul>
+                <li>Developed an AI Search widget for the organisation's internal tool, allowing semantic queries to improve access to employee salary data, market salary data, job specs, and skills matrices.</li>
+                <li>Enhanced the traditional search bar by integrating an “Ask AI” feature that processes user queries and provides accurate results with source links, cutting user navigation time by 50%.</li>
+                <li>Designed and implemented a RAG (Retrieval-Augmented Generation) system, incorporating:</li>
+                <ul>
+                  <li>FAISS for embedding storage and similarity search.</li>
+                  <li>LangChain to orchestrate document retrieval, query formatting, and response generation using the LLM.</li>
+                  <li>Optimized embedding algorithms and document-based metadata storage, improving accuracy from 75% to 90% and reducing hallucinations.</li>
+                </ul>
+                <li>Introduced caching with SQLite to handle repeated queries efficiently, minimizing redundant computation.</li>
+                <li>Implemented structured HTML response validation to ensure consistent and interactive UI experience.</li>
+                <li>Deployed the production system via IIS, by bundling it into a JavaScript widget for seamless integration into the company’s website.</li>
+              </ul>
+              </p>
+              <p><strong>Skills & Technology Implemented:</strong>
+              <ul>
+                <li>Frontend Development: React.js, TailwindCSS</li>
+                <li>Backend Development: Flask (Python), MongoDB (user conversations), SQLite (cache)</li>
+                <li>RAG Architecture:
+                <ul>
+                  <li>Embedding and similarity search: FAISS, PCA for dimensionality reduction</li>
+                  <li>LLM: Ollama server with Llama3.x models</li>
+                  <li>LangChain for end-to-end pipeline integration</li>
+                  <li>Prompt templates and validation with Pydantic and BeautifulSoup</li>
+                </ul>
+                </li>
+                <li>Deployment: IIS server hosting with optimized domain and site configuration</li>
+                <li>Problem-Solving:</li>
+                <ul>
+                  <li>Enhanced embedding accuracy and response speed.</li>
+                  <li>Reduced hallucinations with document-based metadata storage.</li>
+                  <li>User-centric improvements validated by a 90% satisfaction rate and 50% time savings.</li>
+                </ul>
+              </ul>
+              </p>
             </div>
           </section>
           <section id="work-projects-7" class="searchable-section" data-name="Individual Contribution">
             <div class="work-project">
-              <h3>Intelligence Framework (LLM Tooling)</h3>
+              <h3>Intelligence Framework</h3>
               <p><Strong>In Company: </Strong> Potentiam Ltd</p>
-              <p><strong>Timeline: </strong>Sept 2024 - Present</p>
-              <p><strong>Tech Stacks: </strong>LLMs | GPTs | Full Stack- React, Flask, RESTful APIs, MongoDB | Python</p>
-              <p>Developed an All-in-One Intelligence framework with a high-quality UI that leveraged various Open Source LLMs. This application was built specifically for the Talent Acquisition and HR departments of the company. It included various features such as Resume reviewer (When provided with a Job Spec and applied Resumes, the model performs an analysis and provides with a detailed result), General Chatbot (To provide safe use of an LLM without using any third-party APIs), Job Spec and Skills Matrix Generator (Conversational bot to provide with data based on the template it was pre-trained and instructed on, along with downloadable word documents of the results).</p>
+              <p><strong>Timeline: </strong>Sept 2024 - Dec 2024</p>
+              <!-- <p><strong>Tech Stacks: </strong>LLMs | GPTs | Full Stack- React, Flask, RESTful APIs, MongoDB | Python</p>
+              <p>Developed an All-in-One Intelligence framework with a high-quality UI that leveraged various Open Source LLMs. This application was built specifically for the Talent Acquisition and HR departments of the company. It included various features such as Resume reviewer (When provided with a Job Spec and applied Resumes, the model performs an analysis and provides with a detailed result), General Chatbot (To provide safe use of an LLM without using any third-party APIs), Job Spec and Skills Matrix Generator (Conversational bot to provide with data based on the template it was pre-trained and instructed on, along with downloadable word documents of the results).</p> -->
+              <p><strong>Work done: </strong>
+              <ul>
+                <li>Designed and developed an "All-in-One Intelligence Framework" to assist Talent Acquisition and HR teams with candidate evaluation, job specification creation, and data management.</li>
+                <li>Features Developed: </li>
+                <ul>
+                  <li><strong>Resume Reviewer</strong>: Analyzed candidate resumes against job descriptions, providing strengths, weaknesses, and training suggestions. Results were downloadable and processed for up to 10 candidates simultaneously within 10 seconds.</li>
+                  <li><strong>General Chatbot</strong>: Built an LLM-powered chatbot with a dynamic UI for safe, secure company use. Features included conversational history, responsive design, and well-formatted chat messages.</li>
+                  <li><strong>Job Spec and Skills Matrix Generator</strong>: Created job specifications and skills matrices from job titles, trained strictly on internal company data, with outputs downloadable as Word documents.</li>
+                  <li><strong>Resume Formatter</strong>: Transformed pasted resume content into client-specific templates, ensuring formatting consistency without altering content. Each resume was stored in conversational history for easy reference.</li>
+                  <li><strong>Job Title Comparison</strong>: Enabled role comparison with drop-down menus, generating detailed analyses based on internal databases without internet-based data.</li>
+                </ul>
+                <li>Boosted the TA team's efficiency by reducing candidate screening time from hours to seconds and reducing the HR team's workload by enabling instant internal data generation.</li>
+              </ul>
+              </p>
+              <p><strong>Skills & Technology Implemented: </strong>
+              <ul>
+                <li>Frontend Development: React.js, JavaScript, HTML, CSS</li>
+                <li>Backend Development: Flask (Python), MongoDB (storing user conversations)</li>
+                <li>AI Architecture:</li>
+                <ul>
+                  <li>LLMs: Ollama server for local LLM hosting and processing</li>
+                  <li>LangChain: For context handling, prompt templates, and conversational workflows</li>
+                </ul>
+                <li>Problem-Solving:</li>
+                <ul>
+                  <li>Delivered fast (2-3 seconds) and accurate conversational AI responses.</li>
+                  <li>Streamlined manual HR processes, significantly improving efficiency and reducing human errors.</li>
+                  <li>Designed user-friendly and responsive UIs for seamless interaction and data download.</li>
+                </ul>
+              </ul>
+              </p>
             </div>
           </section>
           <section id="work-projects-6" class="searchable-section" data-name="Individual Contribution">
@@ -121,8 +188,48 @@
               <h3>Chatbot Development</h3>
               <p><Strong>In Company: </Strong> Potentiam Ltd</p>
               <p><strong>Timeline: </strong>Jan 2024 - Sept 2024</p>
-              <p><strong>Tech Stacks: </strong>LLMs | SLMs (Small Language Models) | GPTs | Conversational AI | Open Souce Tooling | Full Stack- Flask, RESTful API, MongoDB | Python</p>
-              <p>Spearheaded the development of an intelligent chatbot in the form of a widget whose accurate performance was due to the Small Language Model (SLM) that was completely trained in-house with internal data. The Chatbot was developed using Rasa and Flask with integrated Speech-to-Text (STT) and file download features, significantly enhancing the work efficiency of our internal team as this reduced navigation time, data retrieval, and exportation processes to under a minute. Even improved the Intelligence of the chatbot by incorporating Conversational AI after successfully migrating the entire project from Rasa Open Source to Rasa Pro CALM.</p>
+              <!-- <p><strong>Tech Stacks: </strong>LLMs | SLMs (Small Language Models) | GPTs | Conversational AI | Open Souce Tooling | Full Stack- Flask, RESTful API, MongoDB | Python</p>
+              <p>Spearheaded the development of an intelligent chatbot in the form of a widget whose accurate performance was due to the Small Language Model (SLM) that was completely trained in-house with internal data. The Chatbot was developed using Rasa and Flask with integrated Speech-to-Text (STT) and file download features, significantly enhancing the work efficiency of our internal team as this reduced navigation time, data retrieval, and exportation processes to under a minute. Even improved the Intelligence of the chatbot by incorporating Conversational AI after successfully migrating the entire project from Rasa Open Source to Rasa Pro CALM.</p> -->
+            <p><strong>Work done:</strong>
+            <ul>
+              <li>Spearheaded the development of an intelligent chatbot for Potentiam Ltd as a widget, leveraging an in-house trained Small Language Model (SLM) with internal company data.</li>
+              <li>Migrated the chatbot from Rasa Open Source to Rasa Pro CALM, enabling advanced conversational AI with fallback handling and seamless context-switching.</li>
+              <li>Redesigned and developed a fully customized UI, integrating key functionalities:</li>
+              <ul>
+                <li><strong>File Downloads</strong>: Generating and downloading formatted Word and PDF outputs.</li>
+                <li><strong>Speech-to-Text (STT)</strong>: Allowing voice-based interaction.</li>
+                <li><strong>Conversational Features</strong>: Enhanced handling of interruptions and context switching for smoother user interactions.</li>
+              </ul>
+              <li>Developed custom modules for data preparation, database setup, and Rasa integration for efficient data retrieval.</li>
+              <li>Overcame significant technical challenges:</li>
+              <ul>
+                <li>Installation Issues: Resolved package version conflicts through custom debugging and testing multiple environments.</li>
+                <li>UI Limitations: Replaced default Rasa UI with an alternative Flask-based solution, implementing missing functionalities and extending JavaScript features.</li>
+              </ul>
+              <li>Enhanced chatbot intelligence by integrating LLMs (Ollama) for fallback responses when queries exceeded SLM's knowledge base, ensuring continuous and relevant interactions.</li>
+              <li>Demonstrated expertise in Natural Language Processing (NLP), Natural Language Understanding (NLU), and LLM tooling through the project's architecture.</li>
+            </ul>
+            </p>
+            <p><strong>Skills & Technology Implemented</strong>
+            <ul>
+              <li>Full Stack Development:</li>
+              <ul>
+                <li>Frontend: HTML, CSS, JavaScript (Open source widget, later migrated to in-house UI developed using React.js)</li>
+                <li>Backend: Flask (API calls), MongoDB (knowledge base)</li>
+              </ul>
+              <li>AI Architecture:</li>
+              <ul>
+                <li>Rasa: Migrated from Open Source to Rasa Pro CALM</li>
+                <li>LLM Tooling: Integrated LLMs (Ollama) for fallback scenarios</li>
+              </ul>
+              <li>Problem-Solving:</li>
+              <ul>
+                <li>Debugged installation issues, implemented custom solutions for data retrieval, and improved conversational design.</li>
+                <li>Designed scalable systems for handling diverse and dynamic data inputs without compromising response times.</li>
+              </ul>
+            </ul>
+            </p>
+            <p><i>This project served as a pilot for demonstrating AI's potential in business workflows, blending innovative AI architecture with practical, user-centric design.</i></p>
             </div>
           </section>
           <section id="work-projects-5" class="searchable-section" data-name="Individual Contribution">
