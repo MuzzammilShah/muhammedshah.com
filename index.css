@@ -518,3 +518,29 @@ button:active, a:active, div:active, svg:active {
   outline: none; /* Removes outline for active state */
 }
 /* ===================================== */
+
+
+.skills h3 {
+  font-size: 1rem;
+  margin-top: 12px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background-color: #f2f2f2;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  /* transition: background-color 0.3s, transform 0.2s; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  margin-top: 5px;
+}
+
+body.dark-theme .button {
+  background-color: #222222;
+  color: #f2f2f2
+}
