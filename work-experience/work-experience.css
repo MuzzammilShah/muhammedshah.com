@@ -20,14 +20,14 @@ body {
 }
 
 /* Styling for <a> tags */
-a {
+.timeline-subitem a {
   text-decoration: underline; /* Underlined by default */
   color: inherit; /* Inherit text color */
   font-weight: normal; /* Default font weight */
   transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
 
-a:hover {
+.timeline-subitem a:hover {
   text-decoration: underline; /* Underlined */
   font-weight: bold; /* Bold when hovered */
 }

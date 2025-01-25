@@ -1,0 +1,289 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+    
+  /* Basic styling */
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffffff;
+    padding: 20px;
+  }
+    
+  .container {
+    max-width: 800px;
+    margin: auto;
+  }
+    
+  /* Content adjustments for fixed header */
+  main {
+    margin-top: 70px;
+  }
+  
+    
+  /* Section titles */
+  h2 {
+    font-size: 1.6rem;
+    margin-top: 60px;
+    color: #333;
+    /* border-bottom: 2px solid #ddd; */
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  h4 {
+    font-size: 1.2rem;
+    margin-top: 60px;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+  }
+    
+  .skills {
+    margin: 20px 0 70px 0;
+  }
+    
+  .skills-item {
+    margin-top: 10px;
+  }
+    
+  .skills-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+    
+  .skills-item p {
+    font-size: 0.9rem;
+    color: #000000;
+  }
+  
+  .skills-item h3{
+    padding-top: 20px;
+  }
+    
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.8rem;
+    color: #999;
+    border-top: 2px solid #ddd;
+    padding-top: 5px;
+  }
+  
+  .nav-button {
+    text-decoration: none;
+    color: #999;
+    font-size: 0.8rem;
+    transition: font-weight 0.3s, color 0.3s;
+  }
+  
+  .nav-button:hover {
+    font-weight: bold;
+    color: #999;
+  }
+  
+  /* Search Modal */
+  .search-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+  }
+  
+  .search-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .search-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .search-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .search-container ul li {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .search-container ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .search-container ul li:hover {
+    background: #f0f0f0;
+  }
+  
+  .search-container ul li strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  .search-container ul li em {
+    font-style: normal;
+    color: #555;
+  }
+  
+  .search-container ul li .highlight {
+    background-color: yellow;
+  }
+  
+  /* Highlight target section after navigation */
+  .highlighted-section {
+    background-color: #f0f0f0;
+    transition: background-color 0.5s ease;
+  }
+  
+  body.dark-theme .highlighted-section {
+    background-color: #33333380;
+  }
+  
+  /* Dark Theme Adjustments */
+  body.dark-theme .search-container {
+    background: #333;
+    color: #fff;
+  }
+  
+  body.dark-theme .search-container input {
+    background: #444;
+    color: #fff;
+    border: 1px solid #555;
+  }
+  
+  body.dark-theme .search-container ul li {
+    border-bottom: 1px solid #555;
+  }
+  
+  body.dark-theme .search-container ul li strong {
+    color: #fff;
+  }
+  
+  body.dark-theme .search-container ul li em {
+    color: #ddd;
+  }
+  
+  body.dark-theme .search-container ul li .highlight {
+    background-color: yellow;
+    color: #333;
+  }
+  
+  body.dark-theme .search-container ul li:hover {
+    background: #121212;
+  }
+  
+  /* Adjust the scroll position to account for the fixed header */
+  .searchable-section {
+    scroll-margin-top: 80px; /* Adjust this value to the height of your fixed header */
+  }
+  
+  
+  
+  
+  
+  /* Dark theme */
+  /* ============== */
+  body.dark-theme p strong{
+    color: #d0d0d0;
+  }
+  
+  body.dark-theme p {
+    color: #a0a0a0;
+  }
+    
+  /* Dark theme */
+  body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+    
+  /* Dark theme - Section headers */
+  body.dark-theme h2 {
+    color: #e0e0e0;
+  }
+  
+  body.dark-theme h4 {
+    color: #e0e0e0;
+    border-bottom: 2px solid #666;
+  }
+    
+  /* Dark theme - Timeline line */
+  body.dark-theme .timeline {
+    border-left: 2px solid #666;
+  }
+    
+  body.dark-theme .timeline-item::before {
+    background-color: #666;
+  }
+    
+  /* Dark theme - Footer border */
+  body.dark-theme footer {
+    border-top: 2px solid #666;
+  }
+  /* ============== */
+  
+  /* TO REMOVE THE BLUE BG EFFECT ON PHONES */
+  /* ===================================== */
+  /* Remove focus and active outline or background effect */
+  button, a, div, svg {
+    -webkit-tap-highlight-color: transparent; /* Removes highlight color on touch */
+  }
+  
+  button:focus, a:focus, div:focus, svg:focus {
+    outline: none; /* Removes outline for focus */
+  }
+  
+  button:active, a:active, div:active, svg:active {
+    background-color: transparent; /* Ensures no background color on active */
+    outline: none; /* Removes outline for active state */
+  }
+  /* ===================================== */
+  
+  .button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background-color: #f2f2f2;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+    /* transition: background-color 0.3s, transform 0.2s; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    margin-top: 5px;
+  }
+  
+  body.dark-theme .button {
+    background-color: #222222;
+    color: #f2f2f2
+  }
