@@ -226,7 +226,7 @@ body.dark-theme .photo img {
   
       /* Timeline styling */
       .timeline {
-        margin: 20px 0;
+        margin: 20px 0 70px 0;
         border-left: 2px solid #ddd;
       }
   
@@ -287,15 +287,15 @@ body.dark-theme .photo img {
       }
   
 /* Projects and other sections */
-      .projects, .certifications, .education, .work-projects {
+      .projects, .certifications, .education, .work-projects, .skills, .aboutme {
         margin: 20px 0 70px 0;
       }
   
       .project, .certification, .education-item, .work-project {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
       }
   
-      .project h3, .education-item h3, .work-project h3 {
+      .project h3, .education-item h3, .work-project h3, .aboutme h3 {
         font-size: 1.1rem;
         margin-bottom: 5px;
       }
@@ -324,7 +324,7 @@ body.dark-theme .photo img {
       }
   
   
-      .project p, .certification p, .education-item p, .work-project p {
+      .project p, .certification p, .education-item p, .work-project p, .aboutme p {
         font-size: 0.9rem;
         color: #666;
       }
@@ -520,7 +520,7 @@ button:active, a:active, div:active, svg:active {
 /* ===================================== */
 
 
-.skills h3 {
+.skills-section h3 {
   font-size: 1rem;
   margin-top: 12px;
 }
