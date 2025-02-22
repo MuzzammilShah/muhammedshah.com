@@ -262,7 +262,7 @@ body.dark-theme .photo img {
   
       .timeline-item p {
         font-size: 0.9rem;
-        color: #666;
+        color: #333;
       }
   
       /* Nested Timeline for role progression */
@@ -284,6 +284,7 @@ body.dark-theme .photo img {
   
       .timeline-subitem p {
         margin-bottom: 20px;
+        color: #333;
       }
   
 /* Projects and other sections */
@@ -326,7 +327,7 @@ body.dark-theme .photo img {
   
       .project p, .certification p, .education-item p, .work-project p, .aboutme p {
         font-size: 0.9rem;
-        color: #666;
+        color: #333;
       }
   
 /* Footer */
@@ -530,10 +531,10 @@ button:active, a:active, div:active, svg:active {
   align-items: center;
   text-decoration: none;
   padding: 2px 8px;
-  border-radius: 6px;
+  border-radius: 15px;
   background-color: #f2f2f2;
   color: #000000;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   /* transition: background-color 0.3s, transform 0.2s; */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */

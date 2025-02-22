@@ -77,7 +77,7 @@ h4 {
   
 .timeline-item p {
   font-size: 0.9rem;
-  color: #666;
+  color: #333;
 }
   
 /* Nested Timeline for role progression */
@@ -101,6 +101,7 @@ h4 {
   
 .timeline-subitem p {
   margin-bottom: 20px;
+  color: #333;
 }
   
 .timeline-subitem::before {
