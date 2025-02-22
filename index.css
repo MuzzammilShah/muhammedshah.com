@@ -224,6 +224,16 @@ body.dark-theme .photo img {
         color: #333;
         font-weight: bolder;
       }
+
+      body.dark-theme h2 .read-more {
+        color: #999; 
+        font-weight: bolder;
+      }
+
+      body.dark-theme h2 .read-more:hover {
+        color: #ddd; 
+        font-weight: bolder;
+      }
   
       /* Timeline styling */
       .timeline {
