@@ -138,6 +138,15 @@ footer {
   color: #333;
 }
 
+body.dark-theme .nav-button {
+  color: #999;
+  font-weight: bold;
+}
+
+body.dark-theme .nav-button:hover {
+  color: #ddd;
+  font-weight: bold;
+}
 
 /* Search Modal */
 .search-modal {
