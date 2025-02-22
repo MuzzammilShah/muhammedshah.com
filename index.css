@@ -212,6 +212,7 @@ body.dark-theme .photo img {
         font-size: 0.8rem;
         font-weight: 400;
         color: #999; 
+        font-weight: bolder;
         text-decoration: none;
         position: absolute;
         right: 0;
@@ -220,7 +221,7 @@ body.dark-theme .photo img {
       }
   
       h2 .read-more:hover {
-        color: #999;
+        color: #333;
         font-weight: bolder;
       }
   

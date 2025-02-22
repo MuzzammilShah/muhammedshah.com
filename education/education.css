@@ -104,13 +104,14 @@ footer {
 .nav-button {
   text-decoration: none;
   color: #999;
+  font-weight: bold;
   font-size: 0.8rem;
   transition: font-weight 0.3s, color 0.3s;
 }
 
 .nav-button:hover {
   font-weight: bold;
-  color: #999;
+  color: #333;
 }
 
 /* Search Modal */
