@@ -48,8 +48,8 @@ h4 {
   text-decoration: none;
   padding: 3px 10px;
   border-radius: 8px;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #333;
+  color: #f5f5f5;
   font-size: 14px;
   font-weight: 500;
   transition: background-color 0.5s, transform 0.5s;
@@ -58,8 +58,8 @@ h4 {
 }
 
 body.dark-theme .button {
-  background-color: #333;
-  color: #f5f5f5;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 .button-icon {
@@ -70,13 +70,13 @@ body.dark-theme .button {
 }
 
 .button:hover {
-  background-color: #333;
-  color: #f5f5f5;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 body.dark-theme .button:hover {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #333;
+  color: #f5f5f5;
 }
 
 .project p.skills-button {
@@ -86,7 +86,7 @@ body.dark-theme .button:hover {
   padding: 2px 8px;
   border-radius: 15px;
   background-color: #f2f2f2;
-  color: #666;
+  color: #333;
   font-size: 13px;
   font-weight: 500;
   /* transition: background-color 0.3s, transform 0.2s; */
