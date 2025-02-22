@@ -47,7 +47,7 @@ h4 {
   font-size: 1.3rem;
   margin-top: 60px;
   color: #333;
-  border-bottom: 2px solid #ddd;
+  /* border-bottom: 2px solid #ddd; */
   padding-bottom: 5px;
 }
   
@@ -59,6 +59,8 @@ h4 {
   
 .work-project {
   margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
 }
   
 .work-project h3 {
@@ -78,7 +80,7 @@ h4 {
   
 .work-project p {
   font-size: 0.9rem;
-  color: #666;
+  color: #333;
 }
 
 .work-project p{
@@ -94,7 +96,7 @@ h4 {
 
 .work-project ul li {
   font-size: 0.9rem; /* Match paragraph font size */
-  color: #666; /* Match paragraph text color */
+  color: #333; /* Match paragraph text color */
   line-height: 1.6; /* Consistent line height */
   margin-bottom: 5px; /* Add space between list items */
 }
@@ -283,7 +285,7 @@ body.dark-theme h2 {
 
 body.dark-theme h4 {
   color: #e0e0e0;
-  border-bottom: 2px solid #666;
+  /* border-bottom: 2px solid #666; */
 }
   
 /* Dark theme - Timeline line */
