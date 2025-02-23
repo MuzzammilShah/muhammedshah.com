@@ -328,3 +328,25 @@ button:active, a:active, div:active, svg:active {
   outline: none; /* Removes outline for active state */
 }
 /* ===================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 2px 8px;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  font-weight: 500;
+  /* margin-top: 5px; */
+}
+
+.timeline-subitem p.button {
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #000000;
+}
+
+body.dark-theme .button {
+  background-color: #222222;
+  color: #f2f2f2
+}
