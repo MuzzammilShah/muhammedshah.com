@@ -178,12 +178,14 @@ body.dark-theme .photo img {
     font-size: 0.9rem; 
   } */
 
-  .header h1 {
-    font-size: 1.8rem; /* Slightly smaller heading */
+  header h1 {
+    font-size: 2rem;
+    /* display: block;
+    white-space: normal; */
   }
 
   .header p {
-    font-size: 0.9rem; /* Adjust font size for subtitle */
+    font-size: 1rem; /* Adjust font size for subtitle */
   }
 
   .social-links a {
