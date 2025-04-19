@@ -614,7 +614,7 @@ body.dark-theme .button {
 
   /* Paragraphs in all sections */
   p, .timeline-item p, .timeline-subitem p, .project p, .certification p, .education-item p, .work-project p, .aboutme p {
-    font-size: 0.8rem; /* Readable size for mobile */
+    font-size: 0.85rem; /* Readable size for mobile */
     font-weight: 400;
     line-height: 1.5; /* Improved readability */
     color: #333; /* Maintain contrast */

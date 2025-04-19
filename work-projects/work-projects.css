@@ -330,3 +330,155 @@ button:active, a:active, div:active, svg:active {
   outline: none; /* Removes outline for active state */
 }
 /* ===================================== */
+
+/* Responsive Layout for Mobile Screens */
+@media (max-width: 768px) {
+  /* Section titles (h2) */
+  h2 {
+    font-size: 1.4rem; /* Slightly smaller for mobile */
+    font-weight: 600;
+    margin-top: 60px; /* Reduced spacing */
+    padding-bottom: 8px;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  /* Section titles (h4) */
+  h4 {
+    font-size: 1.2rem; /* Adjusted for mobile */
+    font-weight: 700;
+    margin-top: 40px;
+    padding-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  /* Subheaders (h3) in work projects */
+  .work-project h3 {
+    font-size: 1rem; /* Readable and consistent */
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    padding-top: 8px;
+  }
+
+  /* Bold text in h3 */
+  .work-project h3 strong {
+    font-weight: 700; /* Maintain bold styling */
+  }
+
+  /* Paragraphs in work projects */
+  .work-project p {
+    font-size: 0.85rem; /* Readable size for mobile */
+    font-weight: 400;
+    line-height: 1.5; /* Improved readability */
+    color: #333;
+    padding-top: 4px;
+    margin-bottom: 10px;
+  }
+
+  /* Bold text in paragraphs */
+  .work-project p strong {
+    font-weight: 700; /* Maintain bold styling */
+  }
+
+  /* List items in work projects */
+  .work-project ul li {
+    font-size: 0.85rem; /* Match paragraph size */
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  /* Nested list items */
+  .work-project ul ul li {
+    font-size: 0.85rem; /* Consistent with parent list */
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 2px;
+  }
+
+  /* Bold text in list items */
+  .work-project ul li strong, .work-project ul ul li strong {
+    font-weight: 700; /* Maintain bold styling */
+  }
+
+  /* Navigation buttons */
+  .nav-button {
+    font-size: 0.75rem; /* Slightly smaller for mobile */
+    font-weight: 700; /* Bold as specified */
+    line-height: 1.4;
+  }
+
+  /* Dark theme adjustments for mobile */
+  body.dark-theme h2, body.dark-theme h4 {
+    color: #e0e0e0;
+  }
+
+  body.dark-theme .work-project h3 {
+    color: #d0d0d0;
+  }
+
+  body.dark-theme .work-project h3 strong {
+    color: #e0e0e0;
+    font-weight: 700;
+  }
+
+  body.dark-theme .work-project p {
+    color: #a0a0a0; /* Lighter for readability */
+  }
+
+  body.dark-theme .work-project p strong {
+    color: #d0d0d0; /* Bold text in dark theme */
+    font-weight: 700;
+  }
+
+  body.dark-theme .work-project ul li {
+    color: #a0a0a0; /* Adjusted for readability */
+  }
+
+  body.dark-theme .work-project ul ul li {
+    color: #a0a0a0; /* Slightly lighter for sub-lists */
+  }
+
+  body.dark-theme .work-project ul li strong, body.dark-theme .work-project ul ul li strong {
+    color: #b0b0b0;
+    font-weight: 700;
+  }
+
+  body.dark-theme .nav-button {
+    color: #999;
+    font-weight: 700;
+  }
+
+  body.dark-theme .nav-button:hover {
+    color: #ddd;
+    font-weight: 700;
+  }
+
+  /* Adjust container padding for mobile */
+  .container {
+    padding: 0 15px; /* Tighter padding */
+  }
+
+  /* Work projects adjustments */
+  .work-projects {
+    margin: 15px 0 50px 0; /* Reduced margin */
+  }
+
+  .work-project {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.75rem; /* Slightly smaller */
+    margin-top: 30px;
+    padding-top: 4px;
+  }
+
+  /* Adjust main margin for fixed header */
+  main {
+    margin-top: 60px; /* Slightly reduced for mobile */
+  }
+}
