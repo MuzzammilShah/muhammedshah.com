@@ -22,7 +22,7 @@
       .external-icon {
         width: 1.1em;       
         height: 1.1em;   
-        margin-left: 0.25em; 
+        margin-right: 0.25em; 
         /* vertical-align: middle; */
         position: relative; 
         top: 0.2em; 
@@ -346,8 +346,8 @@ body.dark-theme .photo img {
 /* Footer */
       footer {
         text-align: center;
-        margin-top: 40px;
-        font-size: 0.8rem;
+        margin-top: 20px;
+        font-size: 0.7rem;
         color: #999;
         border-top: 2px solid #ddd;
         padding-top: 5px;
@@ -557,4 +557,127 @@ button:active, a:active, div:active, svg:active {
 body.dark-theme .button {
   background-color: #222222;
   color: #f2f2f2
+}
+
+
+/* Responsive Layout for Mobile Screens */
+@media (max-width: 768px) {
+  /* Header (h1) */
+  header h1 {
+    font-size: 1.8rem; /* Slightly smaller but prominent */
+    font-weight: 600;
+    line-height: 1.3; /* Improved readability */
+  }
+
+  /* Header paragraph (subtitle) */
+  header p {
+    font-size: 0.9rem; /* Readable size */
+    font-weight: 300; /* Lighter for contrast */
+    line-height: 1.4;
+    padding-top: 5px;
+    padding-bottom: 15px; /* Adjusted padding */
+  }
+
+  /* Bold text in header paragraph */
+  header p strong {
+    font-weight: 600; /* Maintain bold styling */
+  }
+
+  /* Section titles (h2) */
+  h2 {
+    font-size: 1.3rem; /* Reduced for mobile */
+    font-weight: 600;
+    margin-top: 30px; /* Adjusted spacing */
+    padding-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  /* Bold text in h2 (e.g., read-more links) */
+  h2 .read-more {
+    font-size: 0.75rem; /* Slightly smaller for mobile */
+    font-weight: 700; /* Bolder as in original */
+    line-height: 1.3;
+  }
+
+  /* Subheaders (h3) in timeline, projects, certifications, etc. */
+  h3, .timeline-item h3, .timeline-subitem h3, .project h3, .certification h3, .education-item h3, .work-project h3, .aboutme h3, .skills-section h3 {
+    font-size: 1rem; /* Consistent and readable */
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  /* Bold text in h3 */
+  h3 strong, .timeline-item h3 strong, .timeline-subitem h3 strong, .project h3 strong, .certification h3 strong, .education-item h3 strong, .work-project h3 strong, .aboutme h3 strong, .skills-section h3 strong {
+    font-weight: 700; /* Maintain bold styling */
+  }
+
+  /* Paragraphs in all sections */
+  p, .timeline-item p, .timeline-subitem p, .project p, .certification p, .education-item p, .work-project p, .aboutme p {
+    font-size: 0.85rem; /* Readable size for mobile */
+    font-weight: 400;
+    line-height: 1.5; /* Improved readability */
+    color: #333; /* Maintain contrast */
+  }
+
+  /* Bold text in paragraphs */
+  p strong, .timeline-item p strong, .timeline-subitem p strong, .project p strong, .certification p strong, .education-item p strong, .work-project p strong, .aboutme p strong {
+    font-weight: 700; /* Maintain bold styling */
+  }
+
+  /* Specific bold styling for timeline-subitem p:has(em) */
+  .timeline-subitem p:has(em) {
+    font-size: 0.8rem; /* Consistent with other paragraphs */
+    font-weight: 700; /* Bold as specified in original CSS */
+    line-height: 1.5;
+    margin-bottom: 8px; /* Slightly reduced for mobile */
+  }
+
+  /* Dark theme adjustments for mobile */
+  body.dark-theme p {
+    color: #a0a0a0; /* Lighter for readability */
+  }
+
+  body.dark-theme p strong {
+    color: #d0d0d0; /* Bold text in dark theme */
+    font-weight: 700;
+  }
+
+  body.dark-theme h2 {
+    color: #e0e0e0;
+  }
+
+  body.dark-theme h2 .read-more {
+    color: #999;
+    font-weight: 700;
+  }
+
+  body.dark-theme h2 .read-more:hover {
+    color: #ddd;
+    font-weight: 700;
+  }
+
+  body.dark-theme h3 {
+    color: #d0d0d0;
+  }
+
+  body.dark-theme h3 strong {
+    color: #e0e0e0;
+    font-weight: 700;
+  }
+
+  /* Adjust container padding for mobile */
+  .container {
+    padding: 0 15px; /* Tighter padding */
+  }
+
+  /* Social links adjustment */
+  .social-links a {
+    width: 32px; /* Smaller for mobile */
+    height: 32px;
+  }
+
+  .social-links a .icon {
+    font-size: 16px; /* Smaller icon size */
+  }
 }

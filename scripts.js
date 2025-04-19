@@ -430,3 +430,36 @@ document.addEventListener('DOMContentLoaded', () => {
       pageContainer.classList.add('fade-up');
   }
 });
+
+
+// Dynamic footer, Last updated and Copy rights
+document.addEventListener('DOMContentLoaded', () => {
+  const footer = document.getElementById("footer");
+
+  if (footer) {
+    const currentYear = new Date().getFullYear();
+    const lastModified = new Date(document.lastModified);
+
+    const formattedDate = lastModified.toLocaleDateString(undefined, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    // footer.innerHTML = `
+    //   <strong>Last update:</strong> ${formattedDate}<br>
+    //   &copy; 2024-${currentYear} Muhammed Muzzammil Shah. All rights reserved.
+    // `;
+    footer.innerHTML = `
+      <span style="display: inline-flex; align-items: center; gap: 3px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13 3a9 9 0 1 0 7.14 14.58A9 9 0 0 0 13 3zm0 2a7 7 0 1 1-4.95 11.95A7 7 0 0 1 13 5zm-.5 2v5.38l4.25 2.52.75-1.23-3.5-2.08V7h-1z"/>
+        </svg>
+        <strong>Last update:</strong> ${formattedDate}
+      </span><br>
+      &copy; 2024-${currentYear} Muhammed Muzzammil Shah. All rights reserved.
+    `;
+  }
+});
+
+
