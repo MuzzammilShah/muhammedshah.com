@@ -463,3 +463,38 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+// Add to the end of scripts.js
+// Typewriter effect for loading screen
+if (document.getElementById('loading-screen')) {
+  const text = "muhammedshah.com";
+  const typewriterElement = document.getElementById('typewriter');
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      typewriterElement.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 60); // 0.3 seconds per character
+    } else {
+      // Typing finished, wait 2 seconds then show main content
+      setTimeout(showMainContent, 1000);
+    }
+  }
+
+  function showMainContent() {
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.style.opacity = '0';
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';
+      const mainContent = document.getElementById('main-content');
+      mainContent.style.display = 'block';
+      setTimeout(() => {
+        mainContent.style.opacity = '1';
+      }, 10); // Small delay for transition to take effect
+    }, 500); // Matches CSS transition duration
+  }
+
+  // Start the typing effect when the page loads
+  window.addEventListener('load', type);
+}

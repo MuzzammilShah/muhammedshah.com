@@ -748,3 +748,69 @@ body.dark-theme .button {
     font-size: 16px; /* Smaller icon size */
   }
 }
+
+
+
+/* LOADING PAGE EFFECT */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff; /* Change to match your site's theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1001; /* Ensures it overlays other content */
+}
+
+#typewriter-container {
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif; /* Gives a typewriter feel */
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+/* #cursor {
+  margin-left: 2px;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+} */
+
+#cursor {
+  margin-left: 2px;
+  animation: smoothFade 0.8s ease-in-out infinite;
+}
+
+@keyframes smoothFade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+#main-content {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+/* Responsive styles for screens up to 768px */
+@media screen and (max-width: 768px) {
+  #typewriter-container {
+    font-size: 18px; /* Smaller font size for better fit on mobile */
+  }
+
+  #loading-screen {
+    padding: 20px; /* Add padding to prevent text from touching edges */
+  }
+
+  #cursor {
+    font-size: 18px; /* Match the typewriter text size */
+  }
+}
