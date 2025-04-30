@@ -767,6 +767,10 @@ body.dark-theme .button {
   z-index: 1001; /* Ensures it overlays other content */
 }
 
+body.dark-theme #loading-screen {
+  background-color: #121212; /* Match dark theme background */
+}
+
 #typewriter-container {
   font-size: 24px;
   font-family: 'Poppins', sans-serif; /* Gives a typewriter feel */
@@ -775,15 +779,9 @@ body.dark-theme .button {
   align-items: center;
 }
 
-/* #cursor {
-  margin-left: 2px;
-  animation: blink 0.8s step-end infinite;
+body.dark-theme #typewriter-container {
+  color: #e0e0e0; /* Match dark theme text color */
 }
-
-@keyframes blink {
-  from, to { opacity: 1; }
-  50% { opacity: 0; }
-} */
 
 #cursor {
   margin-left: 2px;
