@@ -498,3 +498,24 @@ if (document.getElementById('loading-screen')) {
   // Start the typing effect when the page loads
   window.addEventListener('load', type);
 }
+
+// SKILLS TABS
+
+document.querySelectorAll('.tab-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const tab = button.getAttribute('data-tab');
+
+    // Remove active class from all buttons
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    // Hide all content
+    document.querySelectorAll('.tab-content').forEach(content => {
+      content.style.display = 'none';
+    });
+
+    // Show selected tab content
+    const activeContent = document.querySelector(`.tab-content[data-tab-content="${tab}"]`);
+    if (activeContent) activeContent.style.display = 'block';
+  });
+});
