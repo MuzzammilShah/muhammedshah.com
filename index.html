@@ -78,7 +78,7 @@
     <ul>
       <li><a href="../" class="active">Overview</a></li>
       <li><a href="/work-experience/">Work Experience</a></li>
-      <li><a href="/skills/">Skills</a></li>
+      <!-- <li><a href="/skills/">Skills</a></li> -->
       <li><a href="/work-projects/">Work Projects</a></li>
       <li><a href="/certifications/">Certifications</a></li>
       <li><a href="/personal-projects/">Personal Projects</a></li>
@@ -208,36 +208,6 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-      <h2>
-        Skills
-        <a href="/skills/" class="read-more">View More →</a>
-      </h2>
-      <div class="skills">
-        <section id="skills-1" class="searchable-section" data-name="Skills">
-          <div class="skills-section">
-            <h3>Programming Languages & Development Frameworks: <p class="button">Python</p> <p class="button">JavaScript</p> <p class="button">HTML</p> <p class="button">CSS</p> <p class="button">Tailwind</p> <p class="button">React.js</p> <p class="button">Angular</p> <p class="button">Flask</p> <p class="button">MongoDB</p> <p class="button">SQLite</p> </h3>
-          </div>
-        </section>
-        <section id="skills-2" class="searchable-section" data-name="Skills">
-          <div class="skills-section">
-            <h3>Python Libraries & AI/ML Frameworks: <p class="button">PyTorch</p> <p class="button">NumPy</p> <p class="button">Pandas</p> <p class="button">SciKit Learn</p> <p class="button">Matplotlib</p> <p class="button">LangChain</p> <p class="button">FAISS</p> <p class="button">RAG</p> <p class="button">Embedding systems</p> <p class="button">Vector Database</p> <p class="button">LLM tooling</p> <p class="button">Rasa</p> </h3>
-          </div>
-        </section>
-        <section id="skills-3" class="searchable-section" data-name="Skills">
-          <div class="skills-section">
-            <h3>AI/ML Architectures & Tools: <p class="button">Neural networks</p> <p class="button">GPT-style models</p> <p class="button">NLP</p> <p class="button">NLU</p> <p class="button">Chatbots</p> <p class="button">Conversational AI</p> <p class="button">AI Search</p> <p class="button">Prompt engineering</p> </h3>
-          </div>
-        </section>
-        <!-- <section id="skills-3" class="searchable-section" data-name="Skills">
-        <div class="skills">
-          <h3>Database: <p class="button">Python</p> <p class="button">HTML</p> <p class="button">CSS</p> <p class="button">JavaScript</p> </h3>
-        </div>
-        </section> -->
-      </div>
-    </section>
-
     <!-- Work Projects Section -->
     <section id="work-projects">
       <h2>
@@ -323,6 +293,208 @@
         </section> -->
       </div>
     </section>
+
+    <!-- Skills Section -->
+      <!-- <section id="skills">
+        <h2>
+          Skills
+          <a href="/skills/" class="read-more">View More →</a>
+        </h2>
+        <div class="skills">
+          <section id="skills-1" class="searchable-section" data-name="Skills">
+            <div class="skills-section">
+              <h3>Programming Languages & Development Frameworks: <p class="button">Python</p> <p class="button">JavaScript</p> <p class="button">HTML</p> <p class="button">CSS</p> <p class="button">Tailwind</p> <p class="button">React.js</p> <p class="button">Angular</p> <p class="button">Flask</p> <p class="button">MongoDB</p> <p class="button">SQLite</p> </h3>
+            </div>
+          </section>
+          <section id="skills-2" class="searchable-section" data-name="Skills">
+            <div class="skills-section">
+              <h3>Python Libraries & AI/ML Frameworks: <p class="button">PyTorch</p> <p class="button">NumPy</p> <p class="button">Pandas</p> <p class="button">SciKit Learn</p> <p class="button">Matplotlib</p> <p class="button">LangChain</p> <p class="button">FAISS</p> <p class="button">RAG</p> <p class="button">Embedding systems</p> <p class="button">Vector Database</p> <p class="button">LLM tooling</p> <p class="button">Rasa</p> </h3>
+            </div>
+          </section>
+          <section id="skills-3" class="searchable-section" data-name="Skills">
+            <div class="skills-section">
+              <h3>AI/ML Architectures & Tools: <p class="button">Neural networks</p> <p class="button">GPT-style models</p> <p class="button">NLP</p> <p class="button">NLU</p> <p class="button">Chatbots</p> <p class="button">Conversational AI</p> <p class="button">AI Search</p> <p class="button">Prompt engineering</p> </h3>
+            </div>
+          </section>
+        </div>
+      </section> -->
+
+      <h2 class="skills-header">
+        Skills
+        <div class="skills-tabs">
+          <button class="tab-button active" data-tab="ai">
+            <span></span> AI & Machine Learning
+          </button>
+          <button class="tab-button" data-tab="software">
+            <span></span> Software Engineering
+          </button>
+        </div>
+    </h2>
+
+    <!-- AI Skills -->
+    <div class="tab-content" data-tab-content="ai">
+      <section id="skills-1" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Programming Languages:</div>
+          <div class="skill-items">
+            <p class="button">Python</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-2" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">ML & DL Frameworks:</div>
+          <div class="skill-items">
+            <p class="button">PyTorch</p>
+            <p class="button">HuggingFace</p>
+            <p class="button">LangChain</p>
+            <p class="button">NumPy</p>
+            <p class="button">Pandas</p>
+            <p class="button">Matplotlib</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-3" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">AI Architectures:</div>
+          <div class="skill-items">
+            <p class="button">Neural networks</p>
+            <p class="button">LLMs</p>
+            <p class="button">Conversational AI (Chatbots)</p>
+            <p class="button">AI Agents</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-4" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">AI Techniques:</div>
+          <div class="skill-items">
+            <p class="button">RAGs</p>
+            <p class="button">LLM tooling</p>
+            <p class="button">NLU/NLP</p>
+            <p class="button">Prompt engineering</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-5" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Vector Databases:</div>
+          <div class="skill-items">
+            <p class="button">FAISS</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-6" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Data Engineering & Analysis:</div>
+          <div class="skill-items">
+            <p class="button">Data preprocessing</p>
+            <p class="button">Data visualization</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-7" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">AI Deployment & MLOps:</div>
+          <div class="skill-items">
+            <p class="button">Linux Server (Ubuntu)</p>
+            <p class="button">Ollama</p>
+            <p class="button">Docker</p>
+            <p class="button">Jupyter Notebook</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Software Skills -->
+    <div class="tab-content" data-tab-content="software" style="display: none;">
+      <section id="skills-9" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Programming Languages:</div>
+          <div class="skill-items">
+            <p class="button">Python</p>
+            <p class="button">HTML/CSS</p>
+            <p class="button">JavaScript</p>
+            <!-- <p class="button">JAVA</p>
+            <p class="button">C</p> -->
+          </div>
+        </div>
+      </section>
+      <section id="skills-10" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Frontend Development:</div>
+          <div class="skill-items">
+            <p class="button">React.js</p>
+            <p class="button">Tailwind CSS</p>
+            <!-- <p class="button">Angular</p> -->
+          </div>
+        </div>
+      </section>
+      <section id="skills-11" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Backend Development:</div>
+          <div class="skill-items">
+            <p class="button">Flask</p>
+            <p class="button">Node.js</p>
+            <p class="button">RESTful APIs</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-12" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Databases:</div>
+          <div class="skill-items">
+            <p class="button">MongoDB</p>
+            <p class="button">MySQL</p>
+            <p class="button">PostgreSQL</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-13" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">DevOps & Deployment:</div>
+          <div class="skill-items">
+            <p class="button">Linux (Ubuntu)</p>
+            <p class="button">IIS hosting</p>
+            <p class="button">Domain and site configs</p>
+            <p class="button">Docker</p>
+            <p class="button">oAuth</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-14" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Version Control & Documentation:</div>
+          <div class="skill-items">
+            <p class="button">Git</p>
+            <p class="button">MkDocs</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-15" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Development Tools:</div>
+          <div class="skill-items">
+            <p class="button">VS Code</p>
+            <p class="button">Visual Studio</p>
+            <p class="button">pgAdmin</p>
+            <p class="button">Azure DB Management Studio</p>
+            <p class="button">MySQL Management Studio</p>
+          </div>
+        </div>
+      </section>
+      <section id="skills-16" class="searchable-section" data-name="Skills">
+        <div class="skill-row">
+          <div class="skill-label">Business Tools:</div>
+          <div class="skill-items">
+            <p class="button">Power BI</p>
+            <p class="button">Power Apps</p>
+            <p class="button">Power Automate</p>
+            <p class="button">Cybersecurity auditing</p>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <!-- Certifications Section -->
     <section id="certifications">

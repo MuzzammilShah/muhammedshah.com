@@ -593,6 +593,96 @@ body.dark-theme .button {
 }
 
 
+/* NEW SKILLS SECTION CODE */
+
+.skills-tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab-button span {
+  font-size: 1.1em;
+}
+
+.tab-button.active {
+  background-color: #111;
+  color: white;
+}
+
+body.dark-theme .tab-button {
+  background-color: #333;
+  color: #f1f1f1;
+}
+
+body.dark-theme .tab-button.active {
+  background-color: white;
+  color: #111;
+}
+
+.tab-content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.skill-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.skill-label {
+  flex: 0 0 240px; /* fixed width column for labels */
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.skill-items {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-items .button {
+  /* background-color: #f3f3f3;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  white-space: nowrap; */
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 2px 8px;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  color: #000000;
+  font-size: 13px;
+  font-weight: 500;
+  /* transition: background-color 0.3s, transform 0.2s; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  margin-top: 5px;
+}
+
+/* END NEW SKILLS SECTION CODE */
+
 /* Responsive Layout for Mobile Screens */
 @media (max-width: 768px) {
   /* Header (h1) */
@@ -746,6 +836,22 @@ body.dark-theme .button {
 
   .social-links a .icon {
     font-size: 16px; /* Smaller icon size */
+  }
+
+  .skill-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .skill-label {
+    flex: unset;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .skill-items {
+    flex: unset;
+    width: 100%;
   }
 }
 
