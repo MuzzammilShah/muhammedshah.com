@@ -598,18 +598,18 @@ body.dark-theme .button {
 .skills-tabs {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 .tab-button {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   background-color: #f1f1f1;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
   color: #333;
@@ -852,6 +852,19 @@ body.dark-theme .tab-button.active {
   .skill-items {
     flex: unset;
     width: 100%;
+  }
+
+  .skills-tabs {
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+  .tab-button {
+    padding: 8px 10px;
+  }
+
+  .tab-button span {
+    font-size: 1em;
   }
 }
 
