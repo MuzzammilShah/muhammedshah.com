@@ -10,5 +10,5 @@ The site is currently hosted and is live, You can view it [here](https://muhamme
 &nbsp;
 
 <div align="center">
-<img src="static/images/design-prototypes.png" alt="Prototype Mockups" width="70%">
+<img src="static/images/design-prototypes.png" alt="Prototype Mockups" width="100%">
 </div>
