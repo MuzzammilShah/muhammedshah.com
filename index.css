@@ -1,4 +1,4 @@
-    /* General reset */
+/* General reset */
     * {
         margin: 0;
         padding: 0;
@@ -931,3 +931,177 @@ body.dark-theme #typewriter-container {
     font-size: 18px; /* Match the typewriter text size */
   }
 }
+
+/* Header bar styling */
+/* ===================== */
+main {
+  margin-top: 60px;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff !important;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Right-side container for buttons and icons */
+.right-icons {
+  display: flex;
+  align-items: center;
+}
+
+/* Common styles for menu, search, and theme icons */
+.header-bar .menu-icon,
+.header-bar .theme-toggle,
+.header-bar .search-icon {
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  /* transition: background-color 0.1s ease-in; */
+}
+
+/* Light Theme Hover Effect */
+.header-bar .menu-icon:hover,
+.header-bar .theme-toggle:hover,
+.header-bar .search-icon:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* SVG Icon Styling */
+.header-bar .menu-icon svg,
+.header-bar .theme-toggle svg,
+.header-bar .search-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+}
+
+/* Chat AI Button Styling */
+.header-bar .chat-ai-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  margin-right: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.header-bar .chat-ai-btn svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+  fill: none;
+  stroke: currentColor;
+}
+
+.header-bar .chat-ai-btn:hover {
+  background-color: #333;
+}
+
+/* Dark Theme Styling */
+body.dark-theme .header-bar {
+  background-color: #121212 !important;
+}
+
+body.dark-theme .header-bar .menu-icon,
+body.dark-theme .header-bar .theme-toggle,
+body.dark-theme .header-bar .search-icon {
+  color: #e0e0e0;
+}
+
+body.dark-theme .header-bar .chat-ai-btn {
+  background-color: #fff;
+  color: #000;
+}
+
+body.dark-theme .header-bar .chat-ai-btn svg {
+  color: #000;
+}
+
+body.dark-theme .header-bar .chat-ai-btn span {
+  color: #000;
+}
+
+/* Dark Theme Hover Effect */
+body.dark-theme .header-bar .menu-icon:hover,
+body.dark-theme .header-bar .theme-toggle:hover,
+body.dark-theme .header-bar .search-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Media Query for mobile devices */
+/* 1) MOBILE: strip away all bg/shape and hide text; force SVG to use currentColor */
+@media (max-width: 768px) {
+  .header-bar .chat-ai-btn {
+    background: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin-right: 4px;
+    width: auto;
+    height: auto;
+
+    /* Make the button’s “text color” be black by default on light theme */
+    color: #000;
+  }
+
+  .header-bar .chat-ai-btn span {
+    display: none !important;
+  }
+
+  .header-bar .chat-ai-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;  /* uses the parent’s color (#000 or #fff depending on theme) */
+    stroke: none;         /* remove any stroke so it’s a solid shape */
+    margin: 0;
+  }
+
+  body.dark-theme .header-bar .chat-ai-btn {
+    /* on desktop/mobile in dark mode, this sets currentColor to white */
+    color: #fff;
+  }
+
+  body.dark-theme .header-bar .chat-ai-btn svg {
+    /* on desktop/mobile in dark mode, this sets currentColor to white */
+    color: #fff;
+  }
+}
+
+
+/* Media Query for Hover States */
+@media (hover: hover) and (pointer: fine) {
+  .header-bar .menu-icon:hover,
+  .header-bar .theme-toggle:hover,
+  .header-bar .search-icon:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .header-bar .menu-icon:hover,
+  .header-bar .theme-toggle:hover,
+  .header-bar .search-icon:hover {
+    background-color: transparent !important;
+  }
+}
+/* ===================== */

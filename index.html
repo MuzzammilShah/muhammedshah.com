@@ -15,10 +15,8 @@
       document.documentElement.classList.add('dark-theme');
     }
   </script>
-
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="sidebar.css">
-  <link rel="stylesheet" href="headerbar.css">
 
 </head>
 <body>
@@ -43,6 +41,27 @@
     </div>
 
     <div class="right-icons">
+      <!-- Chat AI Button -->
+      <button class="chat-ai-btn" onclick="window.open('https://chat.muhammedshah.com', '_blank')">
+        <!-- <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3L14.5 8.5L20.5 9.5L16 13.5L17.5 19.5L12 16.5L6.5 19.5L8 13.5L3.5 9.5L9.5 8.5L12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg> -->
+        <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Big central star -->
+          <path d="M110 30 C120 70, 140 90, 180 110 C140 120, 120 140, 110 180 C100 140, 80 120, 40 110 C80 100, 100 70, 110 30Z"
+                stroke="currentColor" stroke-width="5" fill="currentColor"/>
+          
+          <!-- Top-left small star (moved away to prevent intersection) -->
+          <path d="M40 40 C45 55, 55 65, 70 70 C55 75, 45 85, 40 100 C35 85, 25 75, 10 70 C25 65, 35 55, 40 40Z"
+                stroke="currentColor" stroke-width="4.5" fill="currentColor"/>
+          
+          <!-- Bottom-left small star -->
+          <path d="M50 140 C55 155, 65 165, 80 170 C65 175, 55 185, 50 200 C45 185, 35 175, 20 170 C35 165, 45 155, 50 140Z"
+                stroke="currentColor" stroke-width="4.5" fill="currentColor"/>
+        </svg>
+        <span>Chat AI</span>
+      </button>
+
       <!-- Search Icon in Header -->
       <div class="search-icon" onclick="openSearch()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
