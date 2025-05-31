@@ -4,11 +4,13 @@
 
 &nbsp;
 
-**Welcome to the code repository for my personal portfolio site!**
-The site is currently hosted and is live, You can view it [here](https://muhammedshah.com) 🚀
+<div align="center">
+<h3>Welcome to the code repository for my personal portfolio site!</h3>
+<p>The site is currently hosted and is live, You can view it <a href="https://muhammedshah.com">here</a>🚀</p>
+</div>
 
 &nbsp;
 
 <div align="center">
-<img src="static/images/design-prototypes.png" alt="Prototype Mockups" width="70%">
+<img src="static/images/design-prototypes.png" alt="Prototype Mockups" width="100%">
 </div>
