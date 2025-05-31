@@ -75,6 +75,38 @@
       body.dark-theme .header-bar .search-icon:hover {
         background-color: rgba(255, 255, 255, 0.1); /* Light semi-transparent background for dark theme */
       }
+
+      /* Chat AI button styling */
+      .header-bar .chat-ai-btn {
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        margin-right: 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        border: none;
+        background-color: #000;
+        color: #fff;
+        transition: all 0.2s ease;
+      }
+
+      .header-bar .chat-ai-btn svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+      }
+
+      .header-bar .chat-ai-btn:hover {
+        opacity: 0.9;
+      }
+
+      /* Dark theme styles for Chat AI button */
+      body.dark-theme .header-bar .chat-ai-btn {
+        background-color: #fff;
+        color: #000;
+      }
 /* ===================== */
 
 /* Only apply hover styles if the user can actually hover (i.e., desktop devices) */
