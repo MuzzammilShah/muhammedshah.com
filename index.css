@@ -1034,6 +1034,10 @@ body.dark-theme .header-bar .chat-ai-btn {
   color: #000;
 }
 
+body.dark-theme .header-bar .chat-ai-btn:hover {
+  background-color: #ddd;
+}
+
 body.dark-theme .header-bar .chat-ai-btn svg {
   color: #000;
 }
