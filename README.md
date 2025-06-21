@@ -12,5 +12,5 @@
 &nbsp;
 
 <div align="center">
-<img src="static/images/design-prototypes.png" alt="Prototype Mockups" width="100%">
+<img src="static/images/design-prototypes-1.png" alt="Prototype Mockups" width="100%">
 </div>
