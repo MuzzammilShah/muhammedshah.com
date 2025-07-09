@@ -199,6 +199,17 @@ body.dark-theme .photo img {
 
 
 /* ===================== */
+
+/* About Me Section */
+.aboutme p a {
+  text-decoration: underline;
+  color: inherit;
+}
+  
+.aboutme p a:hover {
+  text-decoration: none;
+}
+
 /* Section titles */
 
       h2 {
