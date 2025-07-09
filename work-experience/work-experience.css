@@ -23,13 +23,11 @@ body {
 .timeline-subitem a {
   text-decoration: underline;
   color: inherit; 
-  font-weight: bold; 
   transition: all 0.3s ease;
 }
 
 .timeline-subitem a:hover {
   text-decoration: none;
-  font-weight: bold; 
 }
 
 /* Section titles styling */
