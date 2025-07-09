@@ -199,6 +199,17 @@ body.dark-theme .photo img {
 
 
 /* ===================== */
+
+/* About Me Section */
+.aboutme p a {
+  text-decoration: underline;
+  color: inherit;
+}
+  
+.aboutme p a:hover {
+  text-decoration: none;
+}
+
 /* Section titles */
 
       h2 {
@@ -337,10 +348,18 @@ body.dark-theme .photo img {
         text-decoration: underline;
       }
   
-  
       .project p, .certification p, .education-item p, .work-project p, .aboutme p {
         font-size: 0.9rem;
         color: #333;
+      }
+
+      .work-project h3 a {
+        text-decoration: none;
+        color: inherit;
+      }
+  
+      .work-project h3 a:hover {
+        text-decoration: underline;
       }
   
 /* Footer */
