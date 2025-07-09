@@ -128,6 +128,15 @@ body.dark-theme .skills-button {
   font-size: 0.9rem;
   color: #333;
 }
+
+.project p code {
+    font-family: 'IBM Plex Mono', 'Fira Code', 'Geist', monospace;
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
   
 /* Footer */
 footer {
@@ -318,6 +327,11 @@ body.dark-theme .timeline {
   
 body.dark-theme .timeline-item::before {
   background-color: #666;
+}
+
+body.dark-theme .project p code {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
 }
   
 /* Dark theme - Footer border */
