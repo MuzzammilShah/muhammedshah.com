@@ -1029,7 +1029,7 @@ main {
   font-weight: 500;
   border: none;
   font-family: 'Poppins', sans-serif;
-  background-color: #000;
+  background-color: #202020;
   color: #fff;
   transition: all 0.2s ease;
   position: relative;
@@ -1050,7 +1050,7 @@ main {
                 rgb(29, 128, 208) 100%);
   opacity: 0;
   transform: translate(-50%, -50%) scale(1, 1);
-  box-shadow: 0 0 8px 2px rgba(33, 150, 243);
+  /* box-shadow: 0 0 8px 2px rgba(33, 150, 243); */
   z-index: -1;
   transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
   pointer-events: none;
@@ -1065,9 +1065,9 @@ main {
   height: 100%;
   border-radius: 20px;
   background: linear-gradient(to right, 
-                rgba(13, 71, 161, 0.3) 0%, 
-                rgba(30, 136, 229, 0.25) 50%, 
-                rgba(100, 181, 246, 0.2) 100%);
+                rgba(13, 71, 161) 0%, 
+                rgb(17, 107, 186) 50%, 
+                rgb(29, 128, 208) 100%);
   opacity: 0;
   transform: translate(-50%, -50%) scale(1, 1);
   filter: blur(12px);
@@ -1079,7 +1079,7 @@ main {
 .header-bar .chat-ai-btn:hover::before {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1, 1);
-  box-shadow: 0 0 12px 4px rgb(30, 136, 222);
+  /* box-shadow: 0 0 12px 4px rgb(30, 136, 222); */
 }
 
 .header-bar .chat-ai-btn:hover::after {
@@ -1111,7 +1111,7 @@ body.dark-theme .header-bar .search-icon {
 }
 
 body.dark-theme .header-bar .chat-ai-btn {
-  background-color: #fff;
+  background-color: #e0e0e0;
   color: #000;
 }
 
