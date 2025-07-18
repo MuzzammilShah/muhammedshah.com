@@ -82,6 +82,15 @@
         color: inherit;
       }
 
+      body.dark-theme .social-links a {
+        border-color: #ffffff;
+        background-color: #ffffff;
+      }
+
+      body.dark-theme .social-links a:hover {
+        border-color: #333;
+      }
+
 
 /* Centered layout for heading, subtitle, and social links */
 /* header {
