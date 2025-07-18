@@ -90,24 +90,52 @@
         <h4>Individual Contribution</h4>
         <div class="work-projects">
 
-          <section id="work-projects-11" class="searchable-section" data-name="Individual Contribution">
+          <section id="work-projects-12" class="searchable-section" data-name="Individual Contribution">
             <div class="work-project">
-              <h3>Automated ETL Data Pipeline</h3>
+              <h3>Automated ELT Data Pipeline II (Beauhurst to HubSpot CRM)</h3>
               <p><Strong>Company: </Strong> Potentiam Ltd</p>
-              <p><strong>Timeline: </strong>May 2025 - PRESENT</p>
+              <p><strong>Timeline: </strong>June 2025 - July 2025</p>
               <p><strong>Work done:</strong>
               <ul>
-                <li>Built a fully automated Python ETL pipeline to extract data from the Beauhurst and HubSpot REST APIs and load it into PostgreSQL.</li>
-                <li>Designed and implemented PostgreSQL schemas and used SQL to filter, aggregate, and normalize raw API data into analytics ready tables.</li>
-                <li>Orchestrated the end-to-end workflow as a single Python script scheduled via cron on Ubuntu, targeting a Windows server hosted PostgreSQL instance.</li>
-                <li>Exposed the cleaned, filtered data to Power BI for dynamic dashboarding with incremental loads for near real-time insights.</li>
+                <li>Built a Python-driven ELT pipeline to extract companies and contacts data from Beauhurst API, storing raw and transformed data with advanced filtering, staging, and audit capabilities in PostgreSQL which is then updated into HubSpot CRM in near real-time.</li>
+                <li>Applied complex custom filtering logic to identify and select only the most relevant records for HubSpot updates, handling edge cases and exceptions in business rules.</li>
+                <li>Used the HubSpot API to programmatically create or update CRM records with high accuracy.</li>
+                <li>Implemented end-to-end workflow logging, error handling, and alerting to ensure data integrity and traceability.</li>
+                <li>Designed staging tables separate from audit tables, following best practices for data integration—allowing safe, repeatable syncs and full change auditability.</li>
+                <li>Delivered timely, accurate CRM updates, saving the company time and cost by automating manual processes and improving data reliability.</li>
+              </ul>
+              </p>
+              <p><strong>Skills & Technology:</strong>
+              <ul>
+                <li><strong>Languages</strong> – Python, SQL.</li>
+                <li><strong>Datastore</strong> – PostgreSQL (schema design, indexing, query optimization, staging/audit table design).</li>
+                <li><strong>APIs</strong> – Beauhurst API, HubSpot API.</li>
+                <li><strong>Workflow Orchestration</strong> – Scripted ETL orchestration, error handling, logging, alerting.</li>
+              </ul>
+              </p>
+            </div>
+          </section>
+
+          <section id="work-projects-11" class="searchable-section" data-name="Individual Contribution">
+            <div class="work-project">
+              <h3>Automated ETL Data Pipeline I (HubSpot CRM to PostgreSQL & Power BI)</h3>
+              <p><Strong>Company: </Strong> Potentiam Ltd</p>
+              <p><strong>Timeline: </strong>May 2025 - June 2025</p>
+              <p><strong>Work done:</strong>
+              <ul>
+                <li>Migrated the company’s HubSpot CRM reporting workflow from legacy SQL Server to PostgreSQL, significantly reducing infrastructure costs and improving refresh accuracy for sales analytics.</li>
+                <li>Engineered a robust Python-based ETL pipeline to extract data from HubSpot’s REST API, performing all cleaning, transformations, and loading into a Windows-hosted PostgreSQL instance.</li>
+                <li>Designed normalized PostgreSQL schemas for analytics-ready data, with efficient indexing and query optimization.</li>
+                <li>Automated incremental data loads and refreshes via cron jobs on Ubuntu, enabling Power BI dashboards to deliver near real-time insights.</li>
+                <li>Streamlined credential management and error logging for reliable unattended execution.</li>
+                <li>This enabled more frequent and accurate sales reporting, increasing value for the commercial team and reducing dependence on third-party services.</li>
               </ul>
               </p>
               <p><strong>Skills & Technology:</strong>
               <ul>
                 <li><strong>Languages</strong> – Python, SQL.</li>
                 <li><strong>Datastore</strong> – PostgreSQL (schema design, indexing, query optimization).</li>
-                <li><strong>APIs</strong> – Beauhurst API, HubSpot CRM API.</li>
+                <li><strong>APIs</strong> – HubSpot API.</li>
                 <li><strong>DevOps & Scheduling</strong> – Ubuntu server, Cron jobs, secure credential management.</li>
                 <li><strong>BI & Reporting</strong> – Power BI (data modeling).</li>
                 <li><strong>Workflow Orchestration</strong> – Scripted ETL orchestration, error handling, logging, alerting.</li>
