@@ -1,0 +1,34 @@
+/* Experience Duration Styling */
+.duration-text {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 1px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #999;
+  vertical-align: middle;
+  position: relative;
+  top: -1px; /* Fine adjustment for perfect centering */
+}
+
+body.dark-theme .duration-text {
+  color: #777;
+}
+
+/* Highlight for active positions */
+.active-position .duration-text {
+  color: #666;
+}
+
+body.dark-theme .active-position .duration-text {
+  color: #999;
+}
+
+/* Responsive Layout for Mobile Screens */
+@media (max-width: 768px) {
+  .duration-text {
+    font-size: 0.75rem;
+    margin-left: 1px;
+    top: -1px; /* Maintain the centering on mobile */
+  }
+}
