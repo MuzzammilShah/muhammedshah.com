@@ -444,7 +444,7 @@ button:active, a:active, div:active, svg:active {
     line-height: 1.5; /* Improved readability */
     color: #333;
     padding-top: 4px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
 
   /* Bold text in paragraphs */
