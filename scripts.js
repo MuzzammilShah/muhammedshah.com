@@ -247,7 +247,12 @@ async function buildSearchIndex() {
       doc.querySelectorAll('.searchable-section').forEach((section) => {
         const id = section.getAttribute('id');
         const name = section.getAttribute('data-name') || section.querySelector('h3')?.textContent || '';
-        const content = section.textContent.replace(/\s+/g, ' ').trim();
+        
+        // For work projects page, make sure we get all content including what will be in expandable sections
+        let content = section.textContent.replace(/\s+/g, ' ').trim();
+        
+        // Remove "Read more" and "Read less" text if it exists
+        content = content.replace(/Read more|Read less/g, '');
 
         sections.push({ id, name, content });
       });
@@ -343,6 +348,21 @@ function navigateToSection(url, id) {
       if (currentUrl === targetUrl) {
           const section = document.getElementById(id);
           if (section) {
+              // Check if this is a work project section
+              if (section.classList.contains('searchable-section')) {
+                  // Find the expandable content within this section and expand it
+                  const expandableContent = section.querySelector('.project-expandable-content');
+                  const readMoreBtn = section.querySelector('.read-more-button');
+                  
+                  if (expandableContent && readMoreBtn) {
+                      readMoreBtn.innerHTML = 'Read less <svg class="arrow up" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>';
+                      // Add slight delay for smoother visual transition
+                      setTimeout(() => {
+                          expandableContent.classList.add('expanded');
+                      }, 50);
+                  }
+              }
+              
               section.scrollIntoView({ behavior: 'smooth', block: 'start' });
               highlightSection(section);
           }
@@ -385,6 +405,23 @@ window.addEventListener('load', function() {
     sessionStorage.removeItem('highlightSectionId');
     const section = document.getElementById(idFromStorage);
     if (section) {
+      // Check if this is a work project section
+      if (section.classList.contains('searchable-section') && window.location.pathname.includes('/work-projects/')) {
+        // Find the expandable content within this section and expand it
+        setTimeout(() => {
+          const expandableContent = section.querySelector('.project-expandable-content');
+          const readMoreBtn = section.querySelector('.read-more-button');
+          
+          if (expandableContent && readMoreBtn) {
+            readMoreBtn.innerHTML = 'Read less <svg class="arrow up" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>';
+            // Add slight delay for smoother visual transition
+            setTimeout(() => {
+              expandableContent.classList.add('expanded');
+            }, 50);
+          }
+        }, 600);
+      }
+      
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       highlightSection(section);
     }
@@ -393,6 +430,20 @@ window.addEventListener('load', function() {
     if (id) {
       const section = document.getElementById(id);
       if (section) {
+        // Check if this is a work project section
+        if (section.classList.contains('searchable-section') && window.location.pathname.includes('/work-projects/')) {
+          // Find the expandable content within this section and expand it
+          setTimeout(() => {
+            const expandableContent = section.querySelector('.project-expandable-content');
+            const readMoreBtn = section.querySelector('.read-more-button');
+            
+            if (expandableContent && readMoreBtn) {
+              expandableContent.classList.add('expanded');
+              readMoreBtn.innerHTML = 'Read less <svg class="arrow up" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>';
+            }
+          }, 500);
+        }
+        
         highlightSection(section);
       }
     }
@@ -429,8 +480,150 @@ document.addEventListener('DOMContentLoaded', () => {
   if (pageContainer) {
       pageContainer.classList.add('fade-up');
   }
+  
+  // Initialize work project read more/less functionality
+  initWorkProjectsExpand();
 });
 
+
+// Work Projects Expandable Content
+function initWorkProjectsExpand() {
+  // Check if we're on the work projects page
+  const workProjectSections = document.querySelectorAll('.work-project');
+  if (!workProjectSections.length || !window.location.pathname.includes('/work-projects/')) return;
+
+  workProjectSections.forEach(project => {
+    // Find the timeline paragraph
+    const paragraphs = project.querySelectorAll('p');
+    let timelineParagraph = null;
+    
+    for (let i = 0; i < paragraphs.length; i++) {
+      const p = paragraphs[i];
+      if (p.textContent.includes('Timeline:')) {
+        timelineParagraph = p;
+        break;
+      }
+    }
+    
+    if (!timelineParagraph) return;
+    
+    // Create expandable content container
+    const expandableContent = document.createElement('div');
+    expandableContent.className = 'project-expandable-content';
+    
+    // Move all content after timeline paragraph to the expandable container
+    let currentNode = timelineParagraph.nextSibling;
+    const nodesToMove = [];
+    
+    while (currentNode) {
+      nodesToMove.push(currentNode);
+      currentNode = currentNode.nextSibling;
+    }
+    
+    nodesToMove.forEach(node => {
+      expandableContent.appendChild(node);
+    });
+    
+    // Create read more/less button with arrow
+    const readMoreBtn = document.createElement('button');
+    readMoreBtn.className = 'read-more-button';
+    readMoreBtn.innerHTML = 'Read more <svg class="arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>';
+    
+    // Insert button and expandable content
+    timelineParagraph.parentNode.insertBefore(readMoreBtn, timelineParagraph.nextSibling);
+    timelineParagraph.parentNode.insertBefore(expandableContent, readMoreBtn.nextSibling);
+    
+    // Add click event listener
+    readMoreBtn.addEventListener('click', () => {
+      const isExpanded = expandableContent.classList.contains('expanded');
+      
+      if (isExpanded) {
+        // First update the button text
+        readMoreBtn.innerHTML = 'Read more <svg class="arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>';
+        
+        // Then collapse with animation
+        expandableContent.classList.remove('expanded');
+        
+        // Scroll to the start of this section after collapsing, with timing adjusted for animation
+        setTimeout(() => {
+          const parentSection = project.closest('.searchable-section');
+          if (parentSection) {
+            parentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 600); // Increased timing to match the new CSS animation duration
+      } else {
+        // First update the button to show it's expanding
+        readMoreBtn.innerHTML = 'Read less <svg class="arrow up" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>';
+        
+        // Add a small delay before expanding to make the arrow animation more noticeable
+        setTimeout(() => {
+          expandableContent.classList.add('expanded');
+        }, 50);
+      }
+    });
+  });
+  
+  // Check if we arrived via a search with a hash
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1);
+    const targetSection = document.getElementById(targetId);
+    
+    if (targetSection) {
+      // Find the expandable content within this section and expand it
+      setTimeout(() => {
+        const expandableContent = targetSection.querySelector('.project-expandable-content');
+        const readMoreBtn = targetSection.querySelector('.read-more-button');
+        
+        if (expandableContent && readMoreBtn) {
+          readMoreBtn.innerHTML = 'Read less <svg class="arrow up" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>';
+          // Slight delay for better visual transition
+          setTimeout(() => {
+            expandableContent.classList.add('expanded');
+          }, 50);
+        }
+      }, 600); // Delay to ensure DOM elements are ready, increased to match new animation timing
+    }
+  }
+}
+
+// Override the navigateToSection function to expand project content when accessed via search
+// Store the original function for reference, but we're completely replacing it
+// const originalNavigateToSection = navigateToSection;
+function navigateToSection(url, id) {
+  const sidebar = document.getElementById('sidebar');
+
+  // Close sidebar gracefully
+  closeSidebar();
+
+  // Close the search modal regardless of the navigation type
+  closeSearch();
+
+  // Wait for the sidebar's transition to complete before navigating
+  setTimeout(() => {
+      const currentUrl = window.location.pathname;
+      const targetUrl = new URL(url, window.location.origin).pathname;
+
+      if (currentUrl === targetUrl) {
+          const section = document.getElementById(id);
+          if (section) {
+              // Check if this is a work project section and expand it
+              const expandableContent = section.querySelector('.project-expandable-content');
+              const readMoreBtn = section.querySelector('.read-more-button');
+              
+              if (expandableContent && readMoreBtn) {
+                expandableContent.classList.add('expanded');
+                readMoreBtn.innerHTML = 'Read less <svg class="arrow up" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>';
+              }
+              
+              section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              highlightSection(section);
+          }
+      } else {
+          sessionStorage.setItem('highlightSectionId', id);
+          window.location.href = `${url}#${id}`;
+      }
+  }, 400); // Match the CSS transition duration
+};
 
 // Dynamic footer, Last updated and Copy rights
 document.addEventListener('DOMContentLoaded', () => {
