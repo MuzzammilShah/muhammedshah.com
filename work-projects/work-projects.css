@@ -119,6 +119,53 @@ body.dark-theme .work-project ul li {
 body.dark-theme .work-project ul ul li {
   color: #b0b0b0; /* Slightly lighter color for sub-list items */
 }
+
+/* Read more / less button styling */
+.read-more-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 0;
+  margin: 5px 0;
+  transition: color 0.2s ease;
+}
+
+.read-more-button:hover {
+  color: #333;
+}
+
+body.dark-theme .read-more-button {
+  color: #999;
+}
+
+body.dark-theme .read-more-button:hover {
+  color: #ccc;
+}
+
+.read-more-button .arrow {
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.read-more-button .arrow.up {
+  transform: rotate(180deg);
+}
+
+/* Project content that can be expanded/collapsed */
+.project-expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.project-expandable-content.expanded {
+  max-height: 2000px; /* Large enough to accommodate content */
+}
   
 
 /* Footer */
@@ -350,6 +397,12 @@ button:active, a:active, div:active, svg:active {
     margin-top: 40px;
     padding-bottom: 4px;
     line-height: 1.3;
+  }
+  
+  /* Read more button mobile adjustments */
+  .read-more-button {
+    font-size: 0.8rem; /* Slightly smaller for mobile */
+    padding: 4px 0;
   }
 
   /* Subheaders (h3) in work projects */
