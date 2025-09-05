@@ -285,7 +285,8 @@ body.dark-theme .photo img {
         margin-bottom: 15px;
       }
   
-      .timeline-item .company-logo {
+      /* Legacy style - keeping for compatibility */
+  .timeline-item .company-logo {
         height: 40px;
         width: 40px;
         object-fit: contain;
@@ -713,6 +714,16 @@ body.dark-theme .tab-button.active {
 
 /* Responsive Layout for Mobile Screens */
 @media (max-width: 768px) {
+  /* Mobile adjustments for logo containers */
+  .title-with-logo {
+    align-items: center;
+  }
+
+  /* Ensure logos maintain proper size and alignment on mobile */
+  .certification .title-with-logo {
+    align-items: center;
+  }
+
   /* Header (h1) */
   header h1 {
     font-size: 1.8rem; /* Slightly smaller but prominent */
