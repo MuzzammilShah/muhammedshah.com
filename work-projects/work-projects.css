@@ -77,6 +77,17 @@ h4 {
 .work-project h3 a:hover {
   text-decoration: underline;
 }
+
+/* Styling for <a> tags */
+.work-project a {
+  text-decoration: underline;
+  color: inherit; 
+  transition: all 0.3s ease;
+}
+
+.work-project a:hover {
+  text-decoration: none;
+}
   
 .work-project p {
   font-size: 0.9rem;
