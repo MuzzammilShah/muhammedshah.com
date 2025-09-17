@@ -38,7 +38,7 @@ h4 {
   font-size: 1.3rem;
   margin-top: 60px;
   color: #333;
-  /* border-bottom: 2px solid #ddd; */
+  border-bottom: 2px solid #ddd;
   padding-bottom: 5px;
 }
   
@@ -107,7 +107,7 @@ body.dark-theme .skills-button {
 .project {
   margin-bottom: 15px;
   padding-bottom: 25px;
-  border-bottom: 1px solid #ddd;
+  /* border-bottom: 1px solid #ddd; */
 }
   
 .project h3 {
@@ -411,7 +411,7 @@ button:active, a:active, div:active, svg:active {
     font-weight: 500; /* Maintain bold-like weight */
     line-height: 1.4;
     padding: 3px 8px; /* Slightly tighter padding */
-    margin-top: 4px;
+    margin-bottom: 4px;
   }
 
   /* General button */
