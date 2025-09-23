@@ -390,18 +390,19 @@ body.dark-theme .photo img {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   display: none;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(5px);
   z-index: 1000;
+  padding-top: 100px; /* Added padding from the top to position lower than header */
 }
 
 .search-container {
   background: #fff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 6px; /* Reduced curve edges */
   width: 90%;
   max-width: 600px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -421,7 +422,7 @@ body.dark-theme .photo img {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 300px;
+  max-height: 400px; /* Increased from 300px to show more results */
   overflow-y: auto;
 }
 
@@ -465,6 +466,10 @@ body.dark-theme .highlighted-section {
 }
 
 /* Dark Theme Adjustments */
+body.dark-theme .search-modal {
+  background: rgba(0, 0, 0, 0.8);
+}
+
 body.dark-theme .search-container {
   background: #333;
   color: #fff;
@@ -500,6 +505,13 @@ body.dark-theme .search-container ul li:hover {
 /* Adjust the scroll position to account for the fixed header */
 .searchable-section {
   scroll-margin-top: 80px; /* Adjust this value to the height of your fixed header */
+}
+
+/* Increase search results height for larger screens */
+@media (min-height: 800px) {
+  .search-container ul {
+    max-height: 500px; /* Even more results on taller screens */
+  }
 }
 
 
@@ -714,6 +726,24 @@ body.dark-theme .tab-button.active {
 
 /* Responsive Layout for Mobile Screens */
 @media (max-width: 768px) {
+  /* Mobile Search Modal styling */
+  .search-modal {
+    padding-top: 0;
+    align-items: flex-start;
+  }
+  
+  .search-container {
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+    padding: 15px;
+  }
+  
+  /* Adjust results height on mobile but ensure we show a good amount */
+  .search-container ul {
+    max-height: 60vh; /* Use viewport height for better responsiveness on mobile */
+  }
+  
   /* Mobile adjustments for logo containers */
   .title-with-logo {
     align-items: center;
