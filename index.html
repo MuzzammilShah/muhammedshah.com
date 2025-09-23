@@ -172,11 +172,19 @@
           </div>
 
           <!-- Role progression within Potentiam -->
+          <section id="experience-2-c" class="searchable-section" data-name="Work Experience">
+          <div class="timeline-subitem">
+            <h3>AI Software Engineer</h3>
+            <p><em>Sept 2025 - Present</em></p>
+            <p>Building an AI Team while working on delivering multiple AI-driven projects at large scale.</p>
+          </div>
+          </section>
+
           <section id="experience-2-b" class="searchable-section" data-name="Work Experience">
           <div class="timeline-subitem">
             <h3>Junior AI Software Engineer</h3>
-            <p><em>Sept 2024 - Present</em></p>
-            <p>Building and optimizing applications using LLMs or SMLs for different departments and also integrating AI architectures for secure, scalable deployment. Currently working on upgrading these systems to include agentic components.</p>
+            <p><em>Sept 2024 - Sept 2025</em></p>
+            <p>Building and optimizing applications using LLMs or SMLs for different departments and also integrating AI architectures for secure, scalable deployment.</p>
           </div>
           </section>
 
@@ -659,13 +667,27 @@
 
   <div id="search-modal" class="search-modal">
     <div class="search-container">
-      <input 
-        type="text" 
-        id="search-input" 
-        placeholder="Search for projects, skills, or topics" 
-        oninput="searchContent()" 
-        autofocus
-      />
+      <div class="search-input-wrapper">
+        <div class="search-icon-left">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <line x1="16" y1="16" x2="22" y2="22" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search for projects, skills, or topics" 
+          oninput="searchContent()" 
+          autofocus
+        />
+        <div class="search-close-button" onclick="closeSearch()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
       <ul id="search-results"></ul>
     </div>
   </div>

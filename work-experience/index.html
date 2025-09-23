@@ -103,12 +103,22 @@
             </div>
   
             <!-- Role progression within Potentiam -->
+            <section id="experience-2-c" class="searchable-section" data-name="Potentiam Ltd">
+              <div class="timeline-subitem">
+                <h3>AI Software Engineer</h3>
+                <p><em>Sept 2025 - Present</em></p>
+                <p>Building an AI Team while working on delivering multiple AI-driven projects at large scale.</p>
+                <p><strong>Projects worked on:</strong> <a href="/work-projects/#work-projects-14" target="_self">Agentic Workflow</a>, <a href="/work-projects/#work-projects-15" target="_self">Intelligence Application</a>, <a href="/work-projects/#work-projects-16" target="_self">Advanced Enterprise GPT</a></p>
+                <p class="button">System Design</p> <p class="button">Scaling</p> <p class="button">Cloud Deployment</p> <p class="button">Team Management</p>
+              </div>
+            </section>
+
             <section id="experience-2-b" class="searchable-section" data-name="Potentiam Ltd">
               <div class="timeline-subitem">
                 <h3>Junior AI Software Engineer</h3>
-                <p><em>Sept 2024 - Present</em></p>
-                <p>Building and optimizing interfaces and applications that leverage either LLMs or SMLs for various departments, and customizing tools to meet specific operational needs. I integrate AI architectures into products to ensure functionality, scalability, and secure deployment. I’m currently working on upgrading these systems to include agentic components.</p>
-                <p><strong>Projects worked on:</strong> <a href="/work-projects/#work-projects-9" target="_self">Enterprise Private GPT</a>, <a href="/work-projects/#work-projects-8" target="_self">AI Search</a>, <a href="/work-projects/#work-projects-7" target="_self">Intelligence Framework</a></p>
+                <p><em>Sept 2024 - Sept 2025</em></p>
+                <p>Building and optimizing interfaces and applications that leverage either LLMs or SMLs for various departments, and customizing tools to meet specific operational needs. I integrate AI architectures into products to ensure functionality, scalability, and secure deployment.</p>
+                <p><strong>Projects worked on:</strong> <a href="/work-projects/#work-projects-9" target="_self">Enterprise Private GPT</a>, <a href="/work-projects/#work-projects-8" target="_self">AI Search</a>, <a href="/work-projects/#work-projects-7" target="_self">Intelligence Framework</a>, <a href="/work-projects/#projects-data-pipeline" target="_self">Automated Data Pipelines</a></p>
                 <p class="button">Python</p> <p class="button">GPT Implementation</p> <p class="button">AI Search</p> <p class="button">AI Architecture</p> <p class="button">LLM & Open Source Tooling</p> <p class="button">Linux</p> <p class="button">DevOps</p> <p class="button">MLOps</p> <p class="button">Production Deployment</p>
               </div>
             </section>
@@ -168,13 +178,27 @@
   
   <div id="search-modal" class="search-modal">
     <div class="search-container">
-      <input 
-        type="text" 
-        id="search-input" 
-        placeholder="Search for projects, skills, or topics" 
-        oninput="searchContent()" 
-        autofocus
-      />
+      <div class="search-input-wrapper">
+        <div class="search-icon-left">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <line x1="16" y1="16" x2="22" y2="22" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search for projects, skills, or topics" 
+          oninput="searchContent()" 
+          autofocus
+        />
+        <div class="search-close-button" onclick="closeSearch()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
       <ul id="search-results"></ul>
     </div>
   </div>

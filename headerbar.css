@@ -24,6 +24,8 @@
       .right-icons {
         display: flex;
         align-items: center;
+        position: relative; /* Enable z-index */
+        z-index: 1002; /* Higher than sidebar */
       }
 
       /* Common styles for menu, search, and theme icons */
@@ -39,6 +41,8 @@
         height: 40px;
         border-radius: 8px; /* Add curved corners */
         transition: background-color 0.1s ease-in; /* Smooth animations */
+        position: relative; /* Enable z-index */
+        z-index: 1002; /* Higher than sidebar */
       }
 
       /* Light Theme Hover Effect */
@@ -90,6 +94,8 @@
         background-color: #000;
         color: #fff;
         transition: all 0.2s ease;
+        position: relative;
+        z-index: 1002; /* Higher than sidebar */
       }
 
       .header-bar .chat-ai-btn svg {

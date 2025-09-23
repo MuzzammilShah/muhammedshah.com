@@ -268,6 +268,16 @@ async function buildSearchIndex() {
   isIndexBuilding = false;
 }
 
+// Default search suggestions
+const defaultSuggestions = [
+  "Artificial Intelligence",
+  "Machine Learning",
+  "Neural Network",
+  "Private GPT",
+  "Documentation",
+  "Web Development"
+];
+
 async function openSearch() {
   const searchModal = document.getElementById('search-modal');
   const searchInput = document.getElementById('search-input');
@@ -276,13 +286,34 @@ async function openSearch() {
   searchModal.style.display = 'flex';
   searchInput.focus();
   searchInput.value = '';
-  resultsContainer.innerHTML = '';
+  
+  // Show default suggestions
+  showDefaultSuggestions(resultsContainer);
 
   if (!indexBuilt) await buildSearchIndex();
 }
 
+function showDefaultSuggestions(container) {
+  const suggestionsHTML = defaultSuggestions.map(suggestion => 
+    `<li class="search-suggestion" onclick="selectSuggestion('${suggestion}')">
+      <span>${suggestion}</span>
+    </li>`
+  ).join('');
+  
+  container.innerHTML = `
+    <li class="suggestion-header">Popular searches:</li>
+    ${suggestionsHTML}
+  `;
+}
+
 function closeSearch() {
   document.getElementById('search-modal').style.display = 'none';
+}
+
+function selectSuggestion(suggestion) {
+  const searchInput = document.getElementById('search-input');
+  searchInput.value = suggestion;
+  searchContent(); // Trigger search with the selected suggestion
 }
 
 let debounceTimeout;
@@ -292,7 +323,7 @@ function searchContent() {
 
   clearTimeout(debounceTimeout);
   if (!query) {
-    resultsContainer.innerHTML = '<li>Please enter a keyword to search</li>';
+    showDefaultSuggestions(resultsContainer);
     return;
   }
 
