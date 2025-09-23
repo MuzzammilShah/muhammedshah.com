@@ -401,7 +401,7 @@ body.dark-theme .photo img {
 
 .search-container {
   background: #fff;
-  padding: 20px;
+  padding: 15px 20px;
   border-radius: 6px; /* Reduced curve edges */
   width: 90%;
   max-width: 600px;
@@ -409,13 +409,53 @@ body.dark-theme .photo img {
   position: relative;
 }
 
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.search-icon-left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-close-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-close-button:hover {
+  color: #333;
+}
+
 .search-container input {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px 0 12px 30px; /* Add padding left for search icon */
+  border: none;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
   font-size: 16px;
-  margin-bottom: 10px;
+  outline: none;
+  padding-right: 30px; /* Add padding right for close button */
 }
 
 .search-container ul {
@@ -438,6 +478,23 @@ body.dark-theme .photo img {
 
 .search-container ul li:hover {
   background: #f0f0f0;
+}
+
+.search-container ul li.suggestion-header {
+  font-weight: 500;
+  color: #888;
+  cursor: default;
+  font-size: 0.9rem;
+  padding-bottom: 4px;
+}
+
+.search-container ul li.suggestion-header:hover {
+  background: none;
+}
+
+.search-container ul li.search-suggestion {
+  padding: 10px 12px;
+  transition: background-color 0.2s;
 }
 
 .search-container ul li strong {
@@ -476,9 +533,19 @@ body.dark-theme .search-container {
 }
 
 body.dark-theme .search-container input {
-  background: #444;
+  background: #333;
   color: #fff;
-  border: 1px solid #555;
+  border: none;
+  border-bottom: 1px solid #555;
+}
+
+body.dark-theme .search-icon-left,
+body.dark-theme .search-close-button {
+  color: #aaa;
+}
+
+body.dark-theme .search-close-button:hover {
+  color: #fff;
 }
 
 body.dark-theme .search-container ul li {
@@ -500,6 +567,10 @@ body.dark-theme .search-container ul li .highlight {
 
 body.dark-theme .search-container ul li:hover {
   background: #121212;
+}
+
+body.dark-theme .search-container ul li.suggestion-header {
+  color: #aaa;
 }
 
 /* Adjust the scroll position to account for the fixed header */
