@@ -273,7 +273,6 @@ const defaultSuggestions = [
   "Artificial Intelligence",
   "Machine Learning",
   "Neural Network",
-  "Private GPT",
   "Documentation",
   "Web Development"
 ];
@@ -301,7 +300,7 @@ function showDefaultSuggestions(container) {
   ).join('');
   
   container.innerHTML = `
-    <li class="suggestion-header">Popular searches:</li>
+    <li class="suggestion-header">Frequently searched:</li>
     ${suggestionsHTML}
   `;
 }

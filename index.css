@@ -540,6 +540,10 @@ body.dark-theme .search-container input {
   border-bottom: 1px solid #555;
 }
 
+body.dark-theme .search-container ul li.suggestion-header:hover {
+  background: none;
+}
+
 body.dark-theme .search-icon-left,
 body.dark-theme .search-close-button {
   color: #aaa;
