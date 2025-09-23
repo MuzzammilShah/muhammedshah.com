@@ -381,6 +381,7 @@ body.dark-theme .search-modal {
 body.dark-theme .search-container {
   background: #333;
   color: #fff;
+  box-shadow: 0 4px 10px rgba(242, 242, 242, 0.1);
 }
 
 body.dark-theme .search-container input {
