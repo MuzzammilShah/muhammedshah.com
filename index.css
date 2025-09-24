@@ -712,6 +712,19 @@ button:active, a:active, div:active, svg:active {
   background-color: transparent; /* Ensures no background color on active */
   outline: none; /* Removes outline for active state */
 }
+
+/* Fix for search modal transparency issue in light theme */
+.search-modal:active, .search-container:active {
+  background-color: initial; /* Override transparent background for search modal elements */
+}
+
+.search-modal:active {
+  background: rgba(255, 255, 255, 0.8); /* Restore light theme search modal background */
+}
+
+.search-container:active {
+  background: #fff; /* Restore light theme search container background */
+}
 /* ===================================== */
 
 
