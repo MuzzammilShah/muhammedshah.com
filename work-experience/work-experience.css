@@ -301,13 +301,13 @@ body.dark-theme .search-modal {
 }
 
 body.dark-theme .search-container {
-  background: #333;
+  background: #121212;
   color: #fff;
   box-shadow: 0 4px 10px rgba(242, 242, 242, 0.1);
 }
 
 body.dark-theme .search-container input {
-  background: #333;
+  background: #121212;
   color: #fff;
   border: none;
   border-bottom: 1px solid #555;
@@ -344,7 +344,7 @@ body.dark-theme .search-container ul li.suggestion-header:hover {
 }
 
 body.dark-theme .search-container ul li:hover {
-  background: #121212;
+  background: #333;
 }
 
 /* Adjust the scroll position to account for the fixed header */
