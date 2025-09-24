@@ -281,10 +281,12 @@ async function openSearch() {
   const searchModal = document.getElementById('search-modal');
   const searchInput = document.getElementById('search-input');
   const resultsContainer = document.getElementById('search-results');
+  const clearButton = document.getElementById('search-clear-button');
 
   searchModal.style.display = 'flex';
   searchInput.focus();
   searchInput.value = '';
+  clearButton.style.display = 'none';
   
   // Show default suggestions
   showDefaultSuggestions(resultsContainer);
@@ -309,6 +311,17 @@ function closeSearch() {
   document.getElementById('search-modal').style.display = 'none';
 }
 
+function clearSearch() {
+  const searchInput = document.getElementById('search-input');
+  const clearButton = document.getElementById('search-clear-button');
+  const resultsContainer = document.getElementById('search-results');
+  
+  searchInput.value = '';
+  clearButton.style.display = 'none';
+  showDefaultSuggestions(resultsContainer);
+  searchInput.focus();
+}
+
 function selectSuggestion(suggestion) {
   const searchInput = document.getElementById('search-input');
   searchInput.value = suggestion;
@@ -319,9 +332,15 @@ let debounceTimeout;
 function searchContent() {
   const query = document.getElementById('search-input').value.trim().toLowerCase();
   const resultsContainer = document.getElementById('search-results');
+  const clearButton = document.getElementById('search-clear-button');
 
   clearTimeout(debounceTimeout);
-  if (!query) {
+  
+  // Show/hide clear button based on input content
+  if (query) {
+    clearButton.style.display = 'block';
+  } else {
+    clearButton.style.display = 'none';
     showDefaultSuggestions(resultsContainer);
     return;
   }

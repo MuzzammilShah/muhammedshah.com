@@ -177,6 +177,27 @@ body.dark-theme .nav-button:hover {
   color: #333;
 }
 
+.search-clear-button {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 10px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: none;
+  color: #888;
+  cursor: pointer;
+  display: none;
+  font-weight: 500;
+}
+
+.search-clear-button:hover {
+  color: #333;
+  border-color: #aaa;
+}
+
 .search-container input {
   width: 100%;
   padding: 12px 0 12px 30px; /* Add padding left for search icon */
@@ -262,13 +283,13 @@ body.dark-theme .search-modal {
 }
 
 body.dark-theme .search-container {
-  background: #333;
+  background: #121212;
   color: #fff;
   box-shadow: 0 4px 10px rgba(242, 242, 242, 0.1);
 }
 
 body.dark-theme .search-container input {
-  background: #333;
+  background: #121212;
   color: #fff;
   border: none;
   border-bottom: 1px solid #555;
@@ -281,6 +302,16 @@ body.dark-theme .search-close-button {
 
 body.dark-theme .search-close-button:hover {
   color: #fff;
+}
+
+body.dark-theme .search-clear-button {
+  color: #aaa;
+  border-color: #555;
+}
+
+body.dark-theme .search-clear-button:hover {
+  color: #fff;
+  border-color: #777;
 }
 
 body.dark-theme .search-container ul li {
@@ -301,7 +332,7 @@ body.dark-theme .search-container ul li .highlight {
 }
 
 body.dark-theme .search-container ul li:hover {
-  background: #121212;
+  background: #333;
 }
 
 body.dark-theme .search-container ul li.suggestion-header {
@@ -363,6 +394,19 @@ button:focus, a:focus, div:focus, svg:focus {
 button:active, a:active, div:active, svg:active {
   background-color: transparent; /* Ensures no background color on active */
   outline: none; /* Removes outline for active state */
+}
+
+/* Fix for search modal transparency issue in light theme */
+.search-modal:active, .search-container:active {
+  background-color: initial; /* Override transparent background for search modal elements */
+}
+
+.search-modal:active {
+  background: rgba(255, 255, 255, 0.8); /* Restore light theme search modal background */
+}
+
+.search-container:active {
+  background: #fff; /* Restore light theme search container background */
 }
 /* ===================================== */
 
