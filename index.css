@@ -751,7 +751,7 @@ body.dark-theme .work-project ul ul li {
 /* Navigation Arrows */
 .blog-nav-arrow {
   position: absolute;
-  top: 50%;
+  top: 95px; /* Fixed position: centers on blog cards (10px padding + 160px image + 16px padding + approx middle of text = ~95px) */
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
@@ -777,6 +777,9 @@ body.dark-theme .work-project ul ul li {
 
 .blog-nav-left {
   left: -50px;
+}
+
+.blog-nav-left.hidden {
   display: none; /* Hidden initially */
 }
 
