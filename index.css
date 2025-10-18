@@ -748,6 +748,16 @@ body.dark-theme .work-project ul ul li {
   margin: 0;
 }
 
+.blog-post-title a {
+  text-decoration: none;
+  color: inherit;
+  transition: text-decoration 0.2s ease;
+}
+
+.blog-post-title a:hover {
+  text-decoration: underline;
+}
+
 /* Navigation Arrows */
 .blog-nav-arrow {
   position: absolute;
@@ -825,6 +835,10 @@ body.dark-theme .blog-post-image {
 }
 
 body.dark-theme .blog-post-title {
+  color: #e0e0e0;
+}
+
+body.dark-theme .blog-post-title a {
   color: #e0e0e0;
 }
 
