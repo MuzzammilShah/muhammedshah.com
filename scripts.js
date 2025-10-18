@@ -761,3 +761,96 @@ document.querySelectorAll('.tab-button').forEach(button => {
     if (activeContent) activeContent.style.display = 'block';
   });
 });
+
+// BLOG POSTS CAROUSEL
+
+document.addEventListener('DOMContentLoaded', () => {
+  const blogContainer = document.getElementById('blog-posts-container');
+  const leftArrow = document.getElementById('blog-nav-left');
+  const rightArrow = document.getElementById('blog-nav-right');
+  const viewMoreContainer = document.getElementById('blog-view-more-container');
+
+  if (!blogContainer || !leftArrow || !rightArrow || !viewMoreContainer) return;
+
+  const cards = blogContainer.querySelectorAll('.blog-post-card');
+  const cardWidth = 280; // Card width
+  const gap = 20; // Gap between cards
+  const scrollAmount = cardWidth + gap; // Total scroll distance per card
+
+  // Function to update arrow and view more visibility
+  function updateNavigation() {
+    const scrollLeft = blogContainer.scrollLeft;
+    const maxScroll = blogContainer.scrollWidth - blogContainer.clientWidth;
+
+    // Show/hide left arrow
+    if (scrollLeft > 0) {
+      leftArrow.classList.remove('hidden');
+    } else {
+      leftArrow.classList.add('hidden');
+    }
+
+    // Show/hide right arrow and view more button
+    if (scrollLeft >= maxScroll - 5) { // -5 for rounding tolerance
+      rightArrow.classList.add('hidden');
+      viewMoreContainer.style.display = 'block';
+    } else {
+      rightArrow.classList.remove('hidden');
+      viewMoreContainer.style.display = 'none';
+    }
+  }
+
+  // Scroll left
+  leftArrow.addEventListener('click', () => {
+    blogContainer.scrollBy({
+      left: -scrollAmount,
+      behavior: 'smooth'
+    });
+  });
+
+  // Scroll right
+  rightArrow.addEventListener('click', () => {
+    blogContainer.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
+  });
+
+  // Update navigation on scroll
+  blogContainer.addEventListener('scroll', updateNavigation);
+
+  // Initial navigation update
+  updateNavigation();
+
+  // Handle touch/mouse swipe for mobile and desktop
+  let isDown = false;
+  let startX;
+  let scrollLeftStart;
+
+  blogContainer.addEventListener('mousedown', (e) => {
+    isDown = true;
+    blogContainer.style.cursor = 'grabbing';
+    startX = e.pageX - blogContainer.offsetLeft;
+    scrollLeftStart = blogContainer.scrollLeft;
+  });
+
+  blogContainer.addEventListener('mouseleave', () => {
+    isDown = false;
+    blogContainer.style.cursor = 'grab';
+  });
+
+  blogContainer.addEventListener('mouseup', () => {
+    isDown = false;
+    blogContainer.style.cursor = 'grab';
+  });
+
+  blogContainer.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - blogContainer.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    blogContainer.scrollLeft = scrollLeftStart - walk;
+  });
+
+  // Set cursor style
+  blogContainer.style.cursor = 'grab';
+});
