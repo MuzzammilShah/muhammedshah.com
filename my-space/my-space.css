@@ -315,20 +315,22 @@ button:active, a:active, div:active, svg:active {
   }
 
   .blog-post-image {
-    height: 180px; /* Slightly taller on mobile for better visibility */
+    height: 140px; /* Reduced height for mobile */
   }
 
   .blog-post-content {
-    padding: 14px;
+    padding: 12px;
   }
 
   .blog-post-title {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.3;
   }
 
   .blog-post-meta {
     font-size: 0.7rem;
     gap: 10px;
+    margin-bottom: 7px;
   }
 
   .blog-icon {
