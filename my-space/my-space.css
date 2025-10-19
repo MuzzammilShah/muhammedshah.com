@@ -46,6 +46,121 @@ h4 {
 .blog-posts {
   margin: 20px 0 70px 0;
 }
+
+/* ============BLOG POSTS GRID=========== */
+/* ======================================= */
+
+/* Blog Posts Grid Container */
+.blog-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0 40px 0;
+}
+
+/* Blog Post Card */
+.blog-post-card {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.blog-post-card:hover {
+  border-color: #333;
+  transform: translateY(-2px);
+}
+
+.blog-post-image {
+  width: 100%;
+  height: 130px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.blog-post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-post-content {
+  padding: 12px;
+}
+
+.blog-post-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.blog-date,
+.blog-read-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.blog-icon {
+  width: 14px;
+  height: 14px;
+  color: #666;
+}
+
+.blog-post-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #333;
+  margin: 0;
+}
+
+.blog-post-title a {
+  text-decoration: none;
+  color: inherit;
+  transition: text-decoration 0.2s ease;
+}
+
+.blog-post-title a:hover {
+  text-decoration: underline;
+}
+
+/* Dark Theme Adjustments for Blog Cards */
+body.dark-theme .blog-post-card {
+  background-color: #1a1a1a;
+  border-color: #444;
+}
+
+body.dark-theme .blog-post-card:hover {
+  border-color: #ddd;
+}
+
+body.dark-theme .blog-post-image {
+  background-color: #2a2a2a;
+}
+
+body.dark-theme .blog-post-title {
+  color: #e0e0e0;
+}
+
+body.dark-theme .blog-post-title a {
+  color: #e0e0e0;
+}
+
+body.dark-theme .blog-post-meta {
+  color: #999;
+}
+
+body.dark-theme .blog-icon {
+  color: #999;
+}
+
+/* ======================================= */
+/* =======END OF BLOG POSTS GRID========= */
   
 /* Footer */
 footer {
@@ -186,5 +301,38 @@ button:active, a:active, div:active, svg:active {
   /* Adjust main margin for fixed header */
   main {
     margin-top: 60px; /* Slightly reduced for mobile */
+  }
+
+  /* Blog Posts Grid - Mobile Responsive */
+  .blog-posts-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 16px;
+    margin: 15px 0 30px 0;
+  }
+
+  .blog-post-card {
+    max-width: 100%; /* Full width on mobile */
+  }
+
+  .blog-post-image {
+    height: 180px; /* Slightly taller on mobile for better visibility */
+  }
+
+  .blog-post-content {
+    padding: 14px;
+  }
+
+  .blog-post-title {
+    font-size: 0.95rem;
+  }
+
+  .blog-post-meta {
+    font-size: 0.7rem;
+    gap: 10px;
+  }
+
+  .blog-icon {
+    width: 12px;
+    height: 12px;
   }
 }
