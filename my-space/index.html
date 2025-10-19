@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammed Muzzammil Shah</title>
+    <link rel="icon" href="/static/images/website-icon-1-a.png" type="image/png">
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    </script>
+
+    <link rel="stylesheet" href="my-space.css">
+    <link rel="stylesheet" href="/sidebar.css">
+    <link rel="stylesheet" href="/headerbar.css">
+
+  </head>
+  <body>
+  
+    <!-- Header Bar -->
+    <div class="header-bar">
+      <div class="menu-icon" onclick="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="menu-icon-svg">
+          <rect x="3" y="4" width="18" height="16" rx="4" stroke="currentColor" stroke-width="2"/>
+          <line x1="10" y1="4" x2="10" y2="20" stroke="currentColor" stroke-width="2"/>
+          <line x1="5" y1="8" x2="8" y2="8" stroke="currentColor" stroke-width="2"/>
+          <line x1="5" y1="12" x2="8" y2="12" stroke="currentColor" stroke-width="2"/>
+          <line x1="5" y1="16" x2="8" y2="16" stroke="currentColor" stroke-width="2"/>
+        </svg>      
+      </div>
+
+      <div class="right-icons">
+          <!-- Search Icon in Header -->
+          <!-- <div class="search-icon" onclick="openSearch()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
+              <line x1="16" y1="16" x2="22" y2="22" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div> -->
+
+        <div class="theme-toggle" onclick="toggleTheme()">
+          <!-- Sun Icon -->
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          
+          <!-- Moon Icon -->
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon" style="display: none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="../">Overview</a></li>
+        <li><a href="../work-experience/">Work Experience</a></li>
+        <!-- <li><a href="../skills/">Skills</a></li> -->
+        <li><a href="../work-projects/">Work Projects</a></li>
+        <li><a href="../certifications/">Certifications</a></li>
+        <li><a href="../personal-projects/">Personal Projects</a></li>
+        <li><a href="/education/">Education</a></li>
+        <li><a href="/my-space/" class="active">My Space</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="footer-image">
+          <img src="/static/images/sidebar-1.png" alt="mms." id="footer-image">
+        </div>
+    </div>
+    </div>
+
+  <div class="container">
+    <section id="blog-posts">
+        <h2>My Space</h2>
+
+        <div class="blog-posts">
+            
+            <h4>Blog Posts</h4>
+            <!-- Category 1 comes here -->
+
+            <h4>Social Write-ups</h4>
+            <!-- Category 2 comes here -->
+
+            <h4>Technical Books I’m Reading</h4>
+            <!-- Category 3 comes here -->
+
+        </div>
+      </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px;">
+        <a href="../education/" class="nav-button">&larr; Education</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="/scripts.js"></script>
+
+</body>
+</html>
