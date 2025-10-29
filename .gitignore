@@ -1,0 +1,13 @@
+# macOS Finder files
+.DS_Store
+._*
+# macOS external disk files & Trash etc
+.Spotlight-V100
+.Trashes
+.VolumeIcon.icns
+# Thumbnail cache, external drives
+Thumbs.db
+Desktop.ini
+# Editor/IDE temporary files
+*~ 
+*.swp
