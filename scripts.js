@@ -768,9 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const blogContainer = document.getElementById('blog-posts-container');
   const leftArrow = document.getElementById('blog-nav-left');
   const rightArrow = document.getElementById('blog-nav-right');
-  const viewMoreContainer = document.getElementById('blog-view-more-container');
-
-  if (!blogContainer || !leftArrow || !rightArrow || !viewMoreContainer) return;
+  if (!blogContainer || !leftArrow || !rightArrow) return;
 
   const cards = blogContainer.querySelectorAll('.blog-post-card');
   const cardWidth = 280; // Card width
@@ -789,13 +787,11 @@ document.addEventListener('DOMContentLoaded', () => {
       leftArrow.classList.add('hidden');
     }
 
-    // Show/hide right arrow and view more button
+    // Show/hide right arrow
     if (scrollLeft >= maxScroll - 5) { // -5 for rounding tolerance
       rightArrow.classList.add('hidden');
-      viewMoreContainer.style.display = 'block';
     } else {
       rightArrow.classList.remove('hidden');
-      viewMoreContainer.style.display = 'none';
     }
   }
 
