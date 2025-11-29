@@ -33,12 +33,12 @@ function toggleTheme() {
     body.classList.add('dark-theme');
     document.querySelector('.sun-icon').style.display = 'none';
     document.querySelector('.moon-icon').style.display = 'block';
-    footerImage.src = '/static/images/sidebar-2.png'; // Apply dark theme image
+    if (footerImage) footerImage.src = '/static/images/sidebar-2.png'; // Apply dark theme image
   } else {
     body.classList.remove('dark-theme');
     document.querySelector('.sun-icon').style.display = 'block';
     document.querySelector('.moon-icon').style.display = 'none';
-    footerImage.src = '/static/images/sidebar-1.png'; // Apply light theme image
+    if (footerImage) footerImage.src = '/static/images/sidebar-1.png'; // Apply light theme image
   }
 })();
 
@@ -76,6 +76,124 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* =================================== */
 /* Other page-specific scripts would go below here */
+/* =================================== */
+
+/* =================================== */
+/* About Me Swipeable Component */
+/* =================================== */
+
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    const swiper = document.getElementById('aboutme-swiper');
+    if (!swiper) return;
+
+    const slides = swiper.querySelectorAll('.aboutme-slide');
+    if (slides.length < 2) return;
+
+    let currentSlide = 0;
+    let isTransitioning = false;
+    let scrollAccumulator = 0;
+    const scrollThreshold = 50; // Accumulated scroll needed to trigger slide change
+
+    function goToSlide(index) {
+      if (index < 0 || index >= slides.length || isTransitioning) return;
+      
+      isTransitioning = true;
+      slides[currentSlide].classList.remove('aboutme-slide-active');
+      slides[index].classList.add('aboutme-slide-active');
+      currentSlide = index;
+      
+      // Reset after transition completes
+      setTimeout(() => {
+        isTransitioning = false;
+        scrollAccumulator = 0;
+      }, 450);
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        goToSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+    }
+
+    // Wheel event for trackpad two-finger swipe and mouse wheel
+    let lastScrollDirection = 0;
+    
+    swiper.addEventListener('wheel', function(e) {
+      // Detect horizontal scroll (trackpad) or use deltaY for vertical scroll wheels
+      const deltaX = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : 0;
+      
+      // Prioritize horizontal scrolling (two-finger swipe left/right)
+      if (Math.abs(deltaX) > 5) {
+        e.preventDefault();
+        
+        if (isTransitioning) return;
+        
+        // Reset accumulator if direction changed
+        const currentDirection = deltaX > 0 ? 1 : -1;
+        if (lastScrollDirection !== 0 && lastScrollDirection !== currentDirection) {
+          scrollAccumulator = 0;
+        }
+        lastScrollDirection = currentDirection;
+        
+        scrollAccumulator += deltaX;
+        
+        if (scrollAccumulator > scrollThreshold) {
+          scrollAccumulator = 0;
+          nextSlide();
+        } else if (scrollAccumulator < -scrollThreshold) {
+          scrollAccumulator = 0;
+          prevSlide();
+        }
+      }
+    }, { passive: false });
+
+    // Touch events for mobile swipe
+    let startX = 0;
+    let startY = 0;
+    
+    swiper.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    swiper.addEventListener('touchend', function(e) {
+      if (isTransitioning) return;
+      
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const diffX = startX - endX;
+      const diffY = Math.abs(startY - endY);
+
+      if (Math.abs(diffX) > 30 && Math.abs(diffX) > diffY) {
+        if (diffX > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    }, { passive: true });
+
+    // Click on swipe hint to navigate
+    const swipeHints = swiper.querySelectorAll('.swipe-hint');
+    swipeHints.forEach(function(hint) {
+      hint.addEventListener('click', function() {
+        if (hint.classList.contains('swipe-hint-back')) {
+          prevSlide();
+        } else {
+          nextSlide();
+        }
+      });
+    });
+  });
+})();
+
 /* =================================== */
 
 // The search index and navigation functions remain the same as your original code

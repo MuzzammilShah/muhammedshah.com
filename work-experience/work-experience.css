@@ -119,7 +119,7 @@ h4 {
   background-color: #ddd;
   border-radius: 50%;
   position: absolute;
-  left: -24.5px;
+  left: -25px;
   top: 21px;
 }
   
@@ -653,8 +653,8 @@ body.dark-theme .button {
   }
 
   .timeline-subitem::before {
-    left: -19.5px; /* Adjusted for smaller padding */
-    top: 18px;
+    left: -20px; /* Adjusted for smaller padding */
+    top: 15px;
   }
 
   /* Footer */
