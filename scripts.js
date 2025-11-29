@@ -33,12 +33,12 @@ function toggleTheme() {
     body.classList.add('dark-theme');
     document.querySelector('.sun-icon').style.display = 'none';
     document.querySelector('.moon-icon').style.display = 'block';
-    footerImage.src = '/static/images/sidebar-2.png'; // Apply dark theme image
+    if (footerImage) footerImage.src = '/static/images/sidebar-2.png'; // Apply dark theme image
   } else {
     body.classList.remove('dark-theme');
     document.querySelector('.sun-icon').style.display = 'block';
     document.querySelector('.moon-icon').style.display = 'none';
-    footerImage.src = '/static/images/sidebar-1.png'; // Apply light theme image
+    if (footerImage) footerImage.src = '/static/images/sidebar-1.png'; // Apply light theme image
   }
 })();
 
