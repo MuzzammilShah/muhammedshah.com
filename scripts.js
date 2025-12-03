@@ -92,8 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentSlide = 0;
     let isTransitioning = false;
-    let scrollAccumulator = 0;
-    const scrollThreshold = 50; // Accumulated scroll needed to trigger slide change
+    let wheelAccumulator = 0;
+    let wheelResetTimeout = null;
+    const wheelThreshold = 60;
+    const touchThreshold = 30;
 
     function goToSlide(index) {
       if (index < 0 || index >= slides.length || isTransitioning) return;
@@ -102,11 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
       slides[currentSlide].classList.remove('aboutme-slide-active');
       slides[index].classList.add('aboutme-slide-active');
       currentSlide = index;
+      if (wheelResetTimeout) {
+        clearTimeout(wheelResetTimeout);
+        wheelResetTimeout = null;
+      }
       
       // Reset after transition completes
       setTimeout(() => {
         isTransitioning = false;
-        scrollAccumulator = 0;
+        wheelAccumulator = 0;
       }, 450);
     }
 
@@ -122,35 +128,37 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    function resetWheelAccumulatorWithDelay() {
+      if (wheelResetTimeout) {
+        clearTimeout(wheelResetTimeout);
+      }
+      wheelResetTimeout = setTimeout(() => {
+        wheelAccumulator = 0;
+      }, 200);
+    }
+
     // Wheel event for trackpad two-finger swipe and mouse wheel
-    let lastScrollDirection = 0;
-    
     swiper.addEventListener('wheel', function(e) {
-      // Detect horizontal scroll (trackpad) or use deltaY for vertical scroll wheels
-      const deltaX = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : 0;
-      
-      // Prioritize horizontal scrolling (two-finger swipe left/right)
-      if (Math.abs(deltaX) > 5) {
-        e.preventDefault();
-        
-        if (isTransitioning) return;
-        
-        // Reset accumulator if direction changed
-        const currentDirection = deltaX > 0 ? 1 : -1;
-        if (lastScrollDirection !== 0 && lastScrollDirection !== currentDirection) {
-          scrollAccumulator = 0;
-        }
-        lastScrollDirection = currentDirection;
-        
-        scrollAccumulator += deltaX;
-        
-        if (scrollAccumulator > scrollThreshold) {
-          scrollAccumulator = 0;
-          nextSlide();
-        } else if (scrollAccumulator < -scrollThreshold) {
-          scrollAccumulator = 0;
-          prevSlide();
-        }
+      const horizontalMagnitude = Math.abs(e.deltaX);
+      const verticalMagnitude = Math.abs(e.deltaY);
+      const dominantDelta = horizontalMagnitude >= verticalMagnitude * 0.7 ? e.deltaX : 0;
+
+      if (Math.abs(dominantDelta) <= 3) return;
+
+      e.preventDefault();
+
+      if (isTransitioning) return;
+
+      wheelAccumulator += dominantDelta;
+
+      if (wheelAccumulator >= wheelThreshold) {
+        wheelAccumulator = 0;
+        nextSlide();
+      } else if (wheelAccumulator <= -wheelThreshold) {
+        wheelAccumulator = 0;
+        prevSlide();
+      } else {
+        resetWheelAccumulatorWithDelay();
       }
     }, { passive: false });
 
@@ -171,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const diffX = startX - endX;
       const diffY = Math.abs(startY - endY);
 
-      if (Math.abs(diffX) > 30 && Math.abs(diffX) > diffY) {
+      if (Math.abs(diffX) > touchThreshold && Math.abs(diffX) > diffY) {
         if (diffX > 0) {
           nextSlide();
         } else {
