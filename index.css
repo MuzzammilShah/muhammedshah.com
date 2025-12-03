@@ -224,6 +224,7 @@ body.dark-theme .photo img {
   position: relative;
   overflow: hidden;
   touch-action: pan-y pinch-zoom;
+  overscroll-behavior-x: contain;
 }
 
 .aboutme-slide {
@@ -319,6 +320,67 @@ body.dark-theme .aboutme-location .location-icon {
   color: #a0a0a0;
 }
 
+.aboutme-sites {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: stretch;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.aboutme-sites-heading {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #333;
+}
+
+body.dark-theme .aboutme-sites-heading {
+  color: #a0a0a0;
+}
+
+.aboutme-sites-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.aboutme-sites-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  text-decoration: none;
+  background-color: #ffffff;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.aboutme-sites-links img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.aboutme-sites-links a:hover {
+  border-color: #ffffff;
+}
+
+body.dark-theme .aboutme-sites-links a {
+  border-color: #ffffff;
+  background-color: #ffffff;
+  color: #333;
+}
+
+body.dark-theme .aboutme-sites-links a:hover {
+  border-color: #333;
+}
+
 .aboutme-details-right {
   padding-top: 5px;
 }
@@ -379,6 +441,15 @@ body.dark-theme .aboutme-link-button:hover {
   }
 
   .aboutme-location {
+    justify-content: center;
+  }
+
+  .aboutme-sites {
+    align-items: center;
+    text-align: center;
+  }
+
+  .aboutme-sites-links {
     justify-content: center;
   }
 
