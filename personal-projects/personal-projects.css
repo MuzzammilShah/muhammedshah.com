@@ -98,6 +98,130 @@ body.dark-theme .skills-button {
   background-color: #222222;
   color: #f2f2f2
 }
+
+/* Status Indicator Styles */
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.project-header h3 {
+  margin-bottom: 0;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px 2px 6px;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+body.dark-theme .status-indicator {
+  background-color: #222222;
+}
+
+.pulse-container {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: pulse-animation 2s ease-out infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Status Colors - Maintained (Green) */
+.status-indicator[data-status="maintained"] .pulse-dot {
+  background-color: #22c55e;
+}
+
+.status-indicator[data-status="maintained"] .pulse-ring {
+  background-color: #22c55e;
+}
+
+.status-indicator[data-status="maintained"] .status-text {
+  color: #16a34a;
+}
+
+body.dark-theme .status-indicator[data-status="maintained"] .status-text {
+  color: #4ade80;
+}
+
+/* Status Colors - Not Maintained (Yellow) */
+.status-indicator[data-status="not-maintained"] .pulse-dot {
+  background-color: #eab308;
+}
+
+.status-indicator[data-status="not-maintained"] .pulse-ring {
+  background-color: #eab308;
+}
+
+.status-indicator[data-status="not-maintained"] .status-text {
+  color: #ca8a04;
+}
+
+body.dark-theme .status-indicator[data-status="not-maintained"] .status-text {
+  color: #facc15;
+}
+
+/* Status Colors - Archived (White/Gray) */
+.status-indicator[data-status="archived"] .pulse-dot {
+  background-color: #9ca3af;
+}
+
+.status-indicator[data-status="archived"] .pulse-ring {
+  background-color: #9ca3af;
+}
+
+.status-indicator[data-status="archived"] .status-text {
+  color: #6b7280;
+}
+
+body.dark-theme .status-indicator[data-status="archived"] .pulse-dot {
+  background-color: #d1d5db;
+}
+
+body.dark-theme .status-indicator[data-status="archived"] .pulse-ring {
+  background-color: #d1d5db;
+}
+
+body.dark-theme .status-indicator[data-status="archived"] .status-text {
+  color: #e5e7eb;
+}
   
 /* Projects and other sections */
 .projects {
@@ -112,7 +236,7 @@ body.dark-theme .skills-button {
   
 .project h3 {
   font-size: 1.1rem;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
 }
   
 .project h3 a {
@@ -484,6 +608,36 @@ button:active, a:active, div:active, svg:active {
 
 /* Responsive Layout for Mobile Screens */
 @media (max-width: 768px) {
+  /* Mobile Status Indicator - Only show pulse, no background or text */
+  .status-indicator {
+    background-color: transparent;
+    padding: 0;
+    gap: 0;
+  }
+
+  body.dark-theme .status-indicator {
+    background-color: transparent;
+  }
+
+  .status-indicator .status-text {
+    display: none;
+  }
+
+  .pulse-container {
+    width: 10px;
+    height: 10px;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .pulse-ring {
+    width: 8px;
+    height: 8px;
+  }
+
   /* Mobile Search Modal styling */
   .search-modal {
     padding-top: 0;
@@ -525,7 +679,7 @@ button:active, a:active, div:active, svg:active {
     font-size: 1rem; /* Readable and consistent */
     font-weight: 700;
     line-height: 1.3;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
   }
 
   /* Bold text in h3 */
