@@ -604,6 +604,19 @@ button:active, a:active, div:active, svg:active {
 .search-container:active {
   background: #fff; /* Restore light theme search container background */
 }
+
+/* Fix for year filter dropdown transparency issue in light theme */
+.year-filter-dropdown:active {
+  background: #fff;
+}
+
+.year-option:active {
+  background-color: #f5f5f5;
+}
+
+.year-option.selected:active {
+  background-color: rgba(59, 130, 246, 0.12);
+}
 /* ===================================== */
 
 /* Responsive Layout for Mobile Screens */
@@ -809,5 +822,240 @@ button:active, a:active, div:active, svg:active {
   /* Adjust main margin for fixed header */
   main {
     margin-top: 60px; /* Slightly reduced for mobile */
+  }
+}
+
+/* =================================== */
+/* Year Filter Styles */
+/* =================================== */
+
+#year-filter-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  position: relative;
+}
+
+.year-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 16px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.year-filter-btn:hover {
+  border-color: #bbb;
+}
+
+.year-filter-btn.active {
+  border-color: #999;
+}
+
+.year-filter-btn.has-selection {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #2563eb;
+}
+
+.year-filter-btn.has-selection:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.filter-arrow {
+  transition: transform 0.2s ease;
+}
+
+.year-filter-btn.active .filter-arrow {
+  transform: rotate(180deg);
+}
+
+.year-filter-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 120px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 9999;
+}
+
+.year-filter-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.year-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  margin: 4px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.15s ease;
+}
+
+.year-option:first-child {
+  margin-top: 0;
+}
+
+.year-option:last-child {
+  margin-bottom: 0;
+}
+
+.year-option:hover {
+  background-color: #f5f5f5;
+}
+
+.year-option.selected {
+  background-color: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
+}
+
+.year-option.selected:hover {
+  background-color: rgba(59, 130, 246, 0.18);
+}
+
+.year-remove {
+  display: none;
+  color: #2563eb;
+  opacity: 0.7;
+}
+
+.year-option.selected .year-remove {
+  display: flex;
+  align-items: center;
+}
+
+.year-option.selected .year-remove:hover {
+  opacity: 1;
+}
+
+/* Filter transition effects */
+.searchable-section {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.searchable-section.year-filter-hidden {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.searchable-section.year-filter-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.year-filter-empty-message {
+  text-align: center;
+  padding: 30px 20px;
+  color: #888;
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.year-filter-empty-message.visible {
+  opacity: 1;
+  max-height: 100px;
+}
+
+/* Dark Theme for Year Filter */
+body.dark-theme .year-filter-btn {
+  background-color: transparent;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+body.dark-theme .year-filter-btn:hover {
+  border-color: #777;
+}
+
+body.dark-theme .year-filter-btn.active {
+  border-color: #999;
+}
+
+body.dark-theme .year-filter-btn.has-selection {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+body.dark-theme .year-filter-btn.has-selection:hover {
+  background-color: rgba(59, 130, 246, 0.25);
+}
+
+body.dark-theme .year-filter-dropdown {
+  background: #1a1a1a;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .year-option {
+  color: #e0e0e0;
+}
+
+body.dark-theme .year-option:hover {
+  background-color: #2a2a2a;
+}
+
+body.dark-theme .year-option.selected {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+body.dark-theme .year-option.selected:hover {
+  background-color: rgba(59, 130, 246, 0.25);
+}
+
+body.dark-theme .year-remove {
+  color: #60a5fa;
+}
+
+body.dark-theme .year-filter-empty-message {
+  color: #888;
+}
+
+/* Mobile adjustments for filter */
+@media (max-width: 600px) {
+  #year-filter-container {
+    margin-top: 15px;
+  }
+
+  .year-filter-btn {
+    padding: 4px 14px;
+    font-size: 13px;
+  }
+
+  .year-filter-dropdown {
+    min-width: 100px;
+  }
+
+  .year-option {
+    padding: 8px 12px;
+    font-size: 13px;
   }
 }
