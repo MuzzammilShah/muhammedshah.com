@@ -888,6 +888,225 @@ document.querySelectorAll('.tab-button').forEach(button => {
   });
 });
 
+/* =================================== */
+/* Year Filter Feature */
+/* =================================== */
+
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on a page that should have filtering
+    const filterablePages = ['/certifications/', '/work-projects/', '/personal-projects/'];
+    const currentPath = window.location.pathname;
+    
+    if (!filterablePages.some(page => currentPath.includes(page))) return;
+    
+    // Find the filter container
+    const filterContainer = document.getElementById('year-filter-container');
+    if (!filterContainer) return;
+    
+    // Extract years from all searchable sections
+    const years = new Set();
+    const sections = document.querySelectorAll('.searchable-section');
+    
+    // Check if we're on personal-projects or work-projects page
+    const isProjectPage = currentPath.includes('/personal-projects/') || currentPath.includes('/work-projects/');
+    
+    sections.forEach(section => {
+      if (isProjectPage) {
+        // For project pages, only look for years in Timeline paragraphs
+        const paragraphs = section.querySelectorAll('p');
+        paragraphs.forEach(p => {
+          const strong = p.querySelector('strong');
+          if (strong && strong.textContent.includes('Timeline:')) {
+            const yearMatches = p.textContent.match(/\b(20\d{2})\b/g);
+            if (yearMatches) {
+              yearMatches.forEach(year => years.add(year));
+            }
+          }
+        });
+      } else {
+        // For certifications, use all text content
+        const textContent = section.textContent;
+        // Match years (4 digits starting with 20)
+        const yearMatches = textContent.match(/\b(20\d{2})\b/g);
+        if (yearMatches) {
+          yearMatches.forEach(year => years.add(year));
+        }
+      }
+    });
+    
+    // Convert to array and sort descending
+    const sortedYears = Array.from(years).sort((a, b) => b - a);
+    
+    if (sortedYears.length === 0) return;
+    
+    // Track selected years
+    let selectedYears = new Set();
+    
+    // Create filter dropdown button
+    const filterBtn = document.createElement('div');
+    filterBtn.className = 'year-filter-btn';
+    filterBtn.innerHTML = `
+      <span class="filter-text">Year</span>
+      <svg class="filter-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 9l6 6 6-6"></path>
+      </svg>
+    `;
+    
+    // Create dropdown menu
+    const dropdown = document.createElement('div');
+    dropdown.className = 'year-filter-dropdown';
+    dropdown.innerHTML = sortedYears.map(year => `
+      <div class="year-option" data-year="${year}">
+        <span class="year-label">${year}</span>
+        <span class="year-remove">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </span>
+      </div>
+    `).join('');
+    
+    filterContainer.appendChild(filterBtn);
+    filterContainer.appendChild(dropdown);
+    
+    // Toggle dropdown
+    let isDropdownOpen = false;
+    
+    function openDropdown() {
+      isDropdownOpen = true;
+      dropdown.classList.add('open');
+      filterBtn.classList.add('active');
+    }
+    
+    function closeDropdown() {
+      isDropdownOpen = false;
+      dropdown.classList.remove('open');
+      filterBtn.classList.remove('active');
+    }
+    
+    filterBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isDropdownOpen) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    });
+    
+    // Close dropdown on scroll or click outside
+    document.addEventListener('scroll', () => {
+      if (isDropdownOpen) closeDropdown();
+    }, { passive: true });
+    
+    document.addEventListener('click', (e) => {
+      if (!filterContainer.contains(e.target)) {
+        closeDropdown();
+      }
+    });
+    
+    document.addEventListener('touchstart', (e) => {
+      if (!filterContainer.contains(e.target) && isDropdownOpen) {
+        closeDropdown();
+      }
+    }, { passive: true });
+    
+    // Handle year option clicks
+    dropdown.querySelectorAll('.year-option').forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const year = option.dataset.year;
+        
+        if (selectedYears.has(year)) {
+          selectedYears.delete(year);
+          option.classList.remove('selected');
+        } else {
+          selectedYears.add(year);
+          option.classList.add('selected');
+        }
+        
+        updateFilterText();
+        applyFilter();
+      });
+    });
+    
+    // Update filter button text
+    function updateFilterText() {
+      const filterText = filterBtn.querySelector('.filter-text');
+      if (selectedYears.size === 0) {
+        filterText.textContent = 'Year';
+        filterBtn.classList.remove('has-selection');
+      } else if (selectedYears.size === 1) {
+        filterText.textContent = Array.from(selectedYears)[0];
+        filterBtn.classList.add('has-selection');
+      } else {
+        const sorted = Array.from(selectedYears).sort((a, b) => b - a);
+        filterText.textContent = sorted.join(', ');
+        filterBtn.classList.add('has-selection');
+      }
+    }
+    
+    // Apply filter with smooth fade transitions
+    function applyFilter() {
+      // Group sections by their parent category (h4 header)
+      const h4Headers = document.querySelectorAll('h4');
+      
+      h4Headers.forEach(h4 => {
+        // Find the next sibling container (div with certifications, work-projects, or projects class)
+        let container = h4.nextElementSibling;
+        while (container && !container.classList.contains('certifications') && 
+               !container.classList.contains('work-projects') && 
+               !container.classList.contains('projects')) {
+          container = container.nextElementSibling;
+        }
+        
+        if (!container) return;
+        
+        const categorySections = container.querySelectorAll('.searchable-section');
+        let hasVisibleSection = false;
+        
+        categorySections.forEach(section => {
+          const textContent = section.textContent;
+          const sectionYears = textContent.match(/\b(20\d{2})\b/g) || [];
+          
+          let shouldShow = true;
+          if (selectedYears.size > 0) {
+            shouldShow = sectionYears.some(year => selectedYears.has(year));
+          }
+          
+          if (shouldShow) {
+            hasVisibleSection = true;
+            section.classList.remove('year-filter-hidden');
+            section.classList.add('year-filter-visible');
+          } else {
+            section.classList.add('year-filter-hidden');
+            section.classList.remove('year-filter-visible');
+          }
+        });
+        
+        // Handle "nothing here" message
+        let emptyMessage = container.querySelector('.year-filter-empty-message');
+        
+        if (selectedYears.size > 0 && !hasVisibleSection) {
+          if (!emptyMessage) {
+            emptyMessage = document.createElement('div');
+            emptyMessage.className = 'year-filter-empty-message';
+            container.appendChild(emptyMessage);
+          }
+          const yearText = Array.from(selectedYears).sort((a, b) => b - a).join(', ');
+          emptyMessage.textContent = `Oops nothing here for ${yearText}!`;
+          emptyMessage.classList.add('visible');
+        } else if (emptyMessage) {
+          emptyMessage.classList.remove('visible');
+        }
+      });
+    }
+  });
+})();
+
+/* =================================== */
+
 // BLOG POSTS CAROUSEL
 
 document.addEventListener('DOMContentLoaded', () => {
