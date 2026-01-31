@@ -77,47 +77,140 @@
 
         <h4>Team Collaboration</h4>
         <div class="work-projects">
+
+          <!-- <section id="work-projects-14" class="searchable-section" data-name="Team Collaboration">
+            <div class="work-project">
+              <h3>Agentic Workflow</h3>
+              <p><Strong>Company: </Strong> Potentiam Ltd</p>
+              <p><strong>Timeline: </strong>Aug 2025 - Present</p>
+              <p><strong>Work done: </strong>Working with various departments across the company’s global offices on the design and implementation of a large-scale workflow agentic system.</p>
+          </section> -->
+
           <section id="work-projects-16" class="searchable-section" data-name="Team Collaboration">
             <div class="work-project">
-              <h3>Advanced Enterprise GPT</h3>
+              <h3>Intelligence Mapping Agent</h3>
               <p><Strong>Company: </Strong> Potentiam Ltd</p>
-              <p><strong>Timeline: </strong>Sept 2025 - Present</p>
-              <p><!-- <strong>Work done: </strong> -->Leading a team of AI developers in enhancing and expanding the <a href="/work-projects/#work-projects-9" target="_self">Private Enterprise GPT</a> to support advanced capabilities.</p>
-              <!-- <p><strong>Skills & Technology: </strong> PowerBI | Data Preprocessing | Data Analysis</p> -->
+              <p><strong>Timeline: </strong>Jan 2026 - Feb 2026</p>
+              <p><strong>Work done:</strong>
+              <ul>
+                <li>Built a two‑stage embedding pipeline: internal catalog generation from JSON sources and per‑session market embeddings with persistence for replay and recovery.</li>
+                <li>Implemented multi‑format Excel ingestion with provider‑specific parsing, standard column mapping, and auto‑detection via header patterns and content analysis.</li>
+                <li>Designed semantic matching using cosine similarity with LLM reranking for low‑confidence matches, producing mapping outputs with confidence scores and reasoning.</li>
+                <li>Added persistent session embeddings and resume flow to continue matching after failures without re‑embedding.</li>
+                <li>Built a Flask web workflow with SSE progress streaming, background processing threads, and secure download routes.</li>
+                <li>Integrated Microsoft OAuth 2.0 (MSAL) for authentication with session‑based access control on processing routes.</li>
+                <li>Implemented structured logging with rotation and batch‑to‑single fallback embedding strategy for API resilience.</li>
+              </ul>
+              </p>
+              <p><strong>Challenges faced & how they were overcome:</strong>
+              <ul>
+                <li><strong>Inconsistent market file formats</strong> → Column auto‑detection using header patterns and content analysis.</li>
+                <li><strong>API batch failures</strong> → Per‑item fallback embedding with NaN‑safe guards for missing descriptions.</li>
+                <li><strong>Long run times with failure risk</strong> → Persistent session embeddings and resume script to avoid rework.</li>
+              </ul>
+              </p>
+              <p><strong>Skills & Technology:</strong>
+              <ul>
+                <li><strong>Languages & Data</strong> – Python, pandas, NumPy, SciPy (cosine distance).</li>
+                <li><strong>Embeddings & LLMs</strong> – Google Gemini (<code>text-embedding-004</code>), rerank prompts.</li>
+                <li><strong>Web & Auth</strong> – Flask (SSE streaming, background threads), MSAL (Microsoft OAuth).</li>
+                <li><strong>DevOps</strong> – Gunicorn, Nginx reverse proxy, systemd, SSL, structured logging with rotation.</li>
+              </ul>
+              </p>
             </div>
           </section>
 
           <section id="work-projects-15" class="searchable-section" data-name="Team Collaboration">
             <div class="work-project">
-              <h3>Intelligence Application</h3>
+              <h3>Org Chart Editor</h3>
               <p><Strong>Company: </Strong> Potentiam Ltd</p>
-              <p><strong>Timeline: </strong>Sept 2025 - Present</p>
-              <p><!-- <strong>Work done: </strong>-->Collaborating with an external contract development team to design and integrate intelligence features into an <a href="/work-projects/#work-projects-3-a" target="_self">internal web application</a>.</p>
-              <!-- <p><strong>Skills & Technology: </strong> PowerBI | Data Preprocessing | Data Analysis</p> -->
+              <p><strong>Timeline: </strong>Nov 2025 - Dec 2025</p>
+              <p><strong>Work done:</strong>
+              <ul>
+                <li>Built a two‑tier system with Vite + React frontend and FastAPI backend, implementing a three‑step workflow: LinkedIn scrape, Excel/CSV enrichment, and org chart editing with export. Built as an upgrade to it's <a href="/work-projects/#work-projects-5" target="_self">previous version</a>.</li>
+                <li>Implemented LinkedIn scraping via Playwright automation with human‑like pacing, multi‑selector fallback, and auto‑deleted temporary XLSX exports.</li>
+                <li>Developed an LLM‑powered Excel formatter pipeline (Gemini with Ollama fallback) for title refinement, department mapping, reporting role inference, and leadership flagging with batch requests and in‑memory caching.</li>
+                <li>Created client‑side transformation to convert spreadsheet rows into <code>d3-org-chart</code> graph models with leader detection, department node creation, and fuzzy manager matching.</li>
+                <li>Built an interactive org chart editor with click‑to‑edit properties, cycle‑safe "Reports to" dropdowns, node addition/deletion controls, and inline data modification.</li>
+                <li>Added presentation export tooling: PNG export with aspect ratio cropping, SmartArt outline clipboard copy, and auto‑generated PPTX outlines.</li>
+                <li>Integrated Microsoft Azure AD (MSAL) authentication with guarded routes and implemented CORS, <code>.env</code> blocking, and temp file lifecycle management.</li>
+              </ul>
+              </p>
+              <p><strong>Challenges faced & how they were addressed:</strong>
+              <ul>
+                <li><strong>Unreliable LLM JSON responses</strong> → JSON parser that strips markdown fences with safe fallback and Gemini‑to‑Ollama failover.</li>
+                <li><strong>Ambiguous reporting lines</strong> → Fuzzy title matching with second‑pass LLM disambiguation for manager resolution.</li>
+                <li><strong>Brittle LinkedIn scraping</strong> → Multiple XPath selectors, human‑like delays, retry logic, and optional headless mode.</li>
+                <li><strong>Large chart editability</strong> → Grouped non‑leadership roles with PNG and SmartArt export paths.</li>
+              </ul>
+              </p>
+              <p><strong>Skills & Technology:</strong>
+              <ul>
+                <li><strong>Frontend</strong> – React 19, Vite, React Router, d3-org-chart, MSAL (Azure AD).</li>
+                <li><strong>Backend</strong> – FastAPI, Pydantic, Uvicorn, Pandas, openpyxl.</li>
+                <li><strong>Automation & LLM</strong> – Playwright (Chromium), Gemini API, Ollama fallback, batch caching.</li>
+                <li><strong>Export & DevOps</strong> – PNG export, pptxgenjs, CORS, file‑based logging, temp file management.</li>
+              </ul>
+              </p>
             </div>
           </section>
 
-          <section id="work-projects-14" class="searchable-section" data-name="Team Collaboration">
+          <!-- <section id="work-projects-15" class="searchable-section" data-name="Team Collaboration">
             <div class="work-project">
-              <h3>Agentic Workflow</h3>
+              <h3>Intelligence Application</h3>
               <p><Strong>Company: </Strong> Potentiam Ltd</p>
-              <p><strong>Timeline: </strong>Aug 2025 - Present</p>
-              <p><!-- <strong>Work done: </strong> -->Working with various departments across the company’s global offices on the design and implementation of a large-scale workflow agentic system.</p>
-              <!-- <p>Additionally, I performed in-depth analyses of network settings and utilized Windows Local User and Group Management (lusrmgr) alongside the Registry Editor to ensure compliance with security policies and best practices.</p> -->
-              <!-- <p><strong>Skills & Technology: </strong>Cybersecurity Assessment | Vulnerability Identification | Antivirus Management | Operating System Security | Network Configuration Analysis | User and Registry Management | Techs: Qualys, Windows Firewall, Windows OS Tools including lusrmgr (Local Users and Groups) and Registry Editor</p> -->
+              <p><strong>Timeline: </strong>Sept 2025 - Present</p>
+              <p><strong>Work done: </strong>Collaborating with an external contract development team to design and integrate intelligence features into an <a href="/work-projects/#work-projects-3-a" target="_self">internal web application</a>.</p>
+              <p><strong>Skills & Technology: </strong> PowerBI | Data Preprocessing | Data Analysis</p>
             </div>
-          </section>
+          </section> -->
+
         </div>
 
         <h4>Individual Contribution</h4>
         <div class="work-projects">
 
           <section id="projects-data-pipeline">
+          <section id="work-projects-14" class="searchable-section" data-name="Individual Contribution">
+            <div class="work-project">
+              <h3>Automated Data Pipeline IV (RecruitCRM)</h3>
+              <p><Strong>Company: </Strong> Potentiam Ltd</p>
+              <p><strong>Timeline: </strong>Jan 2026 - Feb 2026</p>
+              <p><strong>Work done:</strong>
+              <ul>
+                <li>Built a modular Python ETL pipeline with separated layers for configuration, API access, transformation, database operations, and orchestration to extract RecruitCRM data into PostgreSQL.</li>
+                <li>Created a resilient API client with header‑based rate limiting, retry logic, pagination support, and content‑type validation for non‑JSON responses.</li>
+                <li>Designed a <code>DataTransformer</code> layer that flattens nested JSON, normalizes column names, infers types dynamically, and adds extraction metadata columns.</li>
+                <li>Built a dynamic schema evolution system with automatic column addition, batch upserts with deduplication, and connection pooling.</li>
+                <li>Added derived dimension tables (<code>dim_jobs_pipeline_stages</code>, <code>dim_hiring_pipeline_stages</code>, <code>candidate_job_hiring_stages</code>) for hiring analytics.</li>
+                <li>Implemented incremental streaming extraction with ETL state tables, candidate selection logic, and chunked processing for memory efficiency.</li>
+                <li>Added CLI flags for targeted "hiring stages only" runs and detailed logging with rotation and error‑only logs.</li>
+              </ul>
+              </p>
+              <p><strong>Challenges faced & how they were overcome:</strong>
+              <ul>
+                <li><strong>Non‑JSON API responses</strong> → Content‑type checks with graceful error handling.</li>
+                <li><strong>Schema inconsistencies</strong> → Flexible parsing logic for varying field names (<code>status_id</code>, <code>data</code>, <code>stages</code>).</li>
+                <li><strong>Upsert collisions</strong> → In‑memory deduplication by primary key before batch inserts.</li>
+                <li><strong>Dimension key mismatch</strong> → Schema aligned with synthetic keys for reliable joining.</li>
+              </ul>
+              </p>
+              <p><strong>Skills & Technology:</strong>
+              <ul>
+                <li><strong>Languages & Data</strong> – Python, SQL, PostgreSQL (dynamic schema evolution, connection pooling, upsert logic).</li>
+                <li><strong>APIs & ETL</strong> – RecruitCRM REST API (pagination, rate limiting), streaming ingestion, incremental sync.</li>
+                <li><strong>Data Modeling</strong> – Fact/dimension modeling, synthetic key design, derived datasets.</li>
+                <li><strong>DevOps</strong> – Shell runner, env‑based config, virtualenv, structured logging with rotation.</li>
+              </ul>
+              </p>
+            </div>
+          </section>
+
           <section id="work-projects-12" class="searchable-section" data-name="Individual Contribution">
             <div class="work-project">
               <h3>Automated Data Pipeline III (Docusign)</h3>
               <p><strong>Company: </strong> Potentiam Ltd</p>
-              <p><strong>Timeline: </strong>July 2025</p>
+              <p><strong>Timeline: </strong>July 2025 - Aug 2025</p>
               <p><strong>Work done:</strong>
                 <ul>
                   <li>Created a Docusign Developer account and configured the application to securely authenticate using JWT-based OAuth 2.0, following Docusign’s latest REST API guidelines.</li>
