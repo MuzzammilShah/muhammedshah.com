@@ -320,6 +320,16 @@ body.dark-theme .aboutme-location .location-icon {
   color: #a0a0a0;
 }
 
+.aboutme-locations {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.location-flag {
+  margin-left: 2px;
+}
+
 .aboutme-sites {
   margin-top: 12px;
   display: flex;
@@ -546,7 +556,7 @@ body.dark-theme .aboutme-link-button:hover {
       /* Nested Timeline for role progression */
       .timeline-subitem {
         margin-top: 10px;
-        padding-left: 55px;
+        padding-left: 70px;
         position: relative;
       }
   
@@ -1389,6 +1399,10 @@ body.dark-theme .tab-button.active {
   .certification .title-with-logo {
     align-items: center;
   }
+
+  .timeline-subitem {
+        padding-left: 55px;
+      }
 
   /* Header (h1) */
   header h1 {

@@ -91,7 +91,7 @@ h4 {
 /* Nested Timeline for role progression */
 .timeline-subitem {
   margin-top: 10px;
-  padding-left: 55px;
+  padding-left: 70px;
   position: relative;
   padding-bottom: 20px;
 }
@@ -648,7 +648,7 @@ body.dark-theme .button {
   }
 
   .timeline-subitem {
-    padding-left: 45px; /* Adjusted for mobile */
+    padding-left: 55px; /* Adjusted for mobile */
     padding-bottom: 15px;
   }
 
