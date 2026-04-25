@@ -276,7 +276,7 @@ body.dark-theme .swipe-hint {
 .aboutme-details-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   min-width: 140px;
 }
@@ -303,21 +303,30 @@ body.dark-theme .aboutme-photo {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.85rem;
-  color: #333;
+  font-size: 0.62rem;
+  padding: 2px 7px;
+  border-radius: 20px;
+  border: 1px solid currentColor;
+  color: #1a1a1a;
 }
 
 .aboutme-location .location-icon {
-  color: #333;
   flex-shrink: 0;
 }
 
 body.dark-theme .aboutme-location {
-  color: #a0a0a0;
+  color: #ddd;
 }
 
-body.dark-theme .aboutme-location .location-icon {
-  color: #a0a0a0;
+.aboutme-locations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.location-flag {
+  margin-left: 2px;
 }
 
 .aboutme-sites {
@@ -325,8 +334,7 @@ body.dark-theme .aboutme-location .location-icon {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-self: stretch;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
 }
 
@@ -334,6 +342,7 @@ body.dark-theme .aboutme-location .location-icon {
   font-size: 0.8rem;
   font-weight: 500;
   color: #333;
+  text-align: center;
 }
 
 body.dark-theme .aboutme-sites-heading {
@@ -344,7 +353,7 @@ body.dark-theme .aboutme-sites-heading {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
 }
 
@@ -442,6 +451,8 @@ body.dark-theme .aboutme-link-button:hover {
 
   .aboutme-location {
     justify-content: center;
+    font-size: 0.55rem;
+    padding: 2px 5px;
   }
 
   .aboutme-sites {
@@ -546,7 +557,7 @@ body.dark-theme .aboutme-link-button:hover {
       /* Nested Timeline for role progression */
       .timeline-subitem {
         margin-top: 10px;
-        padding-left: 55px;
+        padding-left: 70px;
         position: relative;
       }
   
@@ -1389,6 +1400,10 @@ body.dark-theme .tab-button.active {
   .certification .title-with-logo {
     align-items: center;
   }
+
+  .timeline-subitem {
+        padding-left: 55px;
+      }
 
   /* Header (h1) */
   header h1 {
