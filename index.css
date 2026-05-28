@@ -312,6 +312,7 @@ body.dark-theme .aboutme-photo {
 
 .aboutme-location .location-icon {
   flex-shrink: 0;
+  padding-bottom: 1.8px;
 }
 
 body.dark-theme .aboutme-location {
@@ -327,6 +328,13 @@ body.dark-theme .aboutme-location {
 
 .location-flag {
   margin-left: 2px;
+}
+
+.location-flag img {
+  height: 1em;
+  width: auto;
+  vertical-align: middle;
+  padding-bottom: 1.8px;
 }
 
 .aboutme-sites {
