@@ -78,13 +78,91 @@
         <h4>Team Collaboration</h4>
         <div class="work-projects">
 
-          <!-- <section id="work-projects-14" class="searchable-section" data-name="Team Collaboration">
+          <section id="work-projects-18" class="searchable-section" data-name="Team Collaboration">
             <div class="work-project">
-              <h3>Agentic Workflow</h3>
+              <h3>Internal Business Workflow Platform</h3>
               <p><Strong>Company: </Strong> Potentiam Ltd</p>
-              <p><strong>Timeline: </strong>Aug 2025 - Present</p>
-              <p><strong>Work done: </strong>Working with various departments across the company’s global offices on the design and implementation of a large-scale workflow agentic system.</p>
-          </section> -->
+              <p><strong>Timeline: </strong>Mar 2026 - Present</p>
+              <p><strong>Work done:</strong>
+              <ul>
+                <li><strong>Platform Architecture & Infrastructure:</strong> Designed and built a full-stack internal business workflow platform using Next.js frontend proxying to a Python Flask REST API, PostgreSQL, and Nginx with SSL. Implemented Microsoft Entra ID (MSAL) OAuth with JWT validation middleware and systemd service management for production and staging environments.</li>
+                <li><strong>Multi-Stage Workflow Engine:</strong> Designed a configurable stage machine for Instruction Documents and Resource Sign Offs, with server-side permission logic (<code>allowed_actions[]</code>) controlling UI rendering. Built stage-aware form editors, draft auto-save, and required-field validation.</li>
+                <li><strong>PDF Generation & Document Handling:</strong> Built a coordinate-based PDF generation pipeline using PyMuPDF for dynamic field overlays and data tables. Integrated external serverless PDF APIs and implemented authenticated document serving endpoints.</li>
+                <li><strong>Finance Calculator & Location Logic:</strong> Designed a server-side finance calculator proxy across four country-specific APIs to keep salary markup values secure. Implemented location-aware form schemas, currency formatting, and CTC-in-words conversion.</li>
+                <li><strong>External CRM Integrations:</strong> Built server-side proxy routes for two external CRM systems to handle company-deal and candidate selection panels, ensuring API credentials remain hidden from the browser.</li>
+                <li><strong>DocuSign Sequential Signing:</strong> Coordinated payload contracts and webhook architecture for multi-recipient sequential signing. Implemented Flask lifecycle endpoints to advance workflow stages and added idempotency guards against webhook replays.</li>
+                <li><strong>n8n Automation Integration:</strong> Designed the Flask–n8n webhook contract with shared-secret authentication and a notification system for surfacing automation failures via a dismissible error banner.</li>
+                <li><strong>Role-Based Dashboard & CEO View:</strong> Implemented a five-tab role-aware dashboard (My Tasks, Approvals, Waiting, Overdue, Completed) and a dedicated CEO observer view with a signature prompt banner.</li>
+                <li><strong>E2E Integration Test Bed:</strong> Built a comprehensive backend test bed with an isolated database schema and Mockoon CLI mock server. Developed 55 tests covering all lifecycle paths, role enforcement, and PDF generation with multi-layer production safety guards.</li>
+              </ul>
+              </p>
+              <p><strong>Challenges faced & how they were overcome:</strong>
+              <ul>
+                <li><strong>DocuSign webhook replays</strong> → Added idempotency guards and decoupled signed PDF storage from stage-advance logic.</li>
+                <li><strong>Missing font glyphs in PDF</strong> → Replaced problematic currency glyphs with plain-text ASCII prefixes accepted by the API.</li>
+                <li><strong>Markup value leakage</strong> → Moved all calculator requests through a server-side proxy so the frontend only receives formatted output.</li>
+                <li><strong>CRM search inaccuracies</strong> → Fixed field-key mismatches in candidate status filters and updated company search to partial-text matching.</li>
+                <li><strong>Blank review fields on approval</strong> → Implemented a pre-approve callback on the editor component to guarantee persistence before action execution.</li>
+                <li><strong>Unsafe E2E tests on production DB</strong> → Rebuilt infrastructure with a dedicated schema, isolated DB user, and Mockoon for all outbound calls.</li>
+                <li><strong>Session state corruption in tests</strong> → Added explicit SQLAlchemy rollbacks before session removal in the teardown fixture.</li>
+              </ul>
+              </p>
+              <p><strong>Skills & Technology:</strong>
+              <ul>
+                <li><strong>Languages & Frameworks</strong> – Python, Flask (SQLAlchemy, Marshmallow), JavaScript/JSX, Next.js (App Router), React, Tailwind CSS, shadcn/ui.</li>
+                <li><strong>PDF & Documents</strong> – PyMuPDF, Jinja2, serverless PDF APIs.</li>
+                <li><strong>Database & Auth</strong> – PostgreSQL, SQLAlchemy 2.0, Microsoft Entra ID, MSAL Browser, PyJWT, shared-secret auth.</li>
+                <li><strong>Integrations</strong> – DocuSign Connect (HMAC webhooks), CRM REST APIs, SharePoint (Microsoft Graph), n8n.</li>
+                <li><strong>Frontend & Testing</strong> – TanStack Query, Axios, pytest, Mockoon CLI, isolated PostgreSQL schema.</li>
+                <li><strong>DevOps</strong> – Gunicorn, Node.js, Nginx, Certbot SSL, systemd, structlog.</li>
+              </ul>
+              </p>
+            </div>
+          </section>
+
+          <section id="work-projects-17" class="searchable-section" data-name="Team Collaboration">
+            <div class="work-project">
+              <h3>Recruitment Analytics Dashboard</h3>
+              <p><Strong>Company: </Strong> Potentiam Ltd</p>
+              <p><strong>Timeline: </strong>Mar 2026 - Apr 2026</p>
+              <p><strong>Work done:</strong>
+              <ul>
+                <li>Built and evolved an internal recruitment analytics dashboard, integrating live CRM data, AI agents, and financial forecasting into a single web platform.</li>
+                <li><strong>Core Application & Authentication:</strong> Developed the full Flask application from prototype to production, adding Microsoft Entra ID (Azure AD) OAuth 2.0 via MSAL, session-based access control, and a rotating file logger for authenticated user actions.</li>
+                <li><strong>Global Overview & Forecast Engine:</strong> Designed a complex reporting module computing per-country aggregates (Open Roles, Original Forecast, Actual Placements).</li>
+                <!-- <li><strong>Candidate Tracker & Forecast Waterfall:</strong> Built a multi-view tracker (internal, tokenized public, CEO aggregate, and API) with a forecast waterfall engine resolving expected close dates via a ranked fallback chain.</li>
+                <li><strong>Background Stage Poller & Stage History:</strong> Implemented a background daemon thread to query RecruitCRM API for stage changes, maintaining a local history table to compute time-to-hire (TTH) metrics.</li>
+                <li><strong>Analytics Suite:</strong> Developed a full analytics API for client health scoring, fill-velocity tracking, effort mapping, delay radar, source quality analysis, and bottleneck detection.</li>
+                <li><strong>Admin & Benchmarking:</strong> Created an admin page for CSV upload of stage TTH benchmarks, comparing live durations against benchmarks to compute variance.</li> -->
+                <li><strong>Dashboard UI & Report Improvements:</strong> Refactored templates for improved output, added an Edit Mode for reports, and implemented <code>sendReportEmail()</code> using Microsoft Graph API with canvas-to-Base64 conversion.</li>
+                <li><strong>Hireflix Integration:</strong> Integrated Hireflix via GraphQL proxy and webhooks, implementing pipeline stage label normalization to align with CRM stages.</li>
+                <li><strong>Automated Deployment:</strong> Designed a two-workflow CI/CD pipeline using GitHub Actions (hosted runner for CI/Linting/Security and self-hosted runner for production deployment via a safety-guaranteed Bash script).</li>
+                <li><strong>Security Hardening:</strong> Configured a pre-commit hook chain (Gitleaks, Semgrep, Ruff, pip-audit) and Nginx rules to block direct access to sensitive files.</li>
+                <!-- <li><strong>Debug & Operations:</strong> Built authenticated endpoints for cache inspection, forecast health checks, and force-syncing CRM custom fields.</li> -->
+              </ul>
+              </p>
+              <p><strong>Challenges faced & how they were overcome:</strong>
+              <ul>
+                <!-- <li><strong>Sparse CRM forecast views</strong> → Added a vcr-guard bypass to ensure Closed roles with valid forecast dates are included.</li>
+                <li><strong>CRM-to-DB sync lag</strong> → Built a force-sync debug endpoint to push updated custom fields on demand.</li>
+                <li><strong>Spelling inconsistencies (Cancelled/Canceled)</strong> → Codified SQL status filters to include both variations.</li>
+                <li><strong>Incorrect "On Hold" counts</strong> → Implemented a post-query exclusion step to strip On Hold pairs from Open Roles results.</li> -->
+                <li><strong>Unreliable PDF/Email rendering of Chart.js</strong> → Used client-side DOM cloning and canvas-to-Base64 conversion with table-based HTML layouts.</li>
+                <li><strong>CI tests without DB access</strong> → Stubbed environment variables and implemented a DB-pool assertion guard.</li>
+              </ul>
+              </p>
+              <p><strong>Skills & Technology:</strong>
+              <ul>
+                <li><strong>Languages & Data</strong> – Python 3.12, SQL (PostgreSQL, SQLite), Bash, Jinja2, HTML/CSS (Tailwind).</li>
+                <li><strong>Web & Auth</strong> – Flask, MSAL (Microsoft Entra ID), Microsoft Graph API, psycopg2 ThreadedConnectionPool, TTL cache.</li>
+                <li><strong>Integrations</strong> – RecruitCRM REST API, Hireflix GraphQL API, n8n.</li>
+                <li><strong>Database Design</strong> – Two-schema PostgreSQL architecture (raw mirror + analytical portal), custom views for status normalization and stage rank scoring.</li>
+                <li><strong>DevOps & CI/CD</strong> – GitHub Actions, Gunicorn, Nginx, systemd, <code>uv</code> package manager.</li>
+                <li><strong>Code Quality & Security</strong> – Ruff, Bandit, Gitleaks, Semgrep, pip-audit, pytest.</li>
+              </ul>
+              </p>
+            </div>
+          </section>
 
           <section id="work-projects-16" class="searchable-section" data-name="Team Collaboration">
             <div class="work-project">

@@ -87,6 +87,17 @@ h4 {
   font-size: 0.9rem;
   color: #333;
 }
+
+.location-flag {
+  margin-left: 2px;
+}
+
+.location-flag img {
+  height: 1em;
+  width: auto;
+  vertical-align: middle;
+  padding-bottom: 1.8px;
+}
   
 /* Nested Timeline for role progression */
 .timeline-subitem {
