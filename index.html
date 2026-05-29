@@ -6,8 +6,8 @@
   <title>Muhammed Muzzammil Shah</title>
   <link rel="icon" href="static/images/website-icon-1-a.png" type="image/png">
 
-  <!-- Google Fonts - Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts - Poppins + Space Grotesk -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   
   <script>
     const savedTheme = localStorage.getItem('theme');
@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="sidebar.css">
   <link rel="stylesheet" href="index-duration.css">
   <link rel="stylesheet" href="logo-styles.css">
+  <link rel="stylesheet" href="stats-bar.css">
 
   <script src="/sidebar.js"></script>
 </head>
@@ -135,6 +136,40 @@
           <div class="aboutme">
             <p><strong>Hello</strong>, I'm Muhammed Muzzammil Shah.</p>
             <br>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar" id="stats-bar">
+              <div class="stat-item" id="stat-experience">
+                <span class="stat-number" data-target="0">0</span>
+                <div class="stat-label-group">
+                  <span class="stat-title">Years of Experience</span>
+                  <span class="stat-sub">across all roles</span>
+                </div>
+              </div>
+              <div class="stat-item" id="stat-work-projects">
+                <span class="stat-number" data-target="0">0</span>
+                <div class="stat-label-group">
+                  <span class="stat-title">Work Projects</span>
+                  <span class="stat-sub">professional contributions</span>
+                </div>
+              </div>
+              <div class="stat-item" id="stat-personal-projects">
+                <span class="stat-number" data-target="0">0</span>
+                <div class="stat-label-group">
+                  <span class="stat-title">Personal Projects</span>
+                  <span class="stat-sub">built &amp; shipped</span>
+                </div>
+              </div>
+              <div class="stat-item" id="stat-certifications">
+                <span class="stat-number" data-target="0">0</span>
+                <div class="stat-label-group">
+                  <span class="stat-title">Certifications</span>
+                  <span class="stat-sub">courses & skills acquired</span>
+                </div>
+              </div>
+            </div>
+            <br>
+
             <p>My expertise includes using AI architectures and techniques to design and implement practical AI solutions such as AI-powered chatbots, Agentic systems, or adding Intelligent capabilities to existing software. I also have good foundation and hands-on experience in System design, Full-stack development and DevOps to bring end-to-end systems to life.</p>
             <br>
             <p><strong>What you will find in this site</strong></p>
@@ -947,6 +982,7 @@
 
   <script src="scripts.js"></script>
   <script src="experience-duration.js"></script>
+  <script src="stats-bar.js"></script>
 
   <div id="search-modal" class="search-modal">
     <div class="search-container">
