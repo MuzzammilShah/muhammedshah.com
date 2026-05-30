@@ -1605,6 +1605,7 @@ body.dark-theme .tab-button.active {
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* fixes iOS Safari — accounts for browser chrome */
   background-color: #fff; /* Change to match your site's theme */
   display: flex;
   justify-content: center;
