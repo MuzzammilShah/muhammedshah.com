@@ -859,6 +859,7 @@ if (document.getElementById('loading-screen')) {
       mainContent.style.display = 'block';
       setTimeout(() => {
         mainContent.style.opacity = '1';
+        window.dispatchEvent(new CustomEvent('statsbar:ready'));
       }, 10); // Small delay for transition to take effect
     }, 500); // Matches CSS transition duration
   }

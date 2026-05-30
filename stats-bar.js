@@ -88,21 +88,29 @@
     setTarget('stat-personal-projects', personalCount, false);
     setTarget('stat-certifications', certCount, false);
 
-    // Fire animation when stats bar enters viewport
-    const statsBar = document.getElementById('stats-bar');
-    if (!statsBar) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          runAnimations();
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.2 });
-
-    observer.observe(statsBar);
+    runAnimations();
   }
 
-  document.addEventListener('DOMContentLoaded', init);
+  // Primary: wait for the loading overlay to finish before starting the count animation.
+  // statsbar:ready is dispatched by scripts.js the moment #main-content becomes visible.
+  // Fallback: if the event never fires (e.g. direct navigation without overlay),
+  // start after a short DOM-ready delay so the numbers still appear.
+  let initiated = false;
+
+  window.addEventListener('statsbar:ready', () => {
+    if (initiated) return;
+    initiated = true;
+    init();
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // If the loading screen doesn't exist on this page, run immediately.
+    // Otherwise give the overlay enough time to complete (~2600ms) before falling back.
+    const delay = document.getElementById('loading-screen') ? 2800 : 0;
+    setTimeout(() => {
+      if (initiated) return;
+      initiated = true;
+      init();
+    }, delay);
+  });
 })();
