@@ -47,19 +47,50 @@
       <!-- Chat AI Button -->
       <button class="chat-ai-btn" onclick="window.open('https://chat.muhammedshah.com', '_blank')">
         <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="chatAiSparkleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0d47a1"/>
+              <stop offset="50%" stop-color="#116bba"/>
+              <stop offset="100%" stop-color="#1d80d0"/>
+            </linearGradient>
+          </defs>
         <!-- Big central star -->
           <path d="M110 30 C120 70, 140 90, 180 110 C140 120, 120 140, 110 180 C100 140, 80 120, 40 110 C80 100, 100 70, 110 30Z"
                 stroke="currentColor" stroke-width="5" fill="currentColor"/>
-          
-          <!-- Top-left small star (moved away to prevent intersection) -->
-          <path d="M40 40 C45 55, 55 65, 70 70 C55 75, 45 85, 40 100 C35 85, 25 75, 10 70 C25 65, 35 55, 40 40Z"
+          <path class="chat-ai-sparkle-fill" d="M110 30 C120 70, 140 90, 180 110 C140 120, 120 140, 110 180 C100 140, 80 120, 40 110 C80 100, 100 70, 110 30Z"
+                fill="url(#chatAiSparkleGradient)"/>
+
+          <!-- Top-left small star (spacing mirrored to match bottom-left star) -->
+          <path d="M50 20 C55 35, 65 45, 80 50 C65 55, 55 65, 50 80 C45 65, 35 55, 20 50 C35 45, 45 35, 50 20Z"
                 stroke="currentColor" stroke-width="4.5" fill="currentColor"/>
-          
+          <path class="chat-ai-sparkle-fill" d="M50 20 C55 35, 65 45, 80 50 C65 55, 55 65, 50 80 C45 65, 35 55, 20 50 C35 45, 45 35, 50 20Z"
+                fill="url(#chatAiSparkleGradient)"/>
+
           <!-- Bottom-left small star -->
           <path d="M50 140 C55 155, 65 165, 80 170 C65 175, 55 185, 50 200 C45 185, 35 175, 20 170 C35 165, 45 155, 50 140Z"
                 stroke="currentColor" stroke-width="4.5" fill="currentColor"/>
+          <path class="chat-ai-sparkle-fill" d="M50 140 C55 155, 65 165, 80 170 C65 175, 55 185, 50 200 C45 185, 35 175, 20 170 C35 165, 45 155, 50 140Z"
+                fill="url(#chatAiSparkleGradient)"/>
         </svg>
         <span>Chat AI</span>
+        <svg class="chat-ai-border-sweep" aria-hidden="true" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="chatAiSweepGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color: var(--chat-ai-dash-c1, #0d47a1); stop-opacity: 0"/>
+              <stop offset="12%" style="stop-color: var(--chat-ai-dash-c1, #0d47a1); stop-opacity: 1"/>
+              <stop offset="38%" style="stop-color: var(--chat-ai-dash-c2, #1e88e5); stop-opacity: 1"/>
+              <stop offset="62%" style="stop-color: var(--chat-ai-dash-c3, #29b6f6); stop-opacity: 1"/>
+              <stop offset="88%" style="stop-color: var(--chat-ai-dash-c4, #80deea); stop-opacity: 1"/>
+              <stop offset="100%" style="stop-color: var(--chat-ai-dash-c4, #80deea); stop-opacity: 0"/>
+            </linearGradient>
+          </defs>
+          <rect class="chat-ai-border-track" x="1.75" y="1.75" width="100%" height="100%" rx="20" ry="20"
+                fill="none" stroke="var(--chat-ai-track-color, #1d80d0)" stroke-width="3.5"
+                style="width: calc(100% - 3.5px); height: calc(100% - 3.5px);"/>
+          <rect class="chat-ai-border-dash" x="1.75" y="1.75" width="100%" height="100%" rx="20" ry="20"
+                pathLength="100" fill="none" stroke="url(#chatAiSweepGradient)" stroke-width="3.5"
+                style="width: calc(100% - 3.5px); height: calc(100% - 3.5px);"/>
+        </svg>
       </button>
 
       <!-- Search Icon in Header -->

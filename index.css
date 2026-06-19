@@ -1800,6 +1800,89 @@ main {
   background-color: #000;
 }
 
+/* Hover: fill the text with a solid blue, timed with the existing border glow */
+.header-bar .chat-ai-btn span {
+  transition: color 0.4s ease;
+}
+
+.header-bar .chat-ai-btn:hover span {
+  color: #64b5f6;
+}
+
+body.dark-theme .header-bar .chat-ai-btn:hover span {
+  color: #64b5f6;
+}
+
+/* Mobile-only sparkle fill overlay; hidden on desktop where the icon uses currentColor */
+.header-bar .chat-ai-btn .chat-ai-sparkle-fill {
+  opacity: 0;
+}
+
+/* Periodic Gradient Border Sweep (desktop only, suppressed on hover) */
+.header-bar .chat-ai-btn svg.chat-ai-border-sweep {
+  position: absolute;
+  inset: -3.5px;
+  width: calc(100% + 7px);
+  height: calc(100% + 7px);
+  margin-right: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+  fill: none;
+  stroke: none;
+  /* Light theme (default): lighter blue track, darker-to-light blue gradient dash */
+  --chat-ai-track-color: #64b5f6;
+  --chat-ai-dash-c1: #08306b;
+  --chat-ai-dash-c2: #0d47a1;
+  --chat-ai-dash-c3: #1565c0;
+  --chat-ai-dash-c4: #1e88e5;
+}
+
+/* Dark theme: darker blue track, bright-to-light blue/cyan gradient dash */
+body.dark-theme .header-bar .chat-ai-btn svg.chat-ai-border-sweep {
+  --chat-ai-track-color: #1d80d0;
+  --chat-ai-dash-c1: #0d47a1;
+  --chat-ai-dash-c2: #1e88e5;
+  --chat-ai-dash-c3: #29b6f6;
+  --chat-ai-dash-c4: #80deea;
+}
+
+/* Static "track" ring — visible only while the dash is traveling around it */
+.header-bar .chat-ai-btn .chat-ai-border-track {
+  opacity: 0;
+  animation: chatAiBorderTrack 10s linear infinite;
+}
+
+@keyframes chatAiBorderTrack {
+  0%   { opacity: 0; }
+  17%  { opacity: 1; }
+  34%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Bright "train" dash that travels around the track */
+.header-bar .chat-ai-btn .chat-ai-border-dash {
+  stroke-dasharray: 25 75; /* 25-unit visible dash out of pathLength=100 */
+  stroke-dashoffset: 25;   /* start fully hidden before the entry point */
+  opacity: 0;
+  animation: chatAiBorderSweep 10s linear infinite;
+}
+
+@keyframes chatAiBorderSweep {
+  0%   { opacity: 0; stroke-dashoffset: 25; }
+  17%  { opacity: 1; stroke-dashoffset: -26; } /* fade-in mirrors fade-out: same duration, still moving */
+  34%  { opacity: 0; stroke-dashoffset: -75; } /* one full lap: 25 - 100 = -75, still moving as it fades out */
+  100% { opacity: 0; stroke-dashoffset: -75; }
+}
+
+/* Suppress the periodic sweep entirely while hovered; hover glow takes over */
+.header-bar .chat-ai-btn:hover .chat-ai-border-dash,
+.header-bar .chat-ai-btn:hover .chat-ai-border-track {
+  animation-play-state: paused;
+  opacity: 0 !important;
+  transition: opacity 0.15s ease;
+}
+
 /* Dark Theme Styling */
 body.dark-theme .header-bar {
   background-color: #121212 !important;
@@ -1859,6 +1942,10 @@ body.dark-theme .header-bar .search-icon:hover {
     display: none; /* Hide glow effect on mobile */
   }
 
+  .header-bar .chat-ai-btn .chat-ai-border-sweep {
+    display: none; /* Border sweep is desktop-only; button is icon-only on mobile */
+  }
+
   .header-bar .chat-ai-btn span {
     display: none !important;
   }
@@ -1879,6 +1966,20 @@ body.dark-theme .header-bar .search-icon:hover {
   body.dark-theme .header-bar .chat-ai-btn svg {
     /* on desktop/mobile in dark mode, this sets currentColor to white */
     color: #fff;
+  }
+
+  /* Periodic sparkle fill: fades in the three-blue gradient over the base icon, then fades back out */
+  .header-bar .chat-ai-btn .chat-ai-sparkle-fill {
+    fill: url(#chatAiSparkleGradient) !important;
+    opacity: 0;
+    animation: chatAiSparkleFill 10s linear infinite;
+  }
+
+  @keyframes chatAiSparkleFill {
+    0%   { opacity: 0; }
+    17%  { opacity: 1; }
+    34%  { opacity: 0; }
+    100% { opacity: 0; }
   }
 }
 
