@@ -1800,6 +1800,11 @@ main {
   background-color: #000;
 }
 
+/* Mobile-only sparkle fill overlay; hidden on desktop where the icon uses currentColor */
+.header-bar .chat-ai-btn .chat-ai-sparkle-fill {
+  opacity: 0;
+}
+
 /* Periodic Gradient Border Sweep (desktop only, suppressed on hover) */
 .header-bar .chat-ai-btn svg.chat-ai-border-sweep {
   position: absolute;
@@ -1814,10 +1819,10 @@ main {
   stroke: none;
   /* Light theme (default): lighter blue track, darker-to-light blue gradient dash */
   --chat-ai-track-color: #64b5f6;
-  --chat-ai-dash-c1: #0d47a1;
-  --chat-ai-dash-c2: #1565c0;
-  --chat-ai-dash-c3: #1e88e5;
-  --chat-ai-dash-c4: #64b5f6;
+  --chat-ai-dash-c1: #08306b;
+  --chat-ai-dash-c2: #0d47a1;
+  --chat-ai-dash-c3: #1565c0;
+  --chat-ai-dash-c4: #1e88e5;
 }
 
 /* Dark theme: darker blue track, bright-to-light blue/cyan gradient dash */
@@ -1837,8 +1842,7 @@ body.dark-theme .header-bar .chat-ai-btn svg.chat-ai-border-sweep {
 
 @keyframes chatAiBorderTrack {
   0%   { opacity: 0; }
-  3%   { opacity: 1; }
-  26%  { opacity: 1; }
+  17%  { opacity: 1; }
   34%  { opacity: 0; }
   100% { opacity: 0; }
 }
@@ -1853,7 +1857,7 @@ body.dark-theme .header-bar .chat-ai-btn svg.chat-ai-border-sweep {
 
 @keyframes chatAiBorderSweep {
   0%   { opacity: 0; stroke-dashoffset: 25; }
-  3%   { opacity: 1; stroke-dashoffset: 22; }
+  17%  { opacity: 1; stroke-dashoffset: -26; } /* fade-in mirrors fade-out: same duration, still moving */
   34%  { opacity: 0; stroke-dashoffset: -75; } /* one full lap: 25 - 100 = -75, still moving as it fades out */
   100% { opacity: 0; stroke-dashoffset: -75; }
 }
@@ -1949,6 +1953,20 @@ body.dark-theme .header-bar .search-icon:hover {
   body.dark-theme .header-bar .chat-ai-btn svg {
     /* on desktop/mobile in dark mode, this sets currentColor to white */
     color: #fff;
+  }
+
+  /* Periodic sparkle fill: fades in the three-blue gradient over the base icon, then fades back out */
+  .header-bar .chat-ai-btn .chat-ai-sparkle-fill {
+    fill: url(#chatAiSparkleGradient) !important;
+    opacity: 0;
+    animation: chatAiSparkleFill 10s linear infinite;
+  }
+
+  @keyframes chatAiSparkleFill {
+    0%   { opacity: 0; }
+    17%  { opacity: 1; }
+    34%  { opacity: 0; }
+    100% { opacity: 0; }
   }
 }
 

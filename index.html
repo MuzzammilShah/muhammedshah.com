@@ -47,17 +47,30 @@
       <!-- Chat AI Button -->
       <button class="chat-ai-btn" onclick="window.open('https://chat.muhammedshah.com', '_blank')">
         <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="chatAiSparkleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0d47a1"/>
+              <stop offset="50%" stop-color="#116bba"/>
+              <stop offset="100%" stop-color="#1d80d0"/>
+            </linearGradient>
+          </defs>
         <!-- Big central star -->
           <path d="M110 30 C120 70, 140 90, 180 110 C140 120, 120 140, 110 180 C100 140, 80 120, 40 110 C80 100, 100 70, 110 30Z"
                 stroke="currentColor" stroke-width="5" fill="currentColor"/>
-          
+          <path class="chat-ai-sparkle-fill" d="M110 30 C120 70, 140 90, 180 110 C140 120, 120 140, 110 180 C100 140, 80 120, 40 110 C80 100, 100 70, 110 30Z"
+                fill="url(#chatAiSparkleGradient)"/>
+
           <!-- Top-left small star (moved away to prevent intersection) -->
           <path d="M40 40 C45 55, 55 65, 70 70 C55 75, 45 85, 40 100 C35 85, 25 75, 10 70 C25 65, 35 55, 40 40Z"
                 stroke="currentColor" stroke-width="4.5" fill="currentColor"/>
-          
+          <path class="chat-ai-sparkle-fill" d="M40 40 C45 55, 55 65, 70 70 C55 75, 45 85, 40 100 C35 85, 25 75, 10 70 C25 65, 35 55, 40 40Z"
+                fill="url(#chatAiSparkleGradient)"/>
+
           <!-- Bottom-left small star -->
           <path d="M50 140 C55 155, 65 165, 80 170 C65 175, 55 185, 50 200 C45 185, 35 175, 20 170 C35 165, 45 155, 50 140Z"
                 stroke="currentColor" stroke-width="4.5" fill="currentColor"/>
+          <path class="chat-ai-sparkle-fill" d="M50 140 C55 155, 65 165, 80 170 C65 175, 55 185, 50 200 C45 185, 35 175, 20 170 C35 165, 45 155, 50 140Z"
+                fill="url(#chatAiSparkleGradient)"/>
         </svg>
         <span>Chat AI</span>
         <svg class="chat-ai-border-sweep" aria-hidden="true" preserveAspectRatio="none">
