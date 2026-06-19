@@ -1803,9 +1803,9 @@ main {
 /* Periodic Gradient Border Sweep (desktop only, suppressed on hover) */
 .header-bar .chat-ai-btn svg.chat-ai-border-sweep {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -3.5px;
+  width: calc(100% + 7px);
+  height: calc(100% + 7px);
   margin-right: 0;
   pointer-events: none;
   z-index: 0;
