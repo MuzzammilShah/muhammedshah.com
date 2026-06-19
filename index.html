@@ -60,6 +60,21 @@
                 stroke="currentColor" stroke-width="4.5" fill="currentColor"/>
         </svg>
         <span>Chat AI</span>
+        <svg class="chat-ai-border-sweep" aria-hidden="true" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="chatAiSweepGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#29b6f6" stop-opacity="0"/>
+              <stop offset="15%" stop-color="#29b6f6" stop-opacity="1"/>
+              <stop offset="50%" stop-color="#42a5f5" stop-opacity="1"/>
+              <stop offset="85%" stop-color="#00e5ff" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect class="chat-ai-border-track" x="0" y="0" width="100%" height="100%" rx="20" ry="20"
+                fill="none" stroke="#1d80d0" stroke-width="3.5"/>
+          <rect class="chat-ai-border-dash" x="0" y="0" width="100%" height="100%" rx="20" ry="20"
+                pathLength="100" fill="none" stroke="url(#chatAiSweepGradient)" stroke-width="3.5"/>
+        </svg>
       </button>
 
       <!-- Search Icon in Header -->
