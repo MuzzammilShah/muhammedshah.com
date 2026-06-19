@@ -1800,6 +1800,19 @@ main {
   background-color: #000;
 }
 
+/* Hover: fill the text with a solid blue, timed with the existing border glow */
+.header-bar .chat-ai-btn span {
+  transition: color 0.4s ease;
+}
+
+.header-bar .chat-ai-btn:hover span {
+  color: #64b5f6;
+}
+
+body.dark-theme .header-bar .chat-ai-btn:hover span {
+  color: #64b5f6;
+}
+
 /* Mobile-only sparkle fill overlay; hidden on desktop where the icon uses currentColor */
 .header-bar .chat-ai-btn .chat-ai-sparkle-fill {
   opacity: 0;
