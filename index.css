@@ -1856,7 +1856,8 @@ body.dark-theme .header-bar .chat-ai-btn svg.chat-ai-border-sweep {
 @keyframes chatAiBorderTrack {
   0%   { opacity: 0; }
   17%  { opacity: 1; }
-  34%  { opacity: 0; }
+  51%  { opacity: 1; }
+  68%  { opacity: 0; }
   100% { opacity: 0; }
 }
 
@@ -1870,9 +1871,10 @@ body.dark-theme .header-bar .chat-ai-btn svg.chat-ai-border-sweep {
 
 @keyframes chatAiBorderSweep {
   0%   { opacity: 0; stroke-dashoffset: 25; }
-  17%  { opacity: 1; stroke-dashoffset: -26; } /* fade-in mirrors fade-out: same duration, still moving */
-  34%  { opacity: 0; stroke-dashoffset: -75; } /* one full lap: 25 - 100 = -75, still moving as it fades out */
-  100% { opacity: 0; stroke-dashoffset: -75; }
+  17%  { opacity: 1; stroke-dashoffset: -26; }   /* fade-in: half lap, still moving */
+  51%  { opacity: 1; stroke-dashoffset: -126; }  /* full opacity: one additional full lap (100 units) */
+  68%  { opacity: 0; stroke-dashoffset: -175; }  /* fade-out: half lap, still moving (2 full laps total) */
+  100% { opacity: 0; stroke-dashoffset: -175; }
 }
 
 /* Suppress the periodic sweep entirely while hovered; hover glow takes over */
@@ -1979,6 +1981,8 @@ body.dark-theme .header-bar .search-icon:hover {
     0%   { opacity: 0; }
     17%  { opacity: 1; }
     34%  { opacity: 0; }
+    51%  { opacity: 1; }
+    68%  { opacity: 0; }
     100% { opacity: 0; }
   }
 }
