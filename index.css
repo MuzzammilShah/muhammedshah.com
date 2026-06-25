@@ -1822,9 +1822,9 @@ body.dark-theme .header-bar .chat-ai-btn:hover span {
 /* Periodic Gradient Border Sweep (desktop only, suppressed on hover) */
 .header-bar .chat-ai-btn svg.chat-ai-border-sweep {
   position: absolute;
-  inset: -3.5px;
-  width: calc(100% + 7px);
-  height: calc(100% + 7px);
+  inset: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
   margin-right: 0;
   pointer-events: none;
   z-index: 0;
