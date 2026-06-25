@@ -75,6 +75,11 @@
         <span>Chat AI</span>
         <svg class="chat-ai-border-sweep" aria-hidden="true" preserveAspectRatio="none">
           <defs>
+            <linearGradient id="chatAiTrackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color: var(--chat-ai-track-c1, #90caf9)"/>
+              <stop offset="50%" style="stop-color: var(--chat-ai-track-c2, #42a5f5)"/>
+              <stop offset="100%" style="stop-color: var(--chat-ai-track-c3, #1565c0)"/>
+            </linearGradient>
             <linearGradient id="chatAiSweepGradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" style="stop-color: var(--chat-ai-dash-c1, #0d47a1); stop-opacity: 0"/>
               <stop offset="12%" style="stop-color: var(--chat-ai-dash-c1, #0d47a1); stop-opacity: 1"/>
@@ -84,12 +89,10 @@
               <stop offset="100%" style="stop-color: var(--chat-ai-dash-c4, #80deea); stop-opacity: 0"/>
             </linearGradient>
           </defs>
-          <rect class="chat-ai-border-track" x="1.75" y="1.75" width="100%" height="100%" rx="20" ry="20"
-                fill="none" stroke="var(--chat-ai-track-color, #1d80d0)" stroke-width="3.5"
-                style="width: calc(100% - 3.5px); height: calc(100% - 3.5px);"/>
-          <rect class="chat-ai-border-dash" x="1.75" y="1.75" width="100%" height="100%" rx="20" ry="20"
-                pathLength="100" fill="none" stroke="url(#chatAiSweepGradient)" stroke-width="3.5"
-                style="width: calc(100% - 3.5px); height: calc(100% - 3.5px);"/>
+          <rect class="chat-ai-border-track" x="1.75" y="1.75" width="calc(100% - 3.5px)" height="calc(100% - 3.5px)" rx="20" ry="20"
+                fill="none" stroke="url(#chatAiTrackGradient)" stroke-width="3.5"/>
+          <rect class="chat-ai-border-dash" x="1.75" y="1.75" width="calc(100% - 3.5px)" height="calc(100% - 3.5px)" rx="20" ry="20"
+                pathLength="100" fill="none" stroke="url(#chatAiSweepGradient)" stroke-width="3.5"/>
         </svg>
       </button>
 
