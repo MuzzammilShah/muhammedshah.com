@@ -1170,6 +1170,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   blogContainer.addEventListener('mousedown', (e) => {
     isDown = true;
+    blogCardDragDistance = 0;
     blogContainer.style.cursor = 'grabbing';
     startX = e.pageX - blogContainer.offsetLeft;
     scrollLeftStart = blogContainer.scrollLeft;
@@ -1190,9 +1191,34 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const x = e.pageX - blogContainer.offsetLeft;
     const walk = (x - startX) * 2; // Scroll speed multiplier
+    blogCardDragDistance = Math.abs(walk);
     blogContainer.scrollLeft = scrollLeftStart - walk;
   });
 
   // Set cursor style
   blogContainer.style.cursor = 'grab';
+});
+
+/* =================================== */
+
+// MAKE ENTIRE BLOG POST CARD CLICKABLE (redirect using the card's heading link)
+let blogCardDragDistance = 0;
+
+document.addEventListener('click', (e) => {
+  const card = e.target.closest('.blog-post-card');
+  if (!card) return;
+
+  // Ignore clicks that were actually the end of a carousel drag
+  if (blogCardDragDistance > 5) {
+    blogCardDragDistance = 0;
+    return;
+  }
+
+  // Let the heading link handle its own click natively
+  if (e.target.closest('a')) return;
+
+  const link = card.querySelector('.blog-post-title a');
+  if (!link) return;
+
+  window.open(link.href, link.target || '_self', 'noopener,noreferrer');
 });
