@@ -995,9 +995,13 @@ body.dark-theme .work-project ul ul li {
   display: flex;
   align-items: center;
   gap: 4px;
+  line-height: 1;
+  padding: 2px 0;
 }
 
 .blog-icon {
+  display: block;
+  flex-shrink: 0;
   width: 14px;
   height: 14px;
   color: #666;
